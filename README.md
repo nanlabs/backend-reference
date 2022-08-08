@@ -6,7 +6,7 @@
         src="https://avatars.githubusercontent.com/u/4426989?s=200&v=4"
     >
 </p>
-<h1>Infrastructure Reference</h1>
+<h1>Python Reference</h1>
 
 [Changelog](#) |
 [Contributing](./CONTRIBUTING.md)
@@ -19,7 +19,7 @@
 
 </div>
 
-This repository contains different infrastructure components that are used in different projects
+This repository contains different Python apps that are used in different projects
 here at [NaN Labs](https://www.nanlabs.com/).
 
 - [Applications](#applications)
@@ -43,13 +43,13 @@ Contributions are welcome!
 
 ## Contributors
 
-<a href="https://github.com/nanlabs/nancy-react-toolkit/contributors">
-  <img src="https://contrib.rocks/image?repo=nanlabs/nancy-react-toolkit"/>
+<a href="https://github.com/nanlabs/python-reference/contributors">
+  <img src="https://contrib.rocks/image?repo=nanlabs/python-reference"/>
 </a>
 
 Made with [contributors-img](https://contrib.rocks).
 
-[shellcheckbadge]: https://github.com/nanlabs/nancy-react-toolkit/actions/workflows/shellcheck.yml/badge.svg
+[shellcheckbadge]: https://github.com/nanlabs/python-reference/actions/workflows/shellcheck.yml/badge.svg
 [licensebadge]: https://img.shields.io/badge/License-MIT-blue.svg
-[shellcheckurl]: https://github.com/nanlabs/nancy-react-toolkit/actions/workflows/shellcheck.yml
-[licenseurl]: https://github.com/nanlabs/nancy-react-toolkit/blob/main/LICENSE
+[shellcheckurl]: https://github.com/nanlabs/python-reference/actions/workflows/shellcheck.yml
+[licenseurl]: https://github.com/nanlabs/python-reference/blob/main/LICENSE
