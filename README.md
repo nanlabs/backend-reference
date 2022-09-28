@@ -24,6 +24,8 @@ here at [NaN Labs](https://www.nanlabs.com/).
 
 - [Applications](#applications)
 - [Examples](#examples)
+  - [FastAPI Examples](#fastapi-examples)
+  - [Other related examples](#other-related-examples)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
 
@@ -36,6 +38,23 @@ Read more about the examples in the [examples](#examples) section.
 ## Examples
 
 Collection of examples that solve specific problems using small pieces of code.
+
+### FastAPI Examples
+
+- [FastAPI Base Example](./examples/fastapi-base/README.md)
+- [FastAPI CRUD Example](./examples/fastapi-crud/README.md)
+- [FastAPI GraphQL Example + MongoDB](./examples/fastapi-gql-mongo/README.md)
+- [FastAPI PostgreSQL](./examples/fastapi-postgres/README.md)
+
+### Other related examples
+
+> **Note**: These examples are not part of this repository, but they are related
+> and part of the same GitHub organization.
+
+- [AWS Glue Full Example](https://github.com/nanlabs/infra-reference/tree/main/examples/devcontainers/glue/)
+- [AWS Glue Libs Docker](https://github.com/nanlabs/infra-reference/tree/main/examples/docker/glue/)
+- [AWS AppSync + Python](https://github.com/nanlabs/infra-reference/tree/main/examples/serverless/serverless-appsync-python/)
+- [AWS Glue with Python Shell and PySpark Jobs](https://github.com/nanlabs/infra-reference/tree/main/examples/serverless/serverless-glue/)
 
 ## Contributing
 

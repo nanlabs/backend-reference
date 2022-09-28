@@ -16,7 +16,7 @@ This PoC was made using the following project as base:
 
 In the root directory of the project create a `.env` file with the following fields:
 
-``` bash
+```bash
 TITLE=Title
 VERSION=0.0.1
 DEBUG=True
@@ -35,7 +35,7 @@ If this file is not added the project will use default variables to allow you ru
 This file is required to run the Database's container.
 In the root directory of the project create a `.env.database` file with the following fields:
 
-``` bash
+```bash
 POSTGRES_HOST=db-fastapi
 POSTGRES_PORT=5432
 POSTGRES_USER=fastapi
@@ -63,6 +63,7 @@ docker compose up --build
 ```
 
 - To see docs ands schemas you can access:
+
   - OpenApi documentation
 
     ```bash
