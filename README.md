@@ -14,6 +14,7 @@
 </div>
 <div align="center">
 
+[![Markdown Lint][markdownlintbadge]][markdownlinturl]
 [![Shell Check][shellcheckbadge]][shellcheckurl]
 [![License: MIT][licensebadge]][licenseurl]
 
@@ -49,7 +50,9 @@ Contributions are welcome!
 
 Made with [contributors-img](https://contrib.rocks).
 
+[markdownlintbadge]: https://github.com/nanlabs/python-reference/actions/workflows/markdownlint.yml/badge.svg
 [shellcheckbadge]: https://github.com/nanlabs/python-reference/actions/workflows/shellcheck.yml/badge.svg
 [licensebadge]: https://img.shields.io/badge/License-MIT-blue.svg
+[markdownlinturl]: https://github.com/nanlabs/python-reference/actions/workflows/markdownlint.yml
 [shellcheckurl]: https://github.com/nanlabs/python-reference/actions/workflows/shellcheck.yml
 [licenseurl]: https://github.com/nanlabs/python-reference/blob/main/LICENSE
