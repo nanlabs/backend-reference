@@ -23,7 +23,7 @@ async def all_users():
     response_model=Users,
     name="Get User by Id",
 )
-async def get_user(user_id: int) -> Users:
+async def get_user_by_id(user_id: int) -> Users:
     return user_service.get_user(user_id)
 
 
@@ -33,8 +33,9 @@ async def get_user(user_id: int) -> Users:
     response_model=Users,
     name="Update User by Id",
 )
-async def get_user(user_id: int) -> Users:
+async def put_user(user_id: int) -> Users:
     return user_service.get_user(user_id)
+
 
 @router.put(
     "/{user_id}/exc",
@@ -43,6 +44,5 @@ async def get_user(user_id: int) -> Users:
     name="Update User by Id",
     deprecated=True
 )
-async def get_user(user_id: int) -> Users:
+async def dep_get_user_by_id(user_id: int) -> Users:
     return user_service.get_user(user_id)
-
