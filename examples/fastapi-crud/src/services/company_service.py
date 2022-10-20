@@ -1,12 +1,12 @@
 from typing import List
 from uuid import uuid4
 
+from repositories.company_repository import CompanyRepository
 from sqlalchemy.orm import Session
 
 from factories.companies_factory import CompanyFactory
 from models.models import Company
 from models.schemas.company import NewCompanySchema, PatchCompanySchema
-from repositories.company_repository import CompanyRepository
 
 
 class CompanyService:

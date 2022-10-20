@@ -1,9 +1,9 @@
 from typing import List
 
+from db.database import get_db
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
 
-from db.database import get_db
 from models.schemas.company import NewCompanySchema
 from models.schemas.employee import EmployeeSchema, PatchEmployeeSchema, ShortEmployeeSchema
 from services.employee_service import EmployeeService
