@@ -1,8 +1,7 @@
+from db.database import Base
 from sqlalchemy import Column
 from sqlalchemy.schema import ForeignKey
 from sqlalchemy.sql.sqltypes import Boolean, String
-
-from db.database import Base
 
 
 class Company(Base):
