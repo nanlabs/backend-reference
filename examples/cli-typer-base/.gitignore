@@ -103,8 +103,6 @@ celerybeat.pid
 
 # Environments
 .env
-.env.*
-!.env.template
 .venv
 env/
 venv/
@@ -130,12 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Virtualenv
-pyvenv.cfg
-lib64
-bin/
-
-# Env vars
-*.yaml
-
-.vscode/
+# Virtual env folder
+*/.venv/
