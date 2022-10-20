@@ -33,13 +33,13 @@ def currencies(
     options = (euro, official)
 
     match options:
-        case (True, False):
+        case(True, False):
             del exchange.data['oficial']
             del exchange.data['oficial_euro']
-        case (False, True):
+        case(False, True):
             del exchange.data['oficial_euro']
             del exchange.data['blue_euro']
-        case (False, False):
+        case(False, False):
             del exchange.data['oficial']
             del exchange.data['oficial_euro']
             del exchange.data['blue_euro']
@@ -47,7 +47,7 @@ def currencies(
     table = exchange_table_gen(exchange.data)
     console = Console()
     console.print(
-        ":heavy_check_mark: :thumbs_up: :tada: :100: Last update: " +
+        ":heavy_check_mark: :thumbs_up: :tada: :100: Last update:",
         exchange.data["last_update"][:-6]
     )
     console.print(table)
