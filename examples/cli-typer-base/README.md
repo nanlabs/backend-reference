@@ -90,7 +90,7 @@ python main.py hello <NAME> --color <COLOR>
 >
 > `python main.py hello Joe --color red`
 
-**Options**:
+#### Options
 
 ```bash
 --color     TEXT      [default: yellow]
@@ -99,7 +99,7 @@ python main.py hello <NAME> --color <COLOR>
 
 ---
 
-### **Currencies**
+### Currencies
 
 ```bash
 python main.py currencies
@@ -107,7 +107,7 @@ python main.py currencies
 
 > Retrieves the values from [Bluelytic](https://bluelytics.com.ar/#!/api) and render the data in a table using rich.
 
-**Options**:
+#### Options
 
 ```bash
 --euro      --no-euro          [default: euro]
