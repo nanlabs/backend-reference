@@ -1,11 +1,12 @@
 from rich.console import Console
 from rich.progress import track
 from rich.style import errors as rich_style_errors
+from tables.exchange import exchange_table_gen
+from typer import Typer
+
 from services.api_consumer import Exchange
 from services.calculator import Calculator, CalculatorLogger
 from services.input_wrapper import InputWrapper
-from tables.exchange import exchange_table_gen
-from typer import Typer
 
 app = Typer()
 

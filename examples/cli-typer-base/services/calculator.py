@@ -3,6 +3,7 @@ from math import pow
 from entities.currencies import Currency, OperationType
 from rich.style import Style
 from rich.table import Table
+
 from services.input_wrapper import ConversionParams
 
 

@@ -2,6 +2,7 @@ from dataclasses import dataclass
 
 from entities.currencies import CURRENCY_NAMES, Currency
 from rich.console import Console
+
 from services.api_consumer import Exchange
 
 
