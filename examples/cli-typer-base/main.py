@@ -1,9 +1,10 @@
 from rich.console import Console
 from rich.progress import track
 from rich.style import errors as rich_style_errors
-from services.api_consumer import Exchange
 from tables.exchange import exchange_table_gen
 from typer import Typer
+
+from services.api_consumer import Exchange
 
 app = Typer()
 
