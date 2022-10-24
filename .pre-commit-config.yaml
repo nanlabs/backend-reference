@@ -32,3 +32,7 @@ repos:
     -   id: isort
         name: isort (pyi)
         types: [pyi]
+-   repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.32.2
+    hooks:
+    - id: markdownlint
