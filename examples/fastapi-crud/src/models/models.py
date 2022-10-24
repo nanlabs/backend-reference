@@ -4,6 +4,7 @@ from sqlalchemy.schema import ForeignKey
 from sqlalchemy.sql.sqltypes import Boolean, String
 
 
+
 class Company(Base):
     __tablename__ = 'company'
     id = Column(String, primary_key=True, index=True, unique=True)
