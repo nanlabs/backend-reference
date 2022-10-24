@@ -6,9 +6,9 @@ labels: "Type: Bug"
 assignees: ""
 ---
 
-#### Commit hash / release tag:
+#### Commit hash / release tag
 
-#### OS:
+#### OS
 
 ## What did you do?
 
