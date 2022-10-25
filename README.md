@@ -25,6 +25,7 @@ here at [NaN Labs](https://www.nanlabs.com/).
 
 - [Applications](#applications)
 - [Examples](#examples)
+  - [CLI Tools](#cli-tools)
   - [FastAPI Examples](#fastapi-examples)
   - [Other related examples](#other-related-examples)
 - [Contributing](#contributing)
@@ -39,6 +40,11 @@ Read more about the examples in the [examples](#examples) section.
 ## Examples
 
 Collection of examples that solve specific problems using small pieces of code.
+
+### CLI Tools
+
+- [CLI Base Example](./examples/cli-base/README.md)
+- [CLI with Typer + Rich Example](./examples/cli-typer-base/README.md)
 
 ### FastAPI Examples
 
