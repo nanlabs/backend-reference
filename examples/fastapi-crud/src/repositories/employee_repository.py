@@ -1,12 +1,12 @@
 import logging
 from typing import List
 
-from repositories.company_repository import CompanyRepository
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from exceptions.database_exceptions import DatabaseExceptions
 from models.models import Employee
+from repositories.company_repository import CompanyRepository
 
 logger = logging.getLogger(__name__)
 

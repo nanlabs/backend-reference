@@ -5,6 +5,8 @@ from tables.exchange import exchange_table_gen
 from typer import Typer
 
 from services.api_consumer import Exchange
+from services.calculator import Calculator, CalculatorLogger
+from services.input_wrapper import InputWrapper
 
 app = Typer()
 
@@ -52,6 +54,27 @@ def currencies(
         exchange.data["last_update"][:-6]
     )
     console.print(table)
+
+
+@app.command()
+def conversion(json_response: bool = False) -> None:
+    """Converts USD and EURO (official and blue) from ARS and to ARS"""
+    console = Console()
+
+    try:
+        exchange = Exchange()
+        console.print("Updated :heavy_check_mark:", style="bold blue")
+    except Exception as e:
+        console.print_exception()
+        raise e
+    if json_response:
+        console.print_json(exchange.json_data.content.decode('utf8'))
+
+    input = InputWrapper(exchange, console)
+
+    calculator = Calculator(input.wrap())
+    calculator.convert()
+    CalculatorLogger(calculator)
 
 
 if __name__ == '__main__':
