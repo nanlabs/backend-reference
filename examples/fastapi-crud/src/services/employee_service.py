@@ -1,13 +1,13 @@
 from typing import List
 from uuid import uuid4
 
-from repositories.employee_repository import EmployeeRepository
 from sqlalchemy.orm import Session
 
 from exceptions.database_exceptions import DatabaseExceptions
 from factories.employee_factory import EmployeesFactory
 from models.models import Employee
 from models.schemas.employee import NewEmployeeSchema, PatchEmployeeSchema
+from repositories.employee_repository import EmployeeRepository
 from services.company_service import CompanyService
 
 

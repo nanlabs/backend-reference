@@ -114,3 +114,51 @@ python main.py currencies
 --official  --no-official      [default: official]
 --help      Show the options and exit.
 ```
+
+---
+
+### Exchange rate conversion
+
+```bash
+python main.py conversion
+```
+
+> Allows the user to convert from **ars** to **usd** or **euro** (blue and official) and from **usd** or **euro** (blue and official) to **ars** (not between dollar and euro) taking this into account:
+
+As the API's response has 3 values for every currency (except ARS) buy, sell and average.
+
+``` json
+{
+  "oficial": {
+    "value_avg": 157.0,
+    "value_sell": 161.0,
+    "value_buy": 153.0
+  },
+  "blue": {
+    "value_avg": 289.0,
+    "value_sell": 291.0,
+    "value_buy": 287.0
+  },
+  "oficial_euro": {
+    "value_avg": 169.0,
+    "value_sell": 173.0,
+    "value_buy": 165.0
+  },
+  "blue_euro": {
+    "value_avg": 311.0,
+    "value_sell": 313.0,
+    "value_buy": 309.0
+  },
+  "last_update": "2022-10-24T12:30:40.739232-03:00"
+}
+```
+
+- If the conversion is from **ARS** to **USD** or **EURO** (official or blue) the sell value (the highest value) is used to calculate the exchange rate.
+- If the conversion is from **USD** or **EURO** (official or blue) to **ARS** the buy value (the lowest value) is used to calculate the exchange rate.
+
+#### Conversion Options
+
+```bash
+--json-response   --no-json-response       [default: --no-json-response]
+--help            Show the options and exit.
+```
