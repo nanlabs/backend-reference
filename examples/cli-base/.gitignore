@@ -1,1 +1,4 @@
 # gitignore file for this local example folder
+
+/env
+/src/pycmd.egg-info
