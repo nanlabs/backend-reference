@@ -1,0 +1,4 @@
+# !/bin/bash/
+
+python3 -m pip uninstall pycmd -y
+python3 -m pip uninstall -r requirements.txt -y
