@@ -58,10 +58,11 @@ Collection of examples that solve specific problems using small pieces of code.
 > **Note**: These examples are not part of this repository, but they are related
 > and part of the same GitHub organization.
 
-- [AWS Glue Full Example](https://github.com/nanlabs/infra-reference/tree/main/examples/devcontainers/glue/)
-- [AWS Glue Libs Docker](https://github.com/nanlabs/infra-reference/tree/main/examples/docker/glue/)
-- [AWS AppSync + Python](https://github.com/nanlabs/infra-reference/tree/main/examples/serverless/serverless-appsync-python/)
-- [AWS Glue with Python Shell and PySpark Jobs](https://github.com/nanlabs/infra-reference/tree/main/examples/serverless/serverless-glue/)
+- [AWS Glue using Docker and Docker Compose](https://github.com/nanlabs/infra-reference/tree/main/examples/docker/glue/) - Dockerfile and docker-compose.yml for AWS Glue development with AWS Glue Libs, Spark, Jupyter Notebook, AWS CLI among other tools.
+- [AWS Glue](https://github.com/nanlabs/infra-reference/tree/main/examples/devcontainers/glue/) - DevContainer for AWS Glue development. Uses `docker-compose` to run VSCode attached to a container with all the necessary tools to develop AWS Glue jobs such us AWS Glue Libs, Spark, Jupyter Notebook, AWS CLI among other tools.
+- [AWS AppSync + Python](https://github.com/nanlabs/infra-reference/tree/main/examples/serverless/serverless-appsync-python/) - Serverless Framework example to deploy an AWS AppSync API using Python. It also has a local development environment using [Serverless Offline](https://www.serverless.com/plugins/serverless-offline).
+- [AWS Glue with Python Shell and PySpark Jobs](https://github.com/nanlabs/infra-reference/tree/main/examples/serverless/serverless-glue/) - Serverless Framework example to deploy an AWS Glue job using Python Shell and PySpark.
+- [Serverless S3 Local example](https://github.com/nanlabs/infra-reference/tree/main/examples/serverless/serverless-s3-local/) - Serverless Framework example to run a lambda function locally using [Serverless S3 Local](https://www.serverless.com/plugins/serverless-s3-local).
 
 ## Contributing
 
