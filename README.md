@@ -43,13 +43,13 @@ Collection of examples that solve specific problems using small pieces of code.
 
 ### CLI Tools
 
-- [CLI Base Example](./examples/cli-base/README.md)
+- [CLI Base Example](./examples/cli-base/README.md) 
 - [CLI with Typer + Rich Example](./examples/cli-typer-base/README.md)
 
 ### FastAPI Examples
 
-- [FastAPI Base Example](./examples/fastapi-base/README.md)
-- [FastAPI CRUD Example](./examples/fastapi-crud/README.md)
+- [FastAPI Base Example](./examples/fastapi-base/README.md) (FastAPI, Faker, Factory-Boy, Pydantic, starlette)
+- [FastAPI CRUD Example](./examples/fastapi-crud/README.md) (FastAPI, Alembic, Dockerfile, Docker-compose, Pydantic, SQLAlchemy, PostgreSQL)
 - [FastAPI GraphQL Example + MongoDB](./examples/fastapi-gql-mongo/README.md)
 - [FastAPI PostgreSQL](./examples/fastapi-postgres/README.md)
 
