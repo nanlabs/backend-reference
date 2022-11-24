@@ -43,7 +43,7 @@ Collection of examples that solve specific problems using small pieces of code.
 
 ### CLI Tools
 
-- [CLI Base Example](./examples/cli-base/README.md) 
+- [CLI Base Example](./examples/cli-base/README.md)
 - [CLI with Typer + Rich Example](./examples/cli-typer-base/README.md)
 
 ### FastAPI Examples
