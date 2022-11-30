@@ -43,13 +43,14 @@ Collection of examples that solve specific problems using small pieces of code.
 
 ### CLI Tools
 
-- [CLI Base Example](./examples/cli-base/README.md)
-- [CLI with Typer + Rich Example](./examples/cli-typer-base/README.md)
+- [CLI Base Example](./examples/cli-base/README.md) - Basic structure to create a command without passing the python command and the python file's path . Technologies: Python3, PyCMD
+- [CLI with Typer + Rich Example](./examples/cli-typer-base/README.md) - Interaction with an external API, to retrieve some currencies exchange rates, make conversion returning styled console output. Technologies: Python3, Requests, Rich, Typer
 
 ### FastAPI Examples
 
-- [FastAPI Base Example](./examples/fastapi-base/README.md)
-- [FastAPI CRUD Example](./examples/fastapi-crud/README.md)
+- [FastAPI Base Example](./examples/fastapi-base/README.md) - Rest API that retrieves mock data using Faker library .Technologies: Python3, Faker, Factory-Boy, FastAPI, , Pydantic
+- [FastAPI CRUD Example](./examples/fastapi-crud/README.md) - Rest API that allows to create, read, update and delete employees and companies in the db, besides that, has endpoints to populate the db with Mock Data using faker. Technologies: Python3, Alembic, Docker-compose, Dockerfile, Faker, FastAPI, PGAdmin, PostgreSQL, Pydantic, SQLAlchemy
+- [FastAPI GraphQL](.examples/fastapi-gql/README.md) - GraphQL API that retrieves fake companies using Faker library. Technologies: Python3, Factory-boy, Faker, FastAPI, Pydantic, Strawberry-graphql
 - [FastAPI GraphQL Example + MongoDB](./examples/fastapi-gql-mongo/README.md)
 - [FastAPI PostgreSQL](./examples/fastapi-postgres/README.md)
 
