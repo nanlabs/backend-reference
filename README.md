@@ -50,7 +50,7 @@ Collection of examples that solve specific problems using small pieces of code.
 
 - [FastAPI Base Example](./examples/fastapi-base/README.md) - Rest API that retrieves mock data using Faker library .Technologies: Python3, Faker, Factory-Boy, FastAPI, , Pydantic
 - [FastAPI CRUD Example](./examples/fastapi-crud/README.md) - Rest API that allows to create, read, update and delete employees and companies in the db, besides that, has endpoints to populate the db with Mock Data using faker. Technologies: Python3, Alembic, Docker-compose, Dockerfile, Faker, FastAPI, PGAdmin, PostgreSQL, Pydantic, SQLAlchemy
-- [FastAPI GraphQL](.examples/fastapi-gql/README.md) - GraphQL API that retrieves fake companies using Faker library. Technologies: Python3, Factory-boy, Faker, FastAPI, Pydantic, Strawberry-graphql
+- [FastAPI GraphQL](./examples/fastapi-gql/README.md) - GraphQL API that retrieves fake companies using Faker library. Technologies: Python3, Factory-boy, Faker, FastAPI, Pydantic, Strawberry-graphql
 - [FastAPI GraphQL Example + MongoDB](./examples/fastapi-gql-mongo/README.md)
 - [FastAPI PostgreSQL](./examples/fastapi-postgres/README.md)
 
