@@ -1,0 +1,72 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nanlabs/awesome-nan/main/examples.schema.json",
+  "list": [
+    {
+      "name": "Python CLI Basic Example",
+      "url": "https://github.com/python-reference/tree/main/examples/cli-base",
+      "description": "Basic structure to create a command without passing the python command and the python file's path.",
+      "tags": ["Examples > DevOps > Shell Scripting and CLI Tools"],
+      "labels": [
+        "Python3",
+        "PyCMD"
+      ]
+    },
+    {
+      "name": "Python CLI with Typer + Rich Example",
+      "url": "https://github.com/python-reference/tree/main/examples/cli-typer-base",
+      "description": "Interaction with an external API, to retrieve some currencies exchange rates, make conversion returning styled console output.",
+      "tags": ["Examples > DevOps > Shell Scripting and CLI Tools"],
+      "labels": [
+        "Python3",
+        "Requests",
+        "Rich",
+        "Typer"
+      ]
+    },
+    {
+      "name": "FastAPI Basic Example",
+      "url": "https://github.com/python-reference/tree/main/examples/fastapi-base",
+      "description": "Rest API that retrieves mock data using Faker library.",
+      "tags": ["Examples > Backend > FastAPI"],
+      "labels": [
+        "Python3",
+        "Faker",
+        "Factory-Boy",
+        "FastAPI",
+        "Pydantic"
+      ]
+    },
+    {
+      "name": "FastAPI Complete CRUD Example",
+      "url": "https://github.com/python-reference/tree/main/examples/fastapi-crud",
+      "description": "Rest API that allows to create, read, update and delete employees and companies in the db, besides that, has endpoints to populate the db with Mock Data using faker.",
+      "tags": ["Examples > Backend > FastAPI"],
+      "labels": [
+        "Python3",
+        "Faker",
+        "FastAPI",
+        "Pydantic",
+        "SQLAlchemy",
+        "Alembic",
+        "Docker",
+        "Docker Compose",
+        "PGAdmin",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "name": "FastAPI GraphQL",
+      "url": "https://github.com/python-reference/tree/main/examples/fastapi-gql",
+      "description": "GraphQL API that retrieves fake companies using Faker library.",
+      "tags": ["Examples > Backend > FastAPI"],
+      "labels": [
+        "Python3",
+        "Factory-boy",
+        "Faker",
+        "FastAPI",
+        "Pydantic",
+        "Strawberry-graphql"
+      ]
+    }
+  ]
+}
