@@ -1,3 +1,5 @@
+<!--lint disable double-link awesome-heading awesome-git-repo-age awesome-toc-->
+
 <div align="center">
 <p>
     <img
@@ -14,8 +16,7 @@
 </div>
 <div align="center">
 
-[![Markdown Lint][markdownlintbadge]][markdownlinturl]
-[![Shell Check][shellcheckbadge]][shellcheckurl]
+[![Continious Integration][cibadge]][ciurl]
 [![License: MIT][licensebadge]][licenseurl]
 
 </div>
@@ -23,51 +24,40 @@
 This repository contains different Python apps that are used in different projects
 here at [NaN Labs](https://www.nanlabs.com/).
 
-- [Applications](#applications)
+## Contents
+
 - [Examples](#examples)
-  - [CLI Tools](#cli-tools)
-  - [FastAPI Examples](#fastapi-examples)
-  - [Other related examples](#other-related-examples)
+
+  - [DevOps](#devops)
+    - [Shell Scripting and CLI Tools](#shell-scripting-and-cli-tools)
+  - [Backend](#backend)
+    - [FastAPI](#fastapi)
+
 - [Contributing](#contributing)
 - [Contributors](#contributors)
 
-## Applications
-
-Collection of examples that were created as a composition of different examples that
-can be found separately in the [examples](./examples/) directory.
-Read more about the examples in the [examples](#examples) section.
-
 ## Examples
 
-Collection of examples that solve specific problems using small pieces of code.
+### DevOps
 
-### CLI Tools
+#### Shell Scripting and CLI Tools
 
-- [CLI Base Example](./examples/cli-base/README.md) - Basic structure to create a command without passing the python command and the python file's path . Technologies: Python3, PyCMD
-- [CLI with Typer + Rich Example](./examples/cli-typer-base/README.md) - Interaction with an external API, to retrieve some currencies exchange rates, make conversion returning styled console output. Technologies: Python3, Requests, Rich, Typer
+- [Python CLI Basic Example](https://github.com/python-reference/tree/main/examples/cli-base) - Basic structure to create a command without passing the python command and the python file's path. _Keywords: Python3, PyCMD_
+- [Python CLI with Typer + Rich Example](https://github.com/python-reference/tree/main/examples/cli-typer-base) - Interaction with an external API, to retrieve some currencies exchange rates, make conversion returning styled console output. _Keywords: Python3, Requests, Rich, Typer_
 
-### FastAPI Examples
+### Backend
 
-- [FastAPI Base Example](./examples/fastapi-base/README.md) - Rest API that retrieves mock data using Faker library .Technologies: Python3, Faker, Factory-Boy, FastAPI, , Pydantic
-- [FastAPI CRUD Example](./examples/fastapi-crud/README.md) - Rest API that allows to create, read, update and delete employees and companies in the db, besides that, has endpoints to populate the db with Mock Data using faker. Technologies: Python3, Alembic, Docker-compose, Dockerfile, Faker, FastAPI, PGAdmin, PostgreSQL, Pydantic, SQLAlchemy
-- [FastAPI GraphQL](./examples/fastapi-gql/README.md) - GraphQL API that retrieves fake companies using Faker library. Technologies: Python3, Factory-boy, Faker, FastAPI, Pydantic, Strawberry-graphql
-- [FastAPI GraphQL Example + MongoDB](./examples/fastapi-gql-mongo/README.md)
-- [FastAPI PostgreSQL](./examples/fastapi-postgres/README.md)
+#### FastAPI
 
-### Other related examples
-
-> **Note**: These examples are not part of this repository, but they are related
-> and part of the same GitHub organization.
-
-- [AWS Glue using Docker and Docker Compose](https://github.com/nanlabs/devops-reference/tree/main/examples/docker/glue/) - Dockerfile and docker-compose.yml for AWS Glue development with AWS Glue Libs, Spark, Jupyter Notebook, AWS CLI among other tools.
-- [AWS Glue](https://github.com/nanlabs/devops-reference/tree/main/examples/devcontainers/glue/) - DevContainer for AWS Glue development. Uses `docker-compose` to run VSCode attached to a container with all the necessary tools to develop AWS Glue jobs such us AWS Glue Libs, Spark, Jupyter Notebook, AWS CLI among other tools.
-- [AWS AppSync + Python](https://github.com/nanlabs/devops-reference/tree/main/examples/serverless/serverless-appsync-python/) - Serverless Framework example to deploy an AWS AppSync API using Python. It also has a local development environment using [Serverless Offline](https://www.serverless.com/plugins/serverless-offline).
-- [AWS Glue with Python Shell and PySpark Jobs](https://github.com/nanlabs/devops-reference/tree/main/examples/serverless/serverless-glue/) - Serverless Framework example to deploy an AWS Glue job using Python Shell and PySpark.
-- [Serverless S3 Local example](https://github.com/nanlabs/devops-reference/tree/main/examples/serverless/serverless-s3-local/) - Serverless Framework example to run a lambda function locally using [Serverless S3 Local](https://www.serverless.com/plugins/serverless-s3-local).
+- [FastAPI Basic Example](https://github.com/python-reference/tree/main/examples/fastapi-base) - Rest API that retrieves mock data using Faker library. _Keywords: Python3, Faker, Factory-Boy, FastAPI, Pydantic_
+- [FastAPI Complete CRUD Example](https://github.com/python-reference/tree/main/examples/fastapi-crud) - Rest API that allows to create, read, update and delete employees and companies in the db, besides that, has endpoints to populate the db with Mock Data using faker. _Keywords: Python3, Faker, FastAPI, Pydantic, SQLAlchemy, Alembic, Docker, Docker Compose, PGAdmin, PostgreSQL_
+- [FastAPI GraphQL](https://github.com/python-reference/tree/main/examples/fastapi-gql) - GraphQL API that retrieves fake companies using Faker library. _Keywords: Python3, Factory-boy, Faker, FastAPI, Pydantic, Strawberry-graphql_
 
 ## Contributing
 
-Contributions are welcome!
+- Contributions make the open source community such an amazing place to learn, inspire, and create.
+- Any contributions you make are **truly appreciated**.
+- Check out our [contribution guidelines](./CONTRIBUTING.md) for more information.
 
 ## Contributors
 
@@ -77,9 +67,7 @@ Contributions are welcome!
 
 Made with [contributors-img](https://contrib.rocks).
 
-[markdownlintbadge]: https://github.com/nanlabs/python-reference/actions/workflows/markdownlint.yml/badge.svg
-[shellcheckbadge]: https://github.com/nanlabs/python-reference/actions/workflows/shellcheck.yml/badge.svg
+[cibadge]: https://github.com/nanlabs/python-reference/actions/workflows/ci.yml/badge.svg
 [licensebadge]: https://img.shields.io/badge/License-MIT-blue.svg
-[markdownlinturl]: https://github.com/nanlabs/python-reference/actions/workflows/markdownlint.yml
-[shellcheckurl]: https://github.com/nanlabs/python-reference/actions/workflows/shellcheck.yml
+[ciurl]: https://github.com/nanlabs/python-reference/actions/workflows/ci.yml
 [licenseurl]: https://github.com/nanlabs/python-reference/blob/main/LICENSE
