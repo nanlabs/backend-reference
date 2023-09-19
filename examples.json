@@ -2,6 +2,28 @@
   "$schema": "https://raw.githubusercontent.com/nanlabs/awesome-nan/main/examples.schema.json",
   "list": [
     {
+      "name": "Golang REST API boilerplate",
+      "description": "REST API to create, update and retrieve Entities, including graceful shutdown, rate limiting, structured logging, unit tests, integration tests, environment variables, health check and API documentation with swagger. Technologies: Golang 1.19, MongoDB (with Docker Compose), Gorilla Mux, Go Swagger, Tollbooth (rate limiting), Zap (logging), Viper, Mockery, Makefile, Pre-commit, and DockerTest (integration tests).",
+      "url": "https://github.com/nanlabs/nancy.go/tree/main/examples/golang-todo-rest-crud/",
+      "tags": ["Apps and Boilerplates"],
+      "labels": [
+        "Golang",
+        "REST API",
+        "MongoDB",
+        "Gorilla Mux",
+        "Go Swagger",
+        "Tollbooth",
+        "Zap",
+        "Viper",
+        "Mockery",
+        "Makefile",
+        "Pre-commit",
+        "Docker",
+        "Docker Compose",
+        "DockerTest"
+      ]
+    },
+    {
       "name": "Python CLI Basic Example",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/cli-base",
       "description": "Basic structure to create a command without passing the python command and the python file's path.",

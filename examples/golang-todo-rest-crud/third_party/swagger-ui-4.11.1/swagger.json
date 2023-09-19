@@ -1,0 +1,365 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "# Documentation for Todo API",
+    "title": "Todo API",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8080",
+  "basePath": "/api/v1",
+  "paths": {
+    "/health": {
+      "get": {
+        "description": "Check health of the api",
+        "tags": [
+          "Health"
+        ],
+        "summary": "Check health of the api",
+        "operationId": "Health",
+        "responses": {
+          "200": {
+            "$ref": "#/responses/HealthResponseWrapper"
+          }
+        }
+      }
+    },
+    "/notes": {
+      "get": {
+        "description": "Returns a list of notes from the database",
+        "tags": [
+          "Notes"
+        ],
+        "summary": "Returns a list of notes",
+        "operationId": "Notes",
+        "responses": {
+          "200": {
+            "description": "GetNotesResponse",
+            "schema": {
+              "$ref": "#/definitions/GetNotesResponse"
+            }
+          },
+          "500": {
+            "$ref": "#/responses/ErrorResponseWrapper"
+          }
+        }
+      },
+      "post": {
+        "description": "Create a new note in a database",
+        "tags": [
+          "Notes"
+        ],
+        "summary": "Creates a new note",
+        "operationId": "CreateNoteRequestWrapper",
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateNoteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CreateNoteResponse",
+            "schema": {
+              "$ref": "#/definitions/CreateNoteResponse"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/ValidationErrorResponseWrapper"
+          },
+          "422": {
+            "$ref": "#/responses/ErrorResponseWrapper"
+          },
+          "500": {
+            "$ref": "#/responses/ErrorResponseWrapper"
+          }
+        }
+      }
+    },
+    "/notes/{noteId}": {
+      "get": {
+        "description": "Returns a single note from the database",
+        "tags": [
+          "Notes"
+        ],
+        "summary": "Returns a single note",
+        "operationId": "NoteIdQueryParamWrapper",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "ID",
+            "description": "The id of the note for which the operation relates",
+            "name": "noteId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "GetNoteResponse",
+            "schema": {
+              "$ref": "#/definitions/GetNoteResponse"
+            }
+          },
+          "500": {
+            "$ref": "#/responses/ErrorResponseWrapper"
+          }
+        }
+      },
+      "patch": {
+        "description": "Update a new note in a database",
+        "tags": [
+          "Notes"
+        ],
+        "summary": "Update an existing note",
+        "operationId": "UpdateNoteRequestWrapper",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "ID",
+            "description": "The id of the note for which the operation relates",
+            "name": "noteId",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateNoteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/responses/NoContentResponseWrapper"
+          },
+          "400": {
+            "$ref": "#/responses/ValidationErrorResponseWrapper"
+          },
+          "422": {
+            "$ref": "#/responses/ErrorResponseWrapper"
+          },
+          "500": {
+            "$ref": "#/responses/ErrorResponseWrapper"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CreateNoteRequest": {
+      "description": "Create a note request",
+      "type": "object",
+      "required": [
+        "name",
+        "description"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "name": {
+          "type": "string",
+          "x-go-name": "Name"
+        }
+      },
+      "x-go-package": "todo-api-golang/internal/todo/note"
+    },
+    "CreateNoteResponse": {
+      "description": "Create a note response",
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "id": {
+          "type": "string",
+          "x-go-name": "ID"
+        },
+        "name": {
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "To Do",
+            "In Progress",
+            "Done"
+          ],
+          "x-go-enum-desc": "To Do Todo\nIn Progress InProgress\nDone Done",
+          "x-go-name": "Status"
+        }
+      },
+      "x-go-package": "todo-api-golang/internal/todo/note"
+    },
+    "GetNoteResponse": {
+      "description": "A single note returns in the response",
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "id": {
+          "type": "string",
+          "x-go-name": "ID"
+        },
+        "name": {
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "To Do",
+            "In Progress",
+            "Done"
+          ],
+          "x-go-enum-desc": "To Do Todo\nIn Progress InProgress\nDone Done",
+          "x-go-name": "Status"
+        }
+      },
+      "x-go-package": "todo-api-golang/internal/todo/note"
+    },
+    "GetNotesResponse": {
+      "description": "List notes returns",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/GetNoteResponse"
+      },
+      "x-go-package": "todo-api-golang/internal/todo/note"
+    },
+    "HealthResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "x-go-name": "Status",
+          "example": "Healthy"
+        }
+      },
+      "x-go-package": "todo-api-golang/pkg/health"
+    },
+    "UpdateNoteRequest": {
+      "description": "Update a note request",
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "name": {
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "To Do",
+            "In Progress",
+            "Done"
+          ],
+          "x-go-enum-desc": "To Do Todo\nIn Progress InProgress\nDone Done",
+          "x-go-name": "Status"
+        }
+      },
+      "x-go-package": "todo-api-golang/internal/todo/note"
+    },
+    "ValidationError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string",
+          "x-go-name": "Error"
+        },
+        "field": {
+          "type": "string",
+          "x-go-name": "Field"
+        }
+      },
+      "x-go-package": "todo-api-golang/internal/todo/note"
+    }
+  },
+  "responses": {
+    "ErrorResponseWrapper": {
+      "description": "",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "Code"
+          },
+          "message": {
+            "type": "string",
+            "x-go-name": "Message"
+          },
+          "type": {
+            "type": "string",
+            "x-go-name": "Type"
+          }
+        }
+      }
+    },
+    "HealthResponseWrapper": {
+      "description": "Returns Healthy if the api is working",
+      "schema": {
+        "$ref": "#/definitions/HealthResponse"
+      }
+    },
+    "NoContentResponseWrapper": {
+      "description": "No content is returned by this API endpoint"
+    },
+    "ValidationErrorResponseWrapper": {
+      "description": "",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "Code"
+          },
+          "detail": {
+            "type": "string",
+            "x-go-name": "Detail"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ValidationError"
+            },
+            "x-go-name": "Errors"
+          },
+          "message": {
+            "type": "string",
+            "x-go-name": "Message"
+          },
+          "type": {
+            "type": "string",
+            "x-go-name": "Type"
+          }
+        }
+      }
+    }
+  }
+}
