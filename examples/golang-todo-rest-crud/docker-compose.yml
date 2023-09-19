@@ -1,0 +1,69 @@
+version: "3.8"
+
+services:
+  mongo:
+    container_name: mongodb
+    image: mongo:5.0.9
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    ports:
+      - 27017:27017
+    volumes:
+      - ./docker/mongo/initdb.d:/docker-entrypoint-initdb.d:ro
+      - mongo:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo 127.0.0.1:27017/test --quiet
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - mongodb-network
+
+  mongo-express:
+    container_name: mongo_express
+    image: mongo-express:1.0.0-alpha.4
+    restart: unless-stopped
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_USERNAME}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_PASSWORD}
+      ME_CONFIG_MONGODB_SERVER: ${MONGO_HOST}
+      ME_CONFIG_MONGODB_PORT: ${MONGO_PORT}
+      ME_CONFIG_BASICAUTH_USERNAME: ${MONGO_USERNAME}
+      ME_CONFIG_BASICAUTH_PASSWORD: ${MONGO_PASSWORD}
+    ports:
+      - 8081:8081
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - mongodb-network
+
+  todoapi:
+    container_name: todoapi
+    build:
+      context: .
+      dockerfile: ./docker/todo/Dockerfile
+    image: todoapi
+    ports:
+      - 8080:8080
+    restart: on-failure
+    healthcheck:
+      test: wget --quiet --tries=3 --spider http://localhost:8080/api/v1/health || exit 1
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - mongodb-network
+
+networks:
+  mongodb-network:
+    driver: bridge
+
+volumes:
+  mongo:
+    name: mongo
