@@ -5,36 +5,22 @@
       "name": "Python CLI Basic Example",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/cli-base",
       "description": "Basic structure to create a command without passing the python command and the python file's path.",
-      "tags": ["Examples > DevOps > Shell Scripting and CLI Tools"],
-      "labels": [
-        "Python3",
-        "PyCMD"
-      ]
+      "tags": ["Examples > Backend > CLI Tools"],
+      "labels": ["Python3", "PyCMD"]
     },
     {
       "name": "Python CLI with Typer + Rich Example",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/cli-typer-base",
       "description": "Interaction with an external API, to retrieve some currencies exchange rates, make conversion returning styled console output.",
-      "tags": ["Examples > DevOps > Shell Scripting and CLI Tools"],
-      "labels": [
-        "Python3",
-        "Requests",
-        "Rich",
-        "Typer"
-      ]
+      "tags": ["Examples > Backend > CLI Tools"],
+      "labels": ["Python3", "Requests", "Rich", "Typer"]
     },
     {
       "name": "FastAPI Basic Example",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-base",
       "description": "Rest API that retrieves mock data using Faker library.",
       "tags": ["Examples > Backend > FastAPI"],
-      "labels": [
-        "Python3",
-        "Faker",
-        "Factory-Boy",
-        "FastAPI",
-        "Pydantic"
-      ]
+      "labels": ["Python3", "Faker", "Factory-Boy", "FastAPI", "Pydantic"]
     },
     {
       "name": "FastAPI Complete CRUD Example",
@@ -66,6 +52,21 @@
         "FastAPI",
         "Pydantic",
         "Strawberry-graphql"
+      ]
+    },
+    {
+      "name": "Stripe Integration with Node.js and TypeScript",
+      "description": "This project offers a seamless Stripe integration with Node.js and TypeScript, providing a powerful API for managing basic operations like customer creation, checkout sessions, and portal sessions. It empowers developers to effortlessly handle payment-related tasks with the Stripe API.",
+      "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/stripe-integration-node-typescript/",
+      "tags": ["Examples > Backend > ThirdParty Integrations > Stripe"],
+      "labels": [
+        "Node.js",
+        "TypeScript",
+        "Stripe",
+        "Payment Gateway",
+        "API",
+        "Integration",
+        "Webhooks"
       ]
     }
   ]
