@@ -2,43 +2,51 @@
   "$schema": "https://raw.githubusercontent.com/nanlabs/awesome-nan/main/examples.schema.json",
   "list": [
     {
-      "name": "Python CLI Basic Example",
-      "url": "https://github.com/nanlabs/python-reference/tree/main/examples/cli-base",
-      "description": "Basic structure to create a command without passing the python command and the python file's path.",
-      "tags": ["Examples > DevOps > Shell Scripting and CLI Tools"],
+      "name": "Golang REST API boilerplate",
+      "description": "REST API to create, update and retrieve Entities, including graceful shutdown, rate limiting, structured logging, unit tests, integration tests, environment variables, health check and API documentation with swagger. Technologies: Golang 1.19, MongoDB (with Docker Compose), Gorilla Mux, Go Swagger, Tollbooth (rate limiting), Zap (logging), Viper, Mockery, Makefile, Pre-commit, and DockerTest (integration tests).",
+      "url": "https://github.com/nanlabs/nancy.go/tree/main/examples/golang-todo-rest-crud/",
+      "tags": ["Apps and Boilerplates"],
       "labels": [
-        "Python3",
-        "PyCMD"
+        "Golang",
+        "REST API",
+        "MongoDB",
+        "Gorilla Mux",
+        "Go Swagger",
+        "Tollbooth",
+        "Zap",
+        "Viper",
+        "Mockery",
+        "Makefile",
+        "Pre-commit",
+        "Docker",
+        "Docker Compose",
+        "DockerTest"
       ]
+    },
+    {
+      "name": "Python CLI Basic Example",
+      "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/cli-base",
+      "description": "Basic structure to create a command without passing the python command and the python file's path.",
+      "tags": ["Examples > Backend > CLI Tools"],
+      "labels": ["Python3", "PyCMD"]
     },
     {
       "name": "Python CLI with Typer + Rich Example",
-      "url": "https://github.com/nanlabs/python-reference/tree/main/examples/cli-typer-base",
+      "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/cli-typer-base",
       "description": "Interaction with an external API, to retrieve some currencies exchange rates, make conversion returning styled console output.",
-      "tags": ["Examples > DevOps > Shell Scripting and CLI Tools"],
-      "labels": [
-        "Python3",
-        "Requests",
-        "Rich",
-        "Typer"
-      ]
+      "tags": ["Examples > Backend > CLI Tools"],
+      "labels": ["Python3", "Requests", "Rich", "Typer"]
     },
     {
       "name": "FastAPI Basic Example",
-      "url": "https://github.com/nanlabs/python-reference/tree/main/examples/fastapi-base",
+      "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-base",
       "description": "Rest API that retrieves mock data using Faker library.",
       "tags": ["Examples > Backend > FastAPI"],
-      "labels": [
-        "Python3",
-        "Faker",
-        "Factory-Boy",
-        "FastAPI",
-        "Pydantic"
-      ]
+      "labels": ["Python3", "Faker", "Factory-Boy", "FastAPI", "Pydantic"]
     },
     {
       "name": "FastAPI Complete CRUD Example",
-      "url": "https://github.com/nanlabs/python-reference/tree/main/examples/fastapi-crud",
+      "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-crud",
       "description": "Rest API that allows to create, read, update and delete employees and companies in the db, besides that, has endpoints to populate the db with Mock Data using faker.",
       "tags": ["Examples > Backend > FastAPI"],
       "labels": [
@@ -56,7 +64,7 @@
     },
     {
       "name": "FastAPI GraphQL",
-      "url": "https://github.com/nanlabs/python-reference/tree/main/examples/fastapi-gql",
+      "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-gql",
       "description": "GraphQL API that retrieves fake companies using Faker library.",
       "tags": ["Examples > Backend > FastAPI"],
       "labels": [
@@ -66,6 +74,21 @@
         "FastAPI",
         "Pydantic",
         "Strawberry-graphql"
+      ]
+    },
+    {
+      "name": "Stripe Integration with Node.js and TypeScript",
+      "description": "This project offers a seamless Stripe integration with Node.js and TypeScript, providing a powerful API for managing basic operations like customer creation, checkout sessions, and portal sessions. It empowers developers to effortlessly handle payment-related tasks with the Stripe API.",
+      "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/stripe-integration-node-typescript/",
+      "tags": ["Examples > Backend > ThirdParty Integrations > Stripe"],
+      "labels": [
+        "Node.js",
+        "TypeScript",
+        "Stripe",
+        "Payment Gateway",
+        "API",
+        "Integration",
+        "Webhooks"
       ]
     }
   ]

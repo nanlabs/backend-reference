@@ -2,7 +2,7 @@
 
 This PoC was made using the following project as base:
 
-- [FastApiBase](https://github.com/nanlabs/python-reference/tree/main/examples/fastapi-base)
+- [FastApiBase](https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-base)
 
 ---
 

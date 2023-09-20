@@ -1,0 +1,266 @@
+basePath: /api/v1
+consumes:
+    - application/json
+definitions:
+    CreateNoteRequest:
+        description: Create a note request
+        properties:
+            description:
+                type: string
+                x-go-name: Description
+            name:
+                type: string
+                x-go-name: Name
+        required:
+            - name
+            - description
+        type: object
+        x-go-package: todo-api-golang/internal/todo/note
+    CreateNoteResponse:
+        description: Create a note response
+        properties:
+            description:
+                type: string
+                x-go-name: Description
+            id:
+                type: string
+                x-go-name: ID
+            name:
+                type: string
+                x-go-name: Name
+            status:
+                enum:
+                    - To Do
+                    - In Progress
+                    - Done
+                type: string
+                x-go-enum-desc: |-
+                    To Do Todo
+                    In Progress InProgress
+                    Done Done
+                x-go-name: Status
+        type: object
+        x-go-package: todo-api-golang/internal/todo/note
+    GetNoteResponse:
+        description: A single note returns in the response
+        properties:
+            description:
+                type: string
+                x-go-name: Description
+            id:
+                type: string
+                x-go-name: ID
+            name:
+                type: string
+                x-go-name: Name
+            status:
+                enum:
+                    - To Do
+                    - In Progress
+                    - Done
+                type: string
+                x-go-enum-desc: |-
+                    To Do Todo
+                    In Progress InProgress
+                    Done Done
+                x-go-name: Status
+        type: object
+        x-go-package: todo-api-golang/internal/todo/note
+    GetNotesResponse:
+        description: List notes returns
+        items:
+            $ref: '#/definitions/GetNoteResponse'
+        type: array
+        x-go-package: todo-api-golang/internal/todo/note
+    HealthResponse:
+        properties:
+            status:
+                example: Healthy
+                type: string
+                x-go-name: Status
+        type: object
+        x-go-package: todo-api-golang/pkg/health
+    UpdateNoteRequest:
+        description: Update a note request
+        properties:
+            description:
+                type: string
+                x-go-name: Description
+            name:
+                type: string
+                x-go-name: Name
+            status:
+                enum:
+                    - To Do
+                    - In Progress
+                    - Done
+                type: string
+                x-go-enum-desc: |-
+                    To Do Todo
+                    In Progress InProgress
+                    Done Done
+                x-go-name: Status
+        type: object
+        x-go-package: todo-api-golang/internal/todo/note
+    ValidationError:
+        properties:
+            error:
+                type: string
+                x-go-name: Error
+            field:
+                type: string
+                x-go-name: Field
+        type: object
+        x-go-package: todo-api-golang/internal/todo/note
+host: localhost:8080
+info:
+    description: '# Documentation for Todo API'
+    title: Todo API
+    version: 1.0.0
+paths:
+    /health:
+        get:
+            description: Check health of the api
+            operationId: Health
+            responses:
+                "200":
+                    $ref: '#/responses/HealthResponseWrapper'
+            summary: Check health of the api
+            tags:
+                - Health
+    /notes:
+        get:
+            description: Returns a list of notes from the database
+            operationId: Notes
+            responses:
+                "200":
+                    description: GetNotesResponse
+                    schema:
+                        $ref: '#/definitions/GetNotesResponse'
+                "500":
+                    $ref: '#/responses/ErrorResponseWrapper'
+            summary: Returns a list of notes
+            tags:
+                - Notes
+        post:
+            description: Create a new note in a database
+            operationId: CreateNoteRequestWrapper
+            parameters:
+                - in: body
+                  name: Body
+                  required: true
+                  schema:
+                    $ref: '#/definitions/CreateNoteRequest'
+            responses:
+                "201":
+                    description: CreateNoteResponse
+                    schema:
+                        $ref: '#/definitions/CreateNoteResponse'
+                "400":
+                    $ref: '#/responses/ValidationErrorResponseWrapper'
+                "422":
+                    $ref: '#/responses/ErrorResponseWrapper'
+                "500":
+                    $ref: '#/responses/ErrorResponseWrapper'
+            summary: Creates a new note
+            tags:
+                - Notes
+    /notes/{noteId}:
+        get:
+            description: Returns a single note from the database
+            operationId: NoteIdQueryParamWrapper
+            parameters:
+                - description: The id of the note for which the operation relates
+                  in: path
+                  name: noteId
+                  required: true
+                  type: string
+                  x-go-name: ID
+            responses:
+                "200":
+                    description: GetNoteResponse
+                    schema:
+                        $ref: '#/definitions/GetNoteResponse'
+                "500":
+                    $ref: '#/responses/ErrorResponseWrapper'
+            summary: Returns a single note
+            tags:
+                - Notes
+        patch:
+            description: Update a new note in a database
+            operationId: UpdateNoteRequestWrapper
+            parameters:
+                - description: The id of the note for which the operation relates
+                  in: path
+                  name: noteId
+                  required: true
+                  type: string
+                  x-go-name: ID
+                - in: body
+                  name: Body
+                  required: true
+                  schema:
+                    $ref: '#/definitions/UpdateNoteRequest'
+            responses:
+                "204":
+                    $ref: '#/responses/NoContentResponseWrapper'
+                "400":
+                    $ref: '#/responses/ValidationErrorResponseWrapper'
+                "422":
+                    $ref: '#/responses/ErrorResponseWrapper'
+                "500":
+                    $ref: '#/responses/ErrorResponseWrapper'
+            summary: Update an existing note
+            tags:
+                - Notes
+produces:
+    - application/json
+responses:
+    ErrorResponseWrapper:
+        description: ""
+        schema:
+            properties:
+                code:
+                    format: int64
+                    type: integer
+                    x-go-name: Code
+                message:
+                    type: string
+                    x-go-name: Message
+                type:
+                    type: string
+                    x-go-name: Type
+            type: object
+    HealthResponseWrapper:
+        description: Returns Healthy if the api is working
+        schema:
+            $ref: '#/definitions/HealthResponse'
+    NoContentResponseWrapper:
+        description: No content is returned by this API endpoint
+    ValidationErrorResponseWrapper:
+        description: ""
+        schema:
+            properties:
+                code:
+                    format: int64
+                    type: integer
+                    x-go-name: Code
+                detail:
+                    type: string
+                    x-go-name: Detail
+                errors:
+                    items:
+                        $ref: '#/definitions/ValidationError'
+                    type: array
+                    x-go-name: Errors
+                message:
+                    type: string
+                    x-go-name: Message
+                type:
+                    type: string
+                    x-go-name: Type
+            type: object
+schemes:
+    - http
+    - https
+swagger: "2.0"
