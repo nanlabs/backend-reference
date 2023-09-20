@@ -26,32 +26,50 @@ here at [NaN Labs](https://www.nanlabs.com/).
 
 ## Contents
 
+- [Apps and Boilerplates](#apps-and-boilerplates)
 - [Examples](#examples)
 
-  - [DevOps](#devops)
-    - [Shell Scripting and CLI Tools](#shell-scripting-and-cli-tools)
   - [Backend](#backend)
+    - [CLI Tools](#cli-tools)
     - [FastAPI](#fastapi)
+    - [ThirdParty Integrations](#thirdparty-integrations)
+      - [Stripe](#stripe)
 
 - [Contributing](#contributing)
 - [Contributors](#contributors)
 
+## Apps and Boilerplates
+
+| Name                                                                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                     | Keywords                                                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Golang REST API boilerplate](https://github.com/nanlabs/nancy.go/tree/main/examples/golang-todo-rest-crud/) | REST API to create, update and retrieve Entities, including graceful shutdown, rate limiting, structured logging, unit tests, integration tests, environment variables, health check and API documentation with swagger. Technologies: Golang 1.19, MongoDB (with Docker Compose), Gorilla Mux, Go Swagger, Tollbooth (rate limiting), Zap (logging), Viper, Mockery, Makefile, Pre-commit, and DockerTest (integration tests). | _Golang_, _REST API_, _MongoDB_, _Gorilla Mux_, _Go Swagger_, _Tollbooth_, _Zap_, _Viper_, _Mockery_, _Makefile_, _Pre-commit_, _Docker_, _Docker Compose_, _DockerTest_ |
+
 ## Examples
-
-### DevOps
-
-#### Shell Scripting and CLI Tools
-
-- [Python CLI Basic Example](https://github.com/nanlabs/backend-reference/tree/main/examples/cli-base) - Basic structure to create a command without passing the python command and the python file's path. _Keywords: Python3, PyCMD_
-- [Python CLI with Typer + Rich Example](https://github.com/nanlabs/backend-reference/tree/main/examples/cli-typer-base) - Interaction with an external API, to retrieve some currencies exchange rates, make conversion returning styled console output. _Keywords: Python3, Requests, Rich, Typer_
 
 ### Backend
 
+#### CLI Tools
+
+| Name                                                                                                                   | Description                                                                                                                    | Keywords                               |
+| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- |
+| [Python CLI Basic Example](https://github.com/nanlabs/backend-reference/tree/main/examples/cli-base)                   | Basic structure to create a command without passing the python command and the python file's path.                             | _Python3_, _PyCMD_                     |
+| [Python CLI with Typer + Rich Example](https://github.com/nanlabs/backend-reference/tree/main/examples/cli-typer-base) | Interaction with an external API, to retrieve some currencies exchange rates, make conversion returning styled console output. | _Python3_, _Requests_, _Rich_, _Typer_ |
+
 #### FastAPI
 
-- [FastAPI Basic Example](https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-base) - Rest API that retrieves mock data using Faker library. _Keywords: Python3, Faker, Factory-Boy, FastAPI, Pydantic_
-- [FastAPI Complete CRUD Example](https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-crud) - Rest API that allows to create, read, update and delete employees and companies in the db, besides that, has endpoints to populate the db with Mock Data using faker. _Keywords: Python3, Faker, FastAPI, Pydantic, SQLAlchemy, Alembic, Docker, Docker Compose, PGAdmin, PostgreSQL_
-- [FastAPI GraphQL](https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-gql) - GraphQL API that retrieves fake companies using Faker library. _Keywords: Python3, Factory-boy, Faker, FastAPI, Pydantic, Strawberry-graphql_
+| Name                                                                                                          | Description                                                                                                                                                           | Keywords                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| [FastAPI Basic Example](https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-base)         | Rest API that retrieves mock data using Faker library.                                                                                                                | _Python3_, _Faker_, _Factory-Boy_, _FastAPI_, _Pydantic_                                                                |
+| [FastAPI Complete CRUD Example](https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-crud) | Rest API that allows to create, read, update and delete employees and companies in the db, besides that, has endpoints to populate the db with Mock Data using faker. | _Python3_, _Faker_, _FastAPI_, _Pydantic_, _SQLAlchemy_, _Alembic_, _Docker_, _Docker Compose_, _PGAdmin_, _PostgreSQL_ |
+| [FastAPI GraphQL](https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-gql)                | GraphQL API that retrieves fake companies using Faker library.                                                                                                        | _Python3_, _Factory-boy_, _Faker_, _FastAPI_, _Pydantic_, _Strawberry-graphql_                                          |
+
+#### ThirdParty Integrations
+
+##### Stripe
+
+| Name                                                                                                                                                  | Description                                                                                                                                                                                                                                                                                    | Keywords                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [Stripe Integration with Node.js and TypeScript](https://github.com/nanlabs/backend-reference/tree/main/examples/stripe-integration-node-typescript/) | This project offers a seamless Stripe integration with Node.js and TypeScript, providing a powerful API for managing basic operations like customer creation, checkout sessions, and portal sessions. It empowers developers to effortlessly handle payment-related tasks with the Stripe API. | _Node.js_, _TypeScript_, _Stripe_, _Payment Gateway_, _API_, _Integration_, _Webhooks_ |
 
 ## Contributing
 
