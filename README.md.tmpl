@@ -21,8 +21,8 @@
 
 </div>
 
-This repository contains different Python apps that are used in different projects
-here at [NaN Labs](https://www.nanlabs.com/).
+This repository contains different Backend related resources like applications, examples, libraries,
+tools and more!
 
 ## Contents
 
