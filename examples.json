@@ -90,6 +90,21 @@
         "Integration",
         "Webhooks"
       ]
+    },
+    {
+      "name": "NestJS REST-based Microservices with NATS",
+      "description": "This project demonstrates the implementation of a microservices architecture using NestJS, a progressive Node.js framework, along with NATS for asynchronous event-based as well as synchronous request-reply messaging patterns.",
+      "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/nest-nats-microservices/",
+      "tags": ["Examples > Backend > Microservices"],
+      "labels": [
+        "Microservices",
+        "Node.js",
+        "NestJS",
+        "NATS",
+        "REST",
+        "Messaging Patterns",
+        "Proof of Concept"
+      ]
     }
   ]
 }
