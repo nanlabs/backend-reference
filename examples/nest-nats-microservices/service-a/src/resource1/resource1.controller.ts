@@ -27,7 +27,7 @@ export class Resource1Controller {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.resource1Service.findOne(+id);
+    return this.resource1Service.findOne(id);
   }
 
   @Patch(':id')
@@ -35,11 +35,11 @@ export class Resource1Controller {
     @Param('id') id: string,
     @Body() updateResource1Dto: UpdateResource1Dto,
   ) {
-    return this.resource1Service.update(+id, updateResource1Dto);
+    return this.resource1Service.update(id, updateResource1Dto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.resource1Service.remove(+id);
+    return this.resource1Service.remove(id);
   }
 }

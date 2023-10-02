@@ -8,8 +8,7 @@ async function bootstrap() {
     {
       transport: Transport.NATS,
       options: {
-        servers: ['nats://nats:4222'],
-        queue: 'channel1',
+        servers: [process.env.NATS_SERVER || 'nats://nats:4222'],
       },
     },
   );

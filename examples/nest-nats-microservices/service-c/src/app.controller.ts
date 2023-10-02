@@ -8,7 +8,7 @@ export class AppController {
 
   @MessagePattern('get_version')
   getVersion() {
-    return '0.0.21';
+    return process.env.VERSION || '0.0.21';
   }
 
   @MessagePattern('get_hello')

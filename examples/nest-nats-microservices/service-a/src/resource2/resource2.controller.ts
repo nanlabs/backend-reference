@@ -18,6 +18,6 @@ export class Resource2Controller {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.resource2Service.findOne(+id);
+    return this.resource2Service.findOne(id);
   }
 }

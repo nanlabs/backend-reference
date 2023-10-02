@@ -10,8 +10,7 @@ import { Resource2Service } from './resource2.service';
         name: 'NATS',
         transport: Transport.NATS,
         options: {
-          servers: ['nats://nats:4222'],
-          queue: 'channel2',
+          servers: [process.env.NATS_SERVER || 'nats://nats:4222'],
         },
       },
     ]),

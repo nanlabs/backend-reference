@@ -25,15 +25,15 @@ export class Resource1Service {
     return `This action returns all resource1`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} resource1`;
   }
 
-  update(id: number, updateResource1Dto: UpdateResource1Dto) {
+  update(id: string, updateResource1Dto: UpdateResource1Dto) {
     return `This action updates a #${id} resource1`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} resource1`;
   }
 }

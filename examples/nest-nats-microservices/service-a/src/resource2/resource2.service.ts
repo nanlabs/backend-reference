@@ -14,7 +14,7 @@ export class Resource2Service {
     return this.natsClient.send('get_hello', {});
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} resource2`;
   }
 }
