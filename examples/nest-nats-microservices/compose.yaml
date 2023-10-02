@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  nats:
+    container_name: nats
+    entrypoint: '/nats-server -c nats-server.conf -DV'
+    image: nats
+    ports:
+      - '4222:4222'
+      - '6222:6222'
+      - '8222:8222'
+
+  service-a:
+    build: ./service-a
+    x-develop:
+      watch:
+        - action: sync
+          path: ./service-a/src
+          target: /app/src
+        - action: rebuild
+          path: package.json
+    container_name: service-a
+    ports:
+      - '3000:3000'
+
+  service-b:
+    build: ./service-b
+    x-develop:
+      watch:
+        - action: sync
+          path: ./service-b/src
+          target: /app/src
+        - action: rebuild
+          path: package.json
+    container_name: service-b
+    ports:
+      - '3001:3001'
+
+  service-c:
+    build: ./service-c
+    x-develop:
+      watch:
+        - action: sync
+          path: ./service-c/src
+          target: /app/src
+        - action: rebuild
+          path: package.json
+    container_name: service-c
+    ports:
+      - '3002:3002'
