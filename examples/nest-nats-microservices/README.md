@@ -1,7 +1,6 @@
 # NestJS REST-based Microservices with NATS
 
 ![NaNLABS Logo](/images/logo1.svg)
-
 ![NestJS Logo](https://nestjs.com/img/logo_text.svg)
 ![NATS Logo](https://nats.io/img/logos/nats-horizontal-color.png)
 
@@ -76,11 +75,11 @@ Each microservice is contained within its own directory and follows a similar st
 
 Service **A** contains 2 resources (resource 1 and resource 2) and exposes a RESTful API with public CRUD methods.
 
-#### Event based communication
+### Event based communication
 
 Sending a _POST_ http request to `/resource1` will broadcast a `resource1_created` event which will be handled by Service **B**, outputting data in the console. This is an example of event-based asynchronous communication.
 
-#### Request-response based communication
+### Request-response based communication
 
 Sending a _GET_ http request to `/resource2` will send a message and await for a reply. Service **C** will handle the message and respond. Service **A** will output the response to the client. This is an example of syncronous communication.
 
