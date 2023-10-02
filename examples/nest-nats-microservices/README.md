@@ -34,10 +34,11 @@ This POC showcases the utilization of the following technologies:
 
 To get started with this POC:
 
-1. Clone the repository: `git clone https://github.com/your-username/your-repo.git`
-2. Navigate to the project directory: `cd your-repo`
+1. Clone the repository: `git clone git@github.com:nanlabs/backend-reference.git`
+2. Navigate to the project directory: `cd examples/nest-nats-microservices`
 3. Start NATS server and all 3 sample microservices in 🐳 Docker `docker-compose up`
-4. Follow the instructions in the [Usage](#usage) section to run and test the microservices.
+4. (Optional) Activate compose `watch` mode `docker compose alpha watch`
+5. Follow the instructions in the [Usage](#usage) section to run and test the microservices.
 
 ## Project Structure
 
@@ -75,9 +76,13 @@ Each microservice is contained within its own directory and follows a similar st
 
 Service **A** contains 2 resources (resource 1 and resource 2) and exposes a RESTful API with public CRUD methods.
 
-Sending a POST request to `/resource1` will broadcast a `resource1_created` event which will be handled by Service **B**, outputting data in the console. This is an example of event-based asynchronous communication.
+#### Event based communication
 
-Sending a GET request to `/resource2` will send a message and await for a reply. Service **C** will handle the message and respond. Service **A** will output the response to the client. This is an example of syncronous communication.
+Sending a _POST_ http request to `/resource1` will broadcast a `resource1_created` event which will be handled by Service **B**, outputting data in the console. This is an example of event-based asynchronous communication.
+
+#### Request-response based communication
+
+Sending a _GET_ http request to `/resource2` will send a message and await for a reply. Service **C** will handle the message and respond. Service **A** will output the response to the client. This is an example of syncronous communication.
 
 ## Contributing
 
