@@ -1,6 +1,6 @@
 # NestJS REST-based Microservices with NATS
 
-![NaNLABS Logo](/images/logo1.svg)
+![NaNLABS Logo](./images/logo1.svg)
 ![NestJS Logo](https://nestjs.com/img/logo_text.svg)
 ![NATS Logo](https://nats.io/img/logos/nats-horizontal-color.png)
 
