@@ -1,0 +1,4 @@
+-r requirements-prod.txt
+factory-boy==3.2.1
+Faker==13.12.1
+flake8
