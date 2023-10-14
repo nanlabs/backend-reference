@@ -101,7 +101,18 @@ If not in the root folder of the project execute:
 `source .venv/bin/activate`
 
 Once the virtual environment is activated run:
-`pip install -r requirements.txt`
+
+- For development
+
+  ```bash
+  pip install -r requirements-dev.txt
+  ```
+
+- For production
+
+  ```bash
+  pip install -r requirements-prod.txt
+  ```
 
 ## Install pre-commit
 
