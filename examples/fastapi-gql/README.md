@@ -29,8 +29,17 @@
 
 2. Install the requirements from requirements.txt
 
+   - For development
+
     ```bash
-        pip install -r requirements.txt```
+        pip install -r requirements-dev.txt
+    ```
+
+    - For production
+
+    ```bash
+        pip install -r requirements-prod.txt
+    ```
 
 ## Usage
 
