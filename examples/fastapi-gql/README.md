@@ -27,7 +27,7 @@
     source env/bin/activate
     ```
 
-2. Install the requirements from requirements.txt
+2. Install the requirements from corresponding requirements file
 
    - For development
 
