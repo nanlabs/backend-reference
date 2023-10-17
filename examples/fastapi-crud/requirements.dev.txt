@@ -1,4 +1,4 @@
--r requirements-prod.txt
+-r requirements.txt
 autopep8==1.6.0
 flake8==4.0.1
 pre-commit==2.20.0
