@@ -1,7 +1,4 @@
-factory-boy
-Faker
 fastapi
-flake8
 strawberry-graphql
 uvicorn[standard]
 tortoise-orm[asyncpg]

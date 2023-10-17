@@ -1,0 +1,4 @@
+-r requirements-prod.txt  # Include the production dependencies
+factory-boy
+Faker
+flake8

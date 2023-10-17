@@ -27,10 +27,19 @@
     source env/bin/activate
     ```
 
-2. Install the requirements from requirements.txt
+2. Install the requirements from corresponding requirements file
+
+   - For development
 
     ```bash
-        pip install -r requirements.txt```
+        pip install -r requirements.dev.txt
+    ```
+
+    - For production
+
+    ```bash
+        pip install -r requirements.txt
+    ```
 
 ## Usage
 
