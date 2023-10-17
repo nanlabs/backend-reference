@@ -1,0 +1,5 @@
+-r requirements.txt
+factory-boy==3.2.1
+Faker==13.12.1
+flake8==6.1.0
+isort==5.12.0

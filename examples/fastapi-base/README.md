@@ -23,10 +23,15 @@
 2. Activate virtualenv
     ```bash
     source env/bin/activate```
-3. Install the requirements from requirements.txt
+3. Install the requirements from corresponding requirements file
+    - For development
     ```bash
-    pip3 install -r requirements.txt```
-
+        pip install -r requirements.dev.txt
+    ```
+    - For production
+    ```bash
+        pip install -r requirements.txt
+    ```
 
 ## Usage
 
