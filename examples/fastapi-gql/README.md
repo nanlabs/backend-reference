@@ -32,13 +32,13 @@
    - For development
 
     ```bash
-        pip install -r requirements-dev.txt
+        pip install -r requirements.dev.txt
     ```
 
     - For production
 
     ```bash
-        pip install -r requirements-prod.txt
+        pip install -r requirements.txt
     ```
 
 ## Usage
