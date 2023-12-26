@@ -105,6 +105,51 @@
         "Messaging Patterns",
         "Proof of Concept"
       ]
+    },
+    {
+      "name": "FastAPI Example with PostgreSQL and Serverless Framework",
+      "description": "This project demonstrates the implementation of a REST API using FastAPI, a modern, high-performance, web framework for building APIs with Python 3.6+ based on standard Python type hints. It also uses PostgreSQL as the database and the Serverless Framework to deploy the API to AWS Lambda.",
+      "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-postgres-with-serverless",
+      "tags": [
+        "Apps and Boilerplates",
+        "Examples > Backend > FastAPI",
+        "Examples > DevOps > Infrastructure as Code > Serverless Framework, SAM and CloudFormation"
+      ],
+      "labels": [
+        "Python3",
+        "Faker",
+        "FastAPI",
+        "Pydantic",
+        "SQLAlchemy",
+        "Alembic",
+        "Docker",
+        "Docker Compose",
+        "PGAdmin",
+        "PostgreSQL",
+        "Serverless Framework",
+        "AWS Lambda",
+        "AWS RDS",
+        "AWS API Gateway"
+      ]
+    },
+    {
+      "name": "FastAPI with MongoDB and Docker Compose",
+      "description": "This project demonstrates the implementation of a REST API using FastAPI, a modern, high-performance, web framework for building APIs with Python 3.6+ based on standard Python type hints. It also uses MongoDB as the database and Docker Compose to run the API and the database in containers.",
+      "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-mongo-with-docker-compose",
+      "tags": [
+        "Apps and Boilerplates",
+        "Examples > Backend > FastAPI",
+        "Examples > DevOps > Containers, Orchestration and Serverless > Containers and Compositions (Docker, Docker Compose, Buildpacks and more)"
+      ],
+      "labels": [
+        "Python3",
+        "FastAPI",
+        "Pydantic",
+        "MongoDB",
+        "Mongo Express",
+        "Docker",
+        "Docker Compose"
+      ]
     }
   ]
 }
