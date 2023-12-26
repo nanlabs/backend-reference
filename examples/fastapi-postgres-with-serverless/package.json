@@ -1,0 +1,25 @@
+{
+  "name": "serverless-api",
+  "version": "1.0.0",
+  "description": "Serverless fastapi example",
+  "main": "index.js",
+  "scripts": {
+    "sls": "serverless",
+    "sls:deploy": "serverless deploy",
+    "sls:offline": "serverless offline start",
+    "sls:package": "serverless package",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nanlabs/devops-reference.git"
+  },
+  "author": "nanlabs",
+  "homepage": "https://github.com/nanlabs/devops-reference#readme",
+  "devDependencies": {
+    "serverless": "^3.34.0",
+    "serverless-offline": "^11.6.0",
+    "serverless-python-requirements": "^6.0.0",
+    "serverless-s3-local": "^0.7.2"
+  }
+}

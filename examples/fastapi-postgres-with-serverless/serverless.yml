@@ -1,0 +1,91 @@
+service: ${env:SERVICE_NAME, 'serverless-fastapi-example'}
+
+frameworkVersion: "3"
+
+plugins:
+  - serverless-python-requirements
+  - serverless-s3-local
+  - serverless-offline
+
+useDotenv: true
+
+package:
+  individually: true
+  excludeDevDependencies: true
+  exclude:
+    - "**"
+  include:
+    - "!./**"
+    - "**/*.py"
+
+custom:
+  pythonRequirements:
+    usePipenv: true
+    layer: true
+    noDeploy:
+      - pytest
+  serverless-offline:
+    httpPort: 3000
+    port: 3000
+    noPrependStageInUrl: true
+  s3:
+    host: localhost
+    port: 8000
+    directory: ${env:LOCAL_S3_PATH, '/tmp'}
+    accessKeyId: S3RVER
+    secretAccessKey: S3RVER
+    buckets:
+      - ${env:S3_EXTRA_BUCKET_NAME}
+
+provider:
+  name: aws
+  stage: local
+  runtime: python3.9
+  environment:
+    STAGE: ${sls:stage}
+  deploymentBucket:
+    blockPublicAccess: true
+    versioning: true
+    serverSideEncryption: AES256
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:*
+      Resource:
+        - arn:aws:s3:::${env:S3_EXTRA_BUCKET_NAME}
+        - arn:aws:s3:::${env:S3_EXTRA_BUCKET_NAME}/*
+
+functions:
+  app:
+    runtime: python3.9
+    handler: src/main.handler
+    layers:
+      - Ref: PythonRequirementsLambdaLayer
+    events:
+      - http:
+          path: /
+          method: ANY
+          cors: true
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true
+      - http:
+          path: /docs
+          method: ANY
+          private: false
+      - http:
+          path: /openapi.json
+          method: ANY
+          private: false
+
+resources:
+  Resources:
+    S3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${env:S3_EXTRA_BUCKET_NAME}
+
+  Outputs:
+    S3BucketNameOutputKey:
+      Value: !Ref S3Bucket

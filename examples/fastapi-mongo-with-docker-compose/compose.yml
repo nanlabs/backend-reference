@@ -1,0 +1,65 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder-dev
+    ports:
+      - "80:80"
+    volumes:
+      - ./app:/code/app
+    networks:
+      - api-local-net
+    command: ["uvicorn", "app.main:app", "--reload", "--host", "0.0.0.0", "--port", "80"]
+
+  mongo:
+    image: mongo:5.0.9
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
+      MONGO_NON_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_NON_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo/initdb.d:/docker-entrypoint-initdb.d:ro
+      - mongodb-data:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo 127.0.0.1:27017/test --quiet
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - api-local-net
+
+  mongo-express:
+    image: mongo-express:1.0.0-alpha.4
+    restart: unless-stopped
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_ROOT_USERNAME}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_ROOT_PASSWORD}
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_MONGODB_PORT: 27017
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongo
+    healthcheck:
+      test: wget --quiet --tries=3 --spider http://${MONGO_ROOT_USERNAME}:${MONGO_ROOT_PASSWORD}@127.0.0.1:8081 || exit 1
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - api-local-net
+
+networks:
+  api-local-net:
+    driver: bridge
+
+volumes:
+  mongodb-data:
+    name: mongodb-data
