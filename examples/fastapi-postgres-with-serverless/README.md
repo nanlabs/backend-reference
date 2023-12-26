@@ -73,7 +73,7 @@ aws_secret_access_key = S3RVER
 then you can interact with S3 locally doing the following:
 
 ```sh
-aws --endpoint-url=http://localhost:8000 s3 cp .gitignore s3://vayda-s3-local-extra/ --profile s3local
+aws --endpoint-url=http://localhost:8000 s3 cp .gitignore s3://s3-local-extra/ --profile s3local
 ```
 
 ## Deployment
