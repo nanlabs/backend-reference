@@ -23,7 +23,7 @@ cd backend-reference/examples/golang-api-with-postgres-and-sqlc
 ```
 
 3. We are using [sqlc](https://docs.sqlc.dev/en/stable/index.html) to generate the queries and models.
-   To generate the queries run
+  To generate the queries run
 
 ```bash
 sqlc generate
