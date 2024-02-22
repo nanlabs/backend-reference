@@ -1,0 +1,18 @@
+version: "3"
+services:
+  db:
+    container_name: db
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: poc
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+  go_api:
+    container_name: go_api
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
