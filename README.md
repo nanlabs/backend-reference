@@ -27,16 +27,15 @@ tools and more!
 
 ## Contents
 
+- [Contents](#contents)
 - [Apps and Boilerplates](#apps-and-boilerplates)
 - [Examples](#examples)
-
   - [Backend](#backend)
     - [CLI Tools](#cli-tools)
     - [FastAPI](#fastapi)
     - [ThirdParty Integrations](#thirdparty-integrations)
       - [Stripe](#stripe)
     - [Microservices](#microservices)
-
 - [Contributing](#contributing)
 - [Contributors](#contributors)
 
@@ -88,7 +87,7 @@ tools and more!
 ## Contributors
 
 <a href="https://github.com/nanlabs/backend-reference/contributors">
-  <img src="https://contrib.rocks/image?repo=nanlabs/backend-reference"/>
+  <img src="https://contrib.rocks/image?repo=nanlabs/backend-reference" alt="Contributors"/>
 </a>
 
 Made with [contributors-img](https://contrib.rocks).
