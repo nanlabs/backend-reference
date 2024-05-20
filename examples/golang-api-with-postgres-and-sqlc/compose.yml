@@ -8,7 +8,9 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_DB: poc
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
   go_api:
     container_name: go_api
     build: .
@@ -16,3 +18,6 @@ services:
       - db
     ports:
       - "8080:8080"
+volumes:
+  db_data:
+    name: db_data

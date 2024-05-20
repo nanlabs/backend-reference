@@ -1,23 +1,26 @@
-# This Dockerfile is used to build a Docker image for a Go application with PostgreSQL.
-# It sets the working directory to /go/src/app, copies the application code into the container,
-# installs the dependencies using go get, and builds the application using go install.
-# The resulting executable is set as the command to run when the container starts.
-
-FROM golang:1.22
+# Build stage
+FROM golang:1.22 AS builder
 
 WORKDIR /go/src/app
 
-# pre-copy/cache go.mod for pre-downloading dependencies and only redownloading them in subsequent builds if they change
+# Pre-copy/cache go.mod and go.sum for pre-downloading dependencies
 COPY go.mod go.sum ./
+RUN go mod download
 
-# RUN go get -d -v ./...
-RUN go mod download && go mod verify
-
+# Copy the source code
 COPY . .
 
-# RUN go install -v ./...
-RUN go build -v -o /usr/local/bin/app .
+# Build the Go application
+RUN go build -v -o /go/bin/app .
 
+# Final stage
+FROM gcr.io/distroless/base-debian12
+
+# Copy the compiled binary from the build stage
+COPY --from=builder /go/bin/app /
+
+# Expose the application port
 EXPOSE 8080
 
-CMD ["app"]
+# Set the command to run the application
+CMD ["/app"]
