@@ -2,6 +2,8 @@ package service
 
 import (
 	"context"
+	"crypto/md5"
+	"encoding/hex"
 	"go-postgres-sqlc/model"
 	"go-postgres-sqlc/repository"
 )
@@ -23,6 +25,7 @@ func NewUser(repo repository.IUserRepository) IUserService {
 }
 
 func (s *UserService) CreateUser(ctx context.Context, user model.User) (model.User, error) {
+	user.Password = GetMd5(user.Password)
 	newUser, err := s.repo.CreateUser(ctx, user)
 	if err != nil {
 		return model.User{}, err
@@ -44,4 +47,11 @@ func (s *UserService) ListUsers(ctx context.Context) ([]model.User, error) {
 		return nil, err
 	}
 	return users, nil
+}
+
+func GetMd5(input string) string {
+	hash := md5.New()
+	defer hash.Reset()
+	hash.Write([]byte(input))
+	return hex.EncodeToString(hash.Sum(nil))
 }
