@@ -1,27 +1,27 @@
-package handlers
+package handler
 
 import (
 	"encoding/json"
 	"fmt"
-	"go-postgres-sqlc/db"
-	"go-postgres-sqlc/db/sqlc"
+	"go-postgres-sqlc/model"
 	"net/http"
 	"strconv"
 	"time"
 
 	"github.com/gorilla/mux"
-	"github.com/jackc/pgx/v5/pgtype"
+
+	"go-postgres-sqlc/service"
 )
 
-// Handlers holds the dependencies for the HTTP handlers.
-type Handlers struct {
-	DB *db.DB
+// UserHandler holds the dependencies for the HTTP handlers.
+type UserHandler struct {
+	userSvc service.IUserService
 }
 
-// New initializes a new Handlers instance.
-func New(db *db.DB) *Handlers {
-	return &Handlers{
-		DB: db,
+// NewUser initializes a new Handlers instance.
+func NewUser(userSvc service.IUserService) *UserHandler {
+	return &UserHandler{
+		userSvc: userSvc,
 	}
 }
 
@@ -36,8 +36,8 @@ type User struct {
 }
 
 // ListUsers handles listing all users.
-func (h *Handlers) ListUsers(rw http.ResponseWriter, r *http.Request) {
-	users, err := h.DB.Queries.ListUsers(r.Context())
+func (h *UserHandler) ListUsers(rw http.ResponseWriter, r *http.Request) {
+	users, err := h.userSvc.ListUsers(r.Context())
 	if err != nil {
 		writeError(rw, err, http.StatusInternalServerError)
 		return
@@ -47,7 +47,7 @@ func (h *Handlers) ListUsers(rw http.ResponseWriter, r *http.Request) {
 		usersResponse[i] = User{
 			ID:        user.ID,
 			Username:  user.Username,
-			Email:     user.Email.String,
+			Email:     user.Email,
 			CreatedAt: user.CreatedAt,
 		}
 	}
@@ -57,14 +57,14 @@ func (h *Handlers) ListUsers(rw http.ResponseWriter, r *http.Request) {
 type GetUserResponse User
 
 // GetUser handles retrieving a user by ID.
-func (h *Handlers) GetUser(rw http.ResponseWriter, r *http.Request) {
+func (h *UserHandler) GetUser(rw http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id, err := strconv.ParseInt(vars["id"], 10, 64)
 	if err != nil {
 		writeError(rw, fmt.Errorf("invalid user ID: %v", err), http.StatusBadRequest)
 		return
 	}
-	user, err := h.DB.Queries.GetUser(r.Context(), id)
+	user, err := h.userSvc.GetUser(r.Context(), id)
 	if err != nil {
 		writeError(rw, err, http.StatusInternalServerError)
 		return
@@ -72,7 +72,7 @@ func (h *Handlers) GetUser(rw http.ResponseWriter, r *http.Request) {
 	userResponse := GetUserResponse{
 		ID:        user.ID,
 		Username:  user.Username,
-		Email:     user.Email.String,
+		Email:     user.Email,
 		CreatedAt: user.CreatedAt,
 	}
 	writeResponse(rw, http.StatusOK, userResponse)
@@ -86,24 +86,24 @@ type CreateUserRequest struct {
 type CreateUserResponse struct {
 	ID        int64     `json:"id"`
 	Username  string    `json:"username"`
-	Password  string    `json:"password"`
 	Email     string    `json:"email,omitempty"`
 	CreatedAt time.Time `json:"createdAt"`
 }
 
 // CreateUser handles creating a new user.
-func (h *Handlers) CreateUser(rw http.ResponseWriter, r *http.Request) {
-	var user CreateUserRequest
-	err := json.NewDecoder(r.Body).Decode(&user)
+func (h *UserHandler) CreateUser(rw http.ResponseWriter, r *http.Request) {
+	var createUserReq CreateUserRequest
+	err := json.NewDecoder(r.Body).Decode(&createUserReq)
 	if err != nil {
 		writeError(rw, err, http.StatusUnprocessableEntity)
 		return
 	}
-	newUser, err := h.DB.Queries.CreateUser(r.Context(), sqlc.CreateUserParams{
-		Username: user.Username,
-		Password: user.Password,
-		Email:    NewText(user.Email),
-	})
+	user := model.User{
+		Username: createUserReq.Username,
+		Password: createUserReq.Password,
+		Email:    createUserReq.Email,
+	}
+	newUser, err := h.userSvc.CreateUser(r.Context(), user)
 	if err != nil {
 		writeError(rw, err, http.StatusInternalServerError)
 		return
@@ -111,8 +111,7 @@ func (h *Handlers) CreateUser(rw http.ResponseWriter, r *http.Request) {
 	createUserResponse := CreateUserResponse{
 		ID:        newUser.ID,
 		Username:  newUser.Username,
-		Password:  newUser.Password,
-		Email:     newUser.Email.String,
+		Email:     newUser.Email,
 		CreatedAt: newUser.CreatedAt,
 	}
 	writeResponse(rw, http.StatusCreated, createUserResponse)
@@ -145,15 +144,5 @@ func writeError(rw http.ResponseWriter, err error, statusCode int) {
 	})
 	if err != nil {
 		http.Error(rw, "Failed to encode response: "+err.Error(), http.StatusInternalServerError)
-	}
-}
-
-func NewText(s string) pgtype.Text {
-	if s == "" {
-		return pgtype.Text{}
-	}
-	return pgtype.Text{
-		String: s,
-		Valid:  true,
 	}
 }

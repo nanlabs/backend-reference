@@ -2,9 +2,12 @@ package main
 
 import (
 	"go-postgres-sqlc/db"
-	"go-postgres-sqlc/handlers"
+	"go-postgres-sqlc/handler"
 	"log"
 	"net/http"
+
+	"go-postgres-sqlc/repository"
+	"go-postgres-sqlc/service"
 
 	"github.com/gorilla/mux"
 )
@@ -13,14 +16,16 @@ func main() {
 	db := db.New("postgres://postgres:postgres@db:5432/poc?sslmode=disable")
 	runMigrations(db)
 
-	handlers := handlers.New(db)
+	userRepo := repository.NewUser(db)
+	userSvc := service.NewUser(userRepo)
+	userHandler := handler.NewUser(userSvc)
 
 	router := mux.NewRouter()
 	base := router.PathPrefix("/api").Subrouter()
 
-	base.HandleFunc("/user", handlers.ListUsers).Methods(http.MethodGet)
-	base.HandleFunc("/user/{id:[0-9]+}", handlers.GetUser).Methods(http.MethodGet)
-	base.HandleFunc("/user", handlers.CreateUser).Methods(http.MethodPost)
+	base.HandleFunc("/user", userHandler.ListUsers).Methods(http.MethodGet)
+	base.HandleFunc("/user/{id:[0-9]+}", userHandler.GetUser).Methods(http.MethodGet)
+	base.HandleFunc("/user", userHandler.CreateUser).Methods(http.MethodPost)
 
 	err := http.ListenAndServe(":8080", base)
 	if err != nil {
