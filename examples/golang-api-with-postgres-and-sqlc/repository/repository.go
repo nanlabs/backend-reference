@@ -76,11 +76,5 @@ func (r *UserRepository) ListUsers(ctx context.Context) ([]model.User, error) {
 }
 
 func NewText(s string) pgtype.Text {
-	if s == "" {
-		return pgtype.Text{}
-	}
-	return pgtype.Text{
-		String: s,
-		Valid:  true,
-	}
+	return pgtype.Text{String: s, Valid: s != ""}
 }
