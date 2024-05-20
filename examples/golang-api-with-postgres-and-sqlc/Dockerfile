@@ -14,7 +14,7 @@ COPY . .
 RUN go build -v -o /go/bin/app .
 
 # Final stage
-FROM gcr.io/distroless/base-debian12
+FROM gcr.io/distroless/base-debian12:latest
 
 # Copy the compiled binary from the build stage
 COPY --from=builder /go/bin/app /
