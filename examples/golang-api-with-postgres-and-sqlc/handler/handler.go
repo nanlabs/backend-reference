@@ -136,7 +136,7 @@ type ErrorResponse struct {
 
 // writeError writes an error response to the ResponseWriter.
 func writeError(rw http.ResponseWriter, err error, statusCode int) {
-	rw.Header().Set("Content-Type", "application/json+problem")
+	rw.Header().Set("Content-Type", "application/problem+json")
 	rw.WriteHeader(statusCode)
 	err = json.NewEncoder(rw).Encode(ErrorResponse{
 		Message:    err.Error(),
