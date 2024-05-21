@@ -2,6 +2,7 @@ package db
 
 import (
 	"context"
+	"fmt"
 	"go-postgres-sqlc/db/sqlc"
 	"log"
 
@@ -17,11 +18,11 @@ type DB struct {
 }
 
 // New initializes a new DBConfig instance
-func New(dsn string) *DB {
+func New(dsn string) (*DB, error) {
 	ctx := context.Background()
 	conn, err := pgx.Connect(ctx, dsn)
 	if err != nil {
-		log.Fatalf("Unable to connect to database: %v", err)
+		return nil, fmt.Errorf("unable to connect to database: %v", err)
 	}
 	log.Println("Connected to database")
 
@@ -32,5 +33,5 @@ func New(dsn string) *DB {
 		Context: ctx,
 		Conn:    conn,
 		Queries: queries,
-	}
+	}, nil
 }
