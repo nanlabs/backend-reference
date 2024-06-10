@@ -150,6 +150,23 @@
         "Docker",
         "Docker Compose"
       ]
+    },
+    {
+      "name": "SQLC with Go, PostgreSQL, Docker Compose",
+      "description": "This project demonstrates the implementation of a REST API using Go, SQLC, and PostgreSQL. It uses Docker Compose to set up the development environment and includes examples of creating, reading, updating, and deleting records in the database.",
+      "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/golang-api-with-postgres-and-sqlc",
+      "tags": [
+        "Apps and Boilerplates",
+        "Examples > Backend > SQLC",
+        "Examples > DevOps > Containers, Orchestration and Serverless > Containers and Compositions (Docker, Docker Compose, Buildpacks and more)"
+      ],
+      "labels": [
+        "Golang",
+        "SQLC",
+        "PostgreSQL",
+        "Docker",
+        "Docker Compose"
+      ]
     }
   ]
 }
