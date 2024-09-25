@@ -1,0 +1,14 @@
+[flake8]
+max-line-length = 100
+max-complexity = 18
+select =
+    "B",  # Bugbear
+    "C",  # Cyclomatic complexity
+    "E",  # PEP8 errors
+    "F",  # PyFlakes
+    "W",  # PEP8 warnings
+    "T4",  # Flake8 plugins that check typing
+    "B9",  # Bugbear
+#require-plugins =
+#    "flake8-bugbear",
+#    "flake8-black",

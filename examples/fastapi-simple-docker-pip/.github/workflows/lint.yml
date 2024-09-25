@@ -1,0 +1,79 @@
+---
+name: Super Linter
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      actions: read
+      checks: read
+      statuses: write
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python, including cache for pipenv virtual environment
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+          cache: pipenv
+
+      - name: Install pipenv
+        run: |
+          pip install --upgrade pip
+          pip install pipenv
+
+      - name: Install project dependencies
+        run: pipenv install --deploy --dev
+
+      - name: Get virtual environment path
+        id: get-venv-path
+        run: echo "venv-path=$(pipenv --venv)" >> "$GITHUB_OUTPUT"
+
+      - name: Copy python dependencies
+        run: |
+          cp -r "${{ steps.get-venv-path.outputs.venv-path }}" \
+          /home/runner/work/_temp/_github_workflow/.venv
+
+      - name: Get Python version from .python-version file
+        id: get-python-version
+        run: echo "python-version=$(cut -d '.' -f 1,2 .python-version)" >> "$GITHUB_OUTPUT"
+
+      - name: Lint Code Base
+        uses: super-linter/super-linter/slim@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH: main
+          VALIDATE_ALL_CODEBASE: true
+          LINTER_RULES_PATH: .
+          PYTHONPATH: "/github/workspace:/github/workflow/.venv/lib/python${{ steps.get-python-version.outputs.python-version }}/site-packages"
+          MARKDOWN_CONFIG_FILE: .markdownlint.json
+          PYTHON_BLACK_CONFIG_FILE: pyproject.toml
+          PYTHON_ISORT_CONFIG_FILE: pyproject.toml
+          PYTHON_PYLINT_CONFIG_FILE: pyproject.toml
+          PYTHON_RUFF_CONFIG_FILE: pyproject.toml
+          VALIDATE_BASH_EXEC: false
+          VALIDATE_CHECKOV: false
+          VALIDATE_CLOUDFORMATION: false
+          VALIDATE_JSCPD: false
+          VALIDATE_SHELL_SHFMT: false
+          VALIDATE_BASH: false
+          VALIDATE_DOCKERFILE_HADOLINT: false

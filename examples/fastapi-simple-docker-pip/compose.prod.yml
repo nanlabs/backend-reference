@@ -1,0 +1,11 @@
+---
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - "80:80"
+    volumes:
+      - ./app:/code/app
