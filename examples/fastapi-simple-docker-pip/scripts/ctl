@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+## note-go API Development Tool
+## Copyright (2024) NaNLABS
+## Licensed under XYZ
+##
+## This script is a wrapper around docker compose to run the services locally.
+##
+##	 @script.name [option] ARGUMENTS...
+##
+## Options:
+##   -h, --help             Show this help text.
+##   -b, --backend          Run the backend service
+##       --command=COMMAND  Command to run. Allow to pass through parameters directly to docker compose
+##
+
+set -e
+
+ROOT="$(realpath "$(dirname "$0")"/..)"
+source "${ROOT}/scripts/easy-options/easyoptions.sh" || exit 1
+
+# Run from the root to save docker context
+cd "${ROOT}" || exit 1
+
+# Check if docker is available
+if ! command -v docker &>/dev/null; then
+	echo "Docker is not available. Please install docker to run the services locally."
+	exit 1
+fi
+
+COMPOSE_COMMAND="docker compose"
+
+# Check if compose is available in docker
+if ! docker compose version &>/dev/null; then
+	echo "Docker compose is not available. Falling back to docker-compose."
+	COMPOSE_COMMAND="docker-compose"
+	if ! command -v docker-compose &>/dev/null; then
+		echo "Docker-compose is not available. Please install docker-compose or upgrade docker to use docker compose."
+		exit 1
+	fi
+fi
+
+command="${command:-up}"
+
+COMPOSE="${COMPOSE_COMMAND}"
+if [[ -n "$backend" ]]; then
+	COMPOSE="${COMPOSE} --file ${ROOT}/compose.yml"
+fi
+
+echo "Running command: ${COMPOSE} ${command} ${arguments[*]}"
+${COMPOSE} "${command}" "${arguments[@]}"
+

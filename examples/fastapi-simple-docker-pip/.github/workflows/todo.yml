@@ -1,0 +1,28 @@
+---
+name: Todo Checker
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  todo:
+    name: TODO
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      issues: write
+
+    steps:
+      - name: Begin CI...
+        uses: actions/checkout@v4
+
+      - name: TODO to Issue
+        uses: alstr/todo-to-issue-action@v5
+        id: todo
