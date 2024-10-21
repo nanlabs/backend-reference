@@ -1,6 +1,5 @@
 import factory
 from faker import Factory
-
 from models.company_model import Company_Pydantic
 
 faker = Factory.create()

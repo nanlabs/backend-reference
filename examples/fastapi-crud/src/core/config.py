@@ -62,5 +62,5 @@ class Settings:
                 postgres_password=getenv("POSTGRES_PASSWORD"),
                 postgres_name=getenv("POSTGRES_NAME"),
                 pgadmin_default_email=getenv("PGADMIN_DEFAULT_EMAIL"),
-                pgadmin_default_password=getenv("PGADMIN_DEFAULT_PASSWORD")
+                pgadmin_default_password=getenv("PGADMIN_DEFAULT_PASSWORD"),
             )

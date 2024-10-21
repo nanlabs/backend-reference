@@ -2,7 +2,6 @@ from dataclasses import dataclass
 
 from entities.currencies import CURRENCY_NAMES, Currency
 from rich.console import Console
-
 from services.api_consumer import Exchange
 
 
@@ -52,15 +51,13 @@ class InputWrapper:
             "Introduce the amount in "
             f"{self._from_currency.name.upper()} "
             f"to be converted to {self._to_currency.name.upper()}",
-            style="bold green"
+            style="bold green",
         )
         command = input("AMOUNT: ")
         self._amount = float(command)
 
     def wrap(self) -> ConversionParams:
-        while self._amount == 0 or \
-            not self._from_currency or \
-                not self._to_currency:
+        while self._amount == 0 or not self._from_currency or not self._to_currency:
             try:
                 if not self._from_currency:
                     self._from_currency_input()
@@ -69,15 +66,12 @@ class InputWrapper:
                 if self._amount == 0:
                     self._amount_input()
             except ValueError:
-                self._console.print(
-                    "Invalid value, please try again",
-                    style="bold red"
-                )
+                self._console.print("Invalid value, please try again", style="bold red")
                 continue
             return ConversionParams(
                 exchange=self._exchange_data,
                 console=self._console,
                 amount=self._amount,
                 from_currency=self._from_currency.value,
-                to_currency=self._to_currency.value
+                to_currency=self._to_currency.value,
             )

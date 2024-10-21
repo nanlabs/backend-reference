@@ -1,11 +1,10 @@
 from time import time
 
+from app.config import settings
+from app.router import router as api_router
 from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from mangum import Mangum
-
-from app.config import settings
-from app.router import router as api_router
 
 app = FastAPI(title=settings.app.title, version=settings.app.version)
 

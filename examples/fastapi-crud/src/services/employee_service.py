@@ -1,14 +1,13 @@
 from typing import List
 from uuid import uuid4
 
-from sqlalchemy.orm import Session
-
 from exceptions.database_exceptions import DatabaseExceptions
 from factories.employee_factory import EmployeesFactory
 from models.models import Employee
 from models.schemas.employee import NewEmployeeSchema, PatchEmployeeSchema
 from repositories.employee_repository import EmployeeRepository
 from services.company_service import CompanyService
+from sqlalchemy.orm import Session
 
 
 class EmployeeService:
@@ -49,7 +48,7 @@ class EmployeeService:
     @staticmethod
     async def patch(id: str, request: PatchEmployeeSchema, db: Session) -> Employee:
         employee: Employee = await EmployeeRepository.get_by_id(id, db)
-        for (key, value) in request.dict().items():
+        for key, value in request.dict().items():
             if value is not None:
                 setattr(employee, key, value)
         await EmployeeRepository.patch(employee, db)
