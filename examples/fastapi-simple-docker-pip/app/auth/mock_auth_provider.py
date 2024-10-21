@@ -1,5 +1,7 @@
-from typing import Any, List, Dict
+from typing import Any, Dict, List
+
 from .generic_auth_provider import AuthProvider
+
 
 class MockAuthProvider(AuthProvider):
     def authenticate_user(self, token: str) -> Dict[str, Any]:
@@ -8,7 +10,7 @@ class MockAuthProvider(AuthProvider):
             "username": "mockuser",
             "is_premium": True,
             "email": "mockuser@example.com",
-            "groups": ["user", "admin"]
+            "groups": ["user", "admin"],
         }
 
     def get_user(self, user_id: str) -> Dict[str, Any]:
@@ -18,13 +20,13 @@ class MockAuthProvider(AuthProvider):
             "username": "mockuser",
             "is_premium": True,
             "email": "mockuser@example.com",
-            "groups": ["user", "admin"]
+            "groups": ["user", "admin"],
         }
 
-    def create_user(self, email: str, attributes: List[Dict[str, Any]], groups: List[str]) -> Dict[str, Any]:
-        return {
-            "response": "User created successfully"
-        }
+    def create_user(
+        self, email: str, attributes: List[Dict[str, Any]], groups: List[str]
+    ) -> Dict[str, Any]:
+        return {"response": "User created successfully"}
 
     def update_user(self, email: str, attributes: List[Dict[str, Any]], groups: List[str]) -> None:
         pass

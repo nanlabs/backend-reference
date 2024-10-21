@@ -1,12 +1,11 @@
+from db.database import Base
 from sqlalchemy import Column
 from sqlalchemy.schema import ForeignKey
 from sqlalchemy.sql.sqltypes import Boolean, String
 
-from db.database import Base
-
 
 class Company(Base):
-    __tablename__ = 'company'
+    __tablename__ = "company"
     id = Column(String, primary_key=True, index=True, unique=True)
     company_name = Column(String, nullable=False)
     address = Column(String, nullable=False)
@@ -24,7 +23,7 @@ class Company(Base):
 
 
 class Employee(Base):
-    __tablename__ = 'employee'
+    __tablename__ = "employee"
     id = Column(String, primary_key=True, index=True, unique=True)
     first_name = Column(String, nullable=False)
     last_name = Column(String, nullable=False)
@@ -39,5 +38,5 @@ class Employee(Base):
     phone_number = Column(String)
     is_manager = Column(Boolean)
     avatar_url = Column(String)
-    company = Column(String, ForeignKey('company.id'))
+    company = Column(String, ForeignKey("company.id"))
     role = Column(String)

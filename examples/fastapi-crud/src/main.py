@@ -1,23 +1,17 @@
-
 import logging
 import time
 
 import uvicorn
+from core.config import ApiSettings, Settings
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-
-from core.config import ApiSettings, Settings
 from routes.routers import api_router
 
-logging.config.fileConfig('logging.conf', disable_existing_loggers=False)
+logging.config.fileConfig("logging.conf", disable_existing_loggers=False)
 
 API_SETTINGS: ApiSettings = Settings.get_api_settings()
 
-app = FastAPI(
-    title=API_SETTINGS.title,
-    debug=API_SETTINGS.debug,
-    version=API_SETTINGS.version
-)
+app = FastAPI(title=API_SETTINGS.title, debug=API_SETTINGS.debug, version=API_SETTINGS.version)
 
 # Add routes
 app.include_router(api_router)
@@ -32,21 +26,21 @@ app.add_middleware(
 )
 
 
-@app.middleware('http')
+@app.middleware("http")
 async def add_middleware(request: Request, call_next):
     start_time = time.time()
     response = await call_next(request)
     duration = time.time() - start_time
-    response.headers['duration'] = str(duration * 100) + " ms"
+    response.headers["duration"] = str(duration * 100) + " ms"
     return response
 
 
 if __name__ == "__main__":
     uvicorn.run(
-        'main:app',
+        "main:app",
         host=API_SETTINGS.host,
         port=API_SETTINGS.port,
         debug=API_SETTINGS.debug,
         reload=True,
-        reload_includes=["*"]
+        reload_includes=["*"],
     )

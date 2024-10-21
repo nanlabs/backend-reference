@@ -2,14 +2,14 @@ from typing import List
 from uuid import uuid4
 
 from faker import Faker
-from sqlalchemy.orm import Session
-
 from models.models import Company
 from repositories.company_repository import CompanyRepository
+from sqlalchemy.orm import Session
 
 
 class CompanyFactory:
     """Generates Companies in the DB"""
+
     def __init__(self) -> None:
         self.companies = list()
 
@@ -29,7 +29,7 @@ class CompanyFactory:
             owner_last_name=fake.last_name_nonbinary(),
             email=fake.ascii_email(),
             phone_number=fake.phone_number(),
-            tax_id=fake.isbn13()
+            tax_id=fake.isbn13(),
         )
         await CompanyRepository.create(new_company, db)
         self.companies.append(new_company)

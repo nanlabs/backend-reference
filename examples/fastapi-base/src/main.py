@@ -1,7 +1,4 @@
 import uvicorn
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-
 from core.config import (
     ALLOWED_CORS_HEADERS,
     ALLOWED_CORS_HOSTS,
@@ -10,6 +7,8 @@ from core.config import (
     APP_VERSION,
     IS_DEBUG,
 )
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from routes.routers import api_router
 
 
@@ -33,10 +32,4 @@ app = start_app()
 
 
 if __name__ == "__main__":
-    uvicorn.run(
-        "main:app",
-        host="0.0.0.0",
-        port=8000,
-        reload=True,
-        debug=True
-    )
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True, debug=True)

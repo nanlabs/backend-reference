@@ -1,5 +1,4 @@
 from fastapi import APIRouter, status
-
 from models.user_model import Users, UsersList
 from services.user_service import UsersService
 
@@ -42,7 +41,7 @@ async def put_user(user_id: int) -> Users:
     status_code=status.HTTP_200_OK,
     response_model=Users,
     name="Update User by Id",
-    deprecated=True
+    deprecated=True,
 )
 async def dep_get_user_by_id(user_id: int) -> Users:
     return user_service.get_user(user_id)

@@ -40,6 +40,7 @@ class NewCompanySchema(BaseModel):
         """This config validates the request, if it has extra fields raises a validation error
         https://pydantic-docs.helpmanual.io/usage/model_config/#options
         """
+
         extra = "forbid"
 
 
@@ -62,4 +63,5 @@ class PatchCompanySchema(BaseModel):
         """This config validates the request, if it has extra fields raises a validation error
         https://pydantic-docs.helpmanual.io/usage/model_config/#options
         """
+
         extra = "forbid"

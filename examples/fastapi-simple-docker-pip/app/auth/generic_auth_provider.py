@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
-from typing import Any, List, Dict
+from typing import Any, Dict, List
+
 
 class AuthProvider(ABC):
     @abstractmethod
@@ -11,7 +12,9 @@ class AuthProvider(ABC):
         pass
 
     @abstractmethod
-    def create_user(self, email: str, attributes: List[Dict[str, Any]], groups: List[str]) -> Dict[str, Any]:
+    def create_user(
+        self, email: str, attributes: List[Dict[str, Any]], groups: List[str]
+    ) -> Dict[str, Any]:
         pass
 
     @abstractmethod

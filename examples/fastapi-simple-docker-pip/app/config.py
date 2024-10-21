@@ -7,6 +7,7 @@ class AppSettings(BaseSettings):
     version: str = Field(alias="APP_VERSION", default="0.1.2")
     stage: str = Field(alias="STAGE", default="local")
 
+
 class EmailSettings(BaseSettings):
     model_config = SettingsConfigDict(extra="ignore")
     smtp_host: str | None = Field(alias="EMAIL_SMTP_HOST", default=None)

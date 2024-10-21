@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from mangum import Mangum
-
 from src.router.routes import router as api_router
 
 ALLOWED_ORIGINS = [
