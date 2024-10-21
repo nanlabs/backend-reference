@@ -9,16 +9,13 @@ class DatabaseExceptions:
         """Throws a generic DB error"""
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Oops, we couldn't connect to the db, please try again later"
+            detail="Oops, we couldn't connect to the db, please try again later",
         ) from e
 
     @staticmethod
     def throw_not_found_error(item: str) -> None:
         """Throws a Not Found DB error for an specific item"""
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"{item} not found"
-        )
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"{item} not found")
 
     @staticmethod
     def throw_db_integrity_error(integrity_error: IntegrityError):
@@ -29,6 +26,5 @@ class DatabaseExceptions:
         else:
             detail = str(integrity_error)
         raise HTTPException(
-            status_code=status.HTTP_409_CONFLICT,
-            detail=detail
+            status_code=status.HTTP_409_CONFLICT, detail=detail
         ) from integrity_error

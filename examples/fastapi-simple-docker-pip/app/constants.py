@@ -1,5 +1,3 @@
-from types import SimpleNamespace
-
 ASC = "asc"
 DESC = "desc"
 

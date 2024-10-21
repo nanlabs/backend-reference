@@ -1,12 +1,11 @@
 from typing import List
 from uuid import uuid4
 
-from sqlalchemy.orm import Session
-
 from factories.companies_factory import CompanyFactory
 from models.models import Company
 from models.schemas.company import NewCompanySchema, PatchCompanySchema
 from repositories.company_repository import CompanyRepository
+from sqlalchemy.orm import Session
 
 
 class CompanyService:
@@ -28,7 +27,7 @@ class CompanyService:
     @staticmethod
     async def patch(id: str, request: PatchCompanySchema, db: Session) -> Company:
         company: Company = await CompanyRepository.get_by_id(id, db)
-        for (key, value) in request.dict().items():
+        for key, value in request.dict().items():
             if value is not None:
                 setattr(company, key, value)
         await CompanyRepository.patch(company, db)

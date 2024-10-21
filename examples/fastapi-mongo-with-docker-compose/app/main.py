@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .config import app_configs
+
 from .router.routes import router as api_router
 
 ALLOWED_ORIGINS = [

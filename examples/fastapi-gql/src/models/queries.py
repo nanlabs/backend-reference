@@ -1,14 +1,16 @@
 import strawberry
-
 from models import types
 from services.company_service import CompanyService
 
 company_service = CompanyService()
 
 
-CompaniesQueryResponse = strawberry.union("CompaniesQueryResponse",
-                                          types=(types.CompaniesResponseList, types.CompanyListError))
-CompanyQueryResponse = strawberry.union("CompanyQueryResponse", types=(types.CompanyResponse, types.GetCompanyError))
+CompaniesQueryResponse = strawberry.union(
+    "CompaniesQueryResponse", types=(types.CompaniesResponseList, types.CompanyListError)
+)
+CompanyQueryResponse = strawberry.union(
+    "CompanyQueryResponse", types=(types.CompanyResponse, types.GetCompanyError)
+)
 
 
 @strawberry.type

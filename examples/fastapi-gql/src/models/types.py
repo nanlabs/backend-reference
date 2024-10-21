@@ -28,7 +28,7 @@ class CompanyResponse(CompanySchema):
 
 @strawberry.type
 class CompaniesResponseList:
-    companies: List['CompanyResponse']
+    companies: List["CompanyResponse"]
 
 
 # Messages

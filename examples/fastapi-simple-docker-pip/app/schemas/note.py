@@ -15,8 +15,10 @@ class NoteBase(BaseModel):
 class NoteCreate(NoteBase):
     id: str
 
+
 class NoteUpdate(NoteBase):
     id: str
+
 
 class NoteOut(NoteBase):
     class Config:

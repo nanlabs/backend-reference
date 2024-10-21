@@ -1,6 +1,5 @@
-from fastapi import APIRouter
-
 from controllers import users_controller
+from fastapi import APIRouter
 
 api_router = APIRouter(prefix="/api/v1")
 

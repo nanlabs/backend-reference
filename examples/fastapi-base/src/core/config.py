@@ -3,7 +3,7 @@ import os
 from starlette.config import Config
 
 ROOT_DIR = os.getcwd()
-_config = Config(os.path.join(ROOT_DIR, '.env'))
+_config = Config(os.path.join(ROOT_DIR, ".env"))
 
 # API info
 APP_VERSION = "0.0.1"

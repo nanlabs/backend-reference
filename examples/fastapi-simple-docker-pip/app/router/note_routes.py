@@ -1,9 +1,8 @@
 from uuid import UUID
 
-from fastapi import APIRouter, HTTPException
-
 from app.repositories.note_repository import NoteRepository
 from app.schemas.note import NoteOut
+from fastapi import APIRouter, HTTPException
 
 router = APIRouter()
 
