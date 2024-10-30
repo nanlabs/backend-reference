@@ -61,7 +61,7 @@ show_error() {
 }
 
 parse_documentation() {
-  documentation="$(grep "^##" "$(which "$0")")(no-trim)"
+  documentation="$(grep "^##" "$0")"
   documentation=$(echo "$documentation" | sed -r "s/## ?//" | sed -r "s/@script.name/$(basename "$0")/g" | sed "s/@#/@/g")
   documentation=${documentation%(no-trim)}
 }
