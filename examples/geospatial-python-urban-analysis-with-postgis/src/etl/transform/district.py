@@ -1,0 +1,21 @@
+import geopandas as gpd
+from config import EPSG_TARGET
+
+def reproject_data(gdf: gpd.GeoDataFrame):
+    """Transform the data to the target CRS."""
+    return gdf.to_crs(epsg=EPSG_TARGET)
+
+def spatial_join(bus_stops: gpd.GeoDataFrame, comunas: gpd.GeoDataFrame):
+    """Join bus stops with districts based on spatial location."""
+    return gpd.sjoin(bus_stops, comunas, how="inner", predicate="within")
+
+def count_stops_per_district(bus_stops_in_district: gpd.GeoDataFrame):
+    """Count the number of stops per district."""
+    return bus_stops_in_district.groupby("comuna").size().reset_index(name="cantidad_paradas")
+
+def get_extreme_district(stops_by_comuna):
+    """Get the district with the most and least bus stops."""
+    comuna_max = stops_by_comuna.loc[stops_by_comuna["cantidad_paradas"].idxmax()]
+    comuna_min = stops_by_comuna.loc[stops_by_comuna["cantidad_paradas"].idxmin()]
+    
+    return comuna_max, comuna_min
