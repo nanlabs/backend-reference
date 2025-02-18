@@ -18,8 +18,8 @@
   "homepage": "https://github.com/nanlabs/devops-reference#readme",
   "devDependencies": {
     "serverless": "^3.34.0",
-    "serverless-offline": "^11.6.0",
+    "serverless-offline": "^14.4.0",
     "serverless-python-requirements": "^6.0.0",
-    "serverless-s3-local": "^0.7.2"
+    "serverless-s3-local": "^0.8.5"
   }
 }
