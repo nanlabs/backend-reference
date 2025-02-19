@@ -4,6 +4,8 @@ from config import EPSG_TARGET
 
 def spatial_join(bus_stops: gpd.GeoDataFrame, comunas: gpd.GeoDataFrame):
     """Join bus stops with districts based on spatial location."""
+    if bus_stops.crs != comunas.crs:
+        raise ValueError(f"CRS mismatch: bus_stops CRS is {bus_stops.crs}, comunas CRS is {comunas.crs}")
     return gpd.sjoin(bus_stops, comunas, how="inner", predicate="within")
 
 def count_stops_per_district(bus_stops_in_district: gpd.GeoDataFrame):
