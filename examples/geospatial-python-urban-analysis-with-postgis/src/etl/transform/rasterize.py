@@ -7,11 +7,16 @@ from shapely.geometry import mapping
 
 def rasterize_shapefile(gdf, output_path, resolution = 100):
     """
-        Converts a GeoDataFrame into a raster (.tif)
+    Converts a GeoDataFrame into a raster (.tif) using the specified value column.
+    
     Args:
-        gdf (_type_): _description_
-        output_path (_type_): _description_
-        resolution (int, optional): _description_. Defaults to 100.
+        gdf (gpd.GeoDataFrame): The input GeoDataFrame to rasterize.
+        output_path (str): Path where the output raster will be saved.
+        value_column (str, optional): Column to use for raster values. Defaults to "TOT_POB".
+        resolution (int, optional): Spatial resolution in map units. Defaults to 100.
+    
+    Returns:
+        None
     """
     
     try:

@@ -51,7 +51,7 @@ plt.show()
 
 
 # 5️⃣ Filter countries with more than 100M inhabitants and highlight them
-large_countries = world[world["POP_EST"] < 1000]
+large_countries = world[world["POP_EST"] < 100_000_000]
 
 fig, ax = plt.subplots(figsize=(12, 6))
 world.plot(ax=ax, color="lightgray", edgecolor="black", label="Other countries")  # Background map

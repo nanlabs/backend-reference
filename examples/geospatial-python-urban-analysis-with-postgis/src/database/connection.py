@@ -1,14 +1,26 @@
 import os
+from dotenv import load_dotenv
+from sqlalchemy.engine import Engine
+from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy import create_engine
 
+load_dotenv()
 
-def get_db_connection():
+def get_db_connection() -> Engine:
     """ Return a connection to the database
+    Returns:
+        Engine: SQLAlchemy engine instance
+    Raises:
+        SQLAlchemyError: If connection cannot be established
     """
-    DB_NAME = os.getenv("DB_NAME", "buenos_aires_transport")
-    DB_USER = os.getenv("DB_USER", "postgres")
-    DB_PASSWORD = os.getenv("DB_PASSWORD", "password")
-    DB_HOST = os.getenv("DB_HOST", "localhost")
-    DB_PORT = os.getenv("DB_PORT", "5432")
     
-    return create_engine(f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
+    db_name = os.environ["DB_NAME"]
+    db_user = os.environ["DB_USER"]
+    db_password = os.environ["DB_PASSWORD"]
+    db_host = os.environ["DB_HOST"]
+    db_port = os.environ["DB_PORT"]
+    
+    try:
+       return create_engine(f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}")
+    except Exception as e:
+        raise SQLAlchemyError(f"Failed to establish database connection: {str(e)}") from e

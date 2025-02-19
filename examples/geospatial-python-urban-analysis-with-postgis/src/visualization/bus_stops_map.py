@@ -2,8 +2,16 @@ import matplotlib.pyplot as plt
 import contextily as ctx
 import geopandas as gpd
 
-def plot_bus_stops(bus_stops, comunas, stops_by_comuna, comuna_max, comuna_min):
+def plot_bus_stops(
+    bus_stops: "gpd.GeoDataFrame",
+    comunas: "gpd.GeoDataFrame",
+    stops_by_comuna: "gpd.GeoDataFrame",
+    comuna_max: dict,
+    comuna_min: dict
+) -> None:
     """Generates a map displaying the distribution of bus stops per district."""
+    if not all(df.crs == bus_stops.crs for df in [comunas, stops_by_comuna]):
+        raise ValueError("All GeoDataFrames must have the same CRS")
     fig, ax = plt.subplots(figsize=(12, 12))
 
     # Plot districts and bus stops
