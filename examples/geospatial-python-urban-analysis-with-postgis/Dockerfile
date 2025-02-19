@@ -15,8 +15,7 @@ RUN groupadd -r appuser && useradd -r -g appuser appuser
 FROM python:3.12-slim
 
 # Copy built dependencies
-COPY --from=builder /usr/lib /usr/lib
-
+COPY --from=builder /usr/lib/libgdal.so /usr/lib/libgdal.so  # adjust to include only required files
 # Create non-root user
 COPY --from=builder /etc/passwd /etc/passwd
 USER appuser
