@@ -1,6 +1,5 @@
 import pandas as pd
 import geopandas as gpd
-from config import EPSG_TARGET
 
 def spatial_join(bus_stops: gpd.GeoDataFrame, comunas: gpd.GeoDataFrame):
     """Join bus stops with districts based on spatial location."""
