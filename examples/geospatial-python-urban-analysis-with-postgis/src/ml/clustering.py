@@ -3,6 +3,8 @@ import geopandas as gpd
 from sklearn.cluster import DBSCAN 
 from shapely.geometry import Point
 
+from config import EPSG_TARGET
+
 def extract_high_density_points(
     population_data: np.ndarray,
     transform: np.ndarray
@@ -27,7 +29,7 @@ def extract_high_density_points(
                 x, y = transform * (col, row)
                 high_density_points.append(Point(x, y))
                 
-    return gpd.GeoDataFrame(geometry=high_density_points, crs="EPSG:3857")
+    return gpd.GeoDataFrame(geometry=high_density_points, crs=EPSG_TARGET)
 
 def find_optimal_stops(
     high_density_gdf: gpd.GeoDataFrame,

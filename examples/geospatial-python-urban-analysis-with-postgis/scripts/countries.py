@@ -1,7 +1,7 @@
 import os
+from pathlib import Path
 import geopandas as gpd
 import matplotlib.pyplot as plt
-from pathlib import Path
 
 # 1️⃣ Load the Shapefile (Make sure you have extracted it)
 
@@ -81,3 +81,4 @@ world_geojson = gpd.read_file("world.geojson")
 print(world_geojson.head())
 
 print("✅ All done: Map displayed, data saved in 'world.geojson' and 'world_map.png'")
+

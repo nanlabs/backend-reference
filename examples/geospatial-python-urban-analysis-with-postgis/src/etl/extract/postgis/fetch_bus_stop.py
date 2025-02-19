@@ -3,7 +3,6 @@ from src.database.connection import get_db_connection
 from src.database.queries import get_bus_stops_query
 
 def fetch_bus_stops(line_number: str | None = None) -> gpd.GeoDataFrame:
-    """Fetches bus stops from PostGIS."""
     """Fetches bus stops data from PostGIS database.
     
     Args:

@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import contextily as ctx
+
 def plot_optimal_stops(bus_stops, optimal_stops, districts):
     """
         Plots optimal bus stop locations on a map.
