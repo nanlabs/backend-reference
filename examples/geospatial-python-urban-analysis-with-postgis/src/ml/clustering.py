@@ -1,9 +1,7 @@
 import numpy as np
 import geopandas as gpd
-
 from sklearn.cluster import DBSCAN 
 from shapely.geometry import Point
-from rasterio.features import shapes
 
 def extract_high_density_points(
     population_data: np.ndarray,
@@ -18,7 +16,7 @@ def extract_high_density_points(
         Returns:
             GeoDataFrame containing high-density points
     """
-    # Calculate the threshold for high-density pixels 
+    # Calculate the threshold for high-density pixels
     threshold = np.mean(population_data)
     high_density_points = []
     
@@ -29,7 +27,7 @@ def extract_high_density_points(
                 x, y = transform * (col, row)
                 high_density_points.append(Point(x, y))
                 
-    return gpd.GeoDataFrame(geometry=high_density_points, crs="EPSG:4326")
+    return gpd.GeoDataFrame(geometry=high_density_points, crs="EPSG:3857")
 
 def find_optimal_stops(
     high_density_gdf: gpd.GeoDataFrame,
@@ -52,16 +50,25 @@ def find_optimal_stops(
         raise ValueError("eps must be positive")
     if min_samples < 1:
         raise ValueError("min_samples must be at least 1")
-        
+    
+    # Convert high-density points to numpy array
     high_density_points = np.array([[p.x, p.y] for p in high_density_gdf.geometry])
-     
-    # Cluster high-density points
+    
+    # Perform clustering
     clustering = DBSCAN(eps=eps, min_samples=min_samples).fit(high_density_points)
-     
-    # Extract cluster centers 
-    cluster_centers = high_density_gdf.iloc[np.unique(clustering.labels_)]
-     
-    # Remove bus stops that are close to cluster centers
-    optimal_stops = cluster_centers[~cluster_centers.geometry.intersects(bus_stops.unary_union)]
+    high_density_gdf["cluster"] = clustering.labels_
+    
+    # Filter out noise (-1 cluster)
+    clustered_gdf = high_density_gdf[high_density_gdf["cluster"] != -1]
+    
+    # Compute centroids for each cluster
+    cluster_centroids = clustered_gdf.dissolve(by="cluster").centroid
+    
+    # Convert centroids to GeoDataFrame
+    optimal_stops = gpd.GeoDataFrame(geometry=cluster_centroids, crs=high_density_gdf.crs)
+    
+    # Remove centroids that are too close to existing bus stops
+    optimal_stops = optimal_stops[~optimal_stops.geometry.intersects(bus_stops.unary_union)]
+    
     return optimal_stops
     

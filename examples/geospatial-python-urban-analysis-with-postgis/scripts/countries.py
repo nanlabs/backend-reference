@@ -1,7 +1,6 @@
 import os
 import geopandas as gpd
 import matplotlib.pyplot as plt
-import pandas as pd
 from pathlib import Path
 
 # 1️⃣ Load the Shapefile (Make sure you have extracted it)

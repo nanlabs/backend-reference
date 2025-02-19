@@ -22,10 +22,18 @@ def plot_optimal_stops(bus_stops, optimal_stops, districts):
         # Plot optimal stops
         optimal_stops.plot(ax=ax, color="green", markersize=10, alpha=0.8, label="Optimal Stops")
 
-        # Add basemap (CartoDB Positron) using contextily
-        ctx.add_basemap(ax, source=ctx.providers.CartoDB.Positron)
+        # Obtain bounding box of districts and set plot limits
+        minx, miny, maxx, maxy = districts.total_bounds
+        # Add a buffer to the limits
+        buffer_x = (maxx - minx) * 0.1
+        buffer_y = (maxy - miny) * 0.1
 
-        # Labels and legend
+        ax.set_xlim(minx - buffer_x, maxx + buffer_x)
+        ax.set_ylim(miny - buffer_y, maxy + buffer_y)
+
+        # Add a basemap to the plot in the target CRS
+        ctx.add_basemap(ax, source=ctx.providers.CartoDB.Positron, crs="EPSG:3857")
+
         plt.title("Optimal Bus Stop Placement in Buenos Aires")
         plt.xlabel("Longitude")
         plt.ylabel("Latitude")

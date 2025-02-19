@@ -1,5 +1,4 @@
 import geopandas as gpd
-
 from src.database.connection import get_db_connection
 from src.database.queries import get_bus_stops_query
 

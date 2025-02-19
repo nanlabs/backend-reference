@@ -1,5 +1,8 @@
+"""
+    This pipeline converts a shapefile to a raster file.
+    It loads a shapefile, fixes its geometry, reprojects it, and rasterizes it.
+"""
 import os
-
 from pathlib import Path
 from src.etl.transform.fix_shapefile import load_and_fix_shapefile
 from src.etl.transform.rasterize import rasterize_shapefile

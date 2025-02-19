@@ -1,7 +1,6 @@
 
-import requests
 import io
-
+import requests
 import geopandas as gpd
 from config import BUS_STOPS_URL
 

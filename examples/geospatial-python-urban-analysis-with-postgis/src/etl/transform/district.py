@@ -2,10 +2,6 @@ import pandas as pd
 import geopandas as gpd
 from config import EPSG_TARGET
 
-def reproject_data(gdf: gpd.GeoDataFrame):
-    """Transform the data to the target CRS."""
-    return gdf.to_crs(epsg=EPSG_TARGET)
-
 def spatial_join(bus_stops: gpd.GeoDataFrame, comunas: gpd.GeoDataFrame):
     """Join bus stops with districts based on spatial location."""
     return gpd.sjoin(bus_stops, comunas, how="inner", predicate="within")

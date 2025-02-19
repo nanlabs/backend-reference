@@ -1,6 +1,4 @@
 import rasterio
-import numpy as np
-import shapefile
 
 from rasterio.features import rasterize
 from shapely.geometry import mapping
