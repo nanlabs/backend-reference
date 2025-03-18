@@ -1,0 +1,18 @@
+{
+  "dockerfile_lines": [
+    "ENV PYTHONPATH=/app/src",
+    "RUN pip install pipenv",
+    "COPY Pipfile Pipfile.lock ./",
+    "RUN pipenv install --system --deploy"
+  ],
+  "graphs": {
+    "indexer-jira": "./app/index_graph/graph.py:create_rag_graph",
+    "indexer-slack": "./app/index_graph/graph.py:create_slack_graph",
+    "retriever": "./app/rag_graph/graph.py:create_graph"
+  },
+  "env": ".env.local",
+  "python_version": "3.12",
+  "dependencies": [
+    "."
+  ]
+}

@@ -1,0 +1,8 @@
+node_modules
+.git
+.github
+build
+.devcontainer
+.serverless
+.venv
+.vscode
