@@ -55,15 +55,6 @@ def _format_doc(doc: Document) -> str:
     Returns:
         str: The formatted document as an XML string.
     """
-def _format_doc(doc: Document) -> str:
-    """Format a single document as XML.
-
-    Args:
-        doc (Document): The document to format.
-
-    Returns:
-        str: The formatted document as an XML string.
-    """
     import html
     metadata = doc.metadata or {}
     meta = "".join(f" {html.escape(str(k))}=\"{html.escape(str(v))}\"" for k, v in metadata.items())
