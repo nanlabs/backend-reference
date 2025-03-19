@@ -21,6 +21,18 @@ logger = logging.getLogger(__name__)
 async def create_query(
     state: State, *, config: RunnableConfig
 ) -> dict[str, list[str]]:
+    """Extract the latest message from the state and format it into a query.
+    
+    Args:
+        state (State): The current state containing messages.
+        config (RunnableConfig): Configuration for the query creation process.
+        
+    Returns:
+        dict[str, list[str]]: A dictionary with a single key "queries" containing the query.
+    """
+    if not state.messages:
+        logger.warning("No messages in state to create query from")
+        return {"queries": [""]}
     message = state.messages[-1]
     query = get_message_text(message)
     return {"queries": [query]}
