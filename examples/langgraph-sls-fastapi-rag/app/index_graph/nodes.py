@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 async def index_docs(
     state: IndexState, *, config: Optional[RunnableConfig] = None
-) -> dict[str, str]:
+) -> IndexState:
     """Index the documents in the state."""
     if not config:
         raise ValueError("Configuration required to run index_docs.")
