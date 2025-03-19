@@ -80,16 +80,16 @@ def make_pinecone_retriever(
     """Configure this agent to connect to a specific pinecone index."""
     from langchain_pinecone import PineconeVectorStore
 
-    # search_kwargs = configuration.search_kwargs
-
-    filter = {}
-    filter["user_id"] = {"$eq": configuration.user_id}
-    search_kwargs = {'filter': filter}
+    user_search_kwargs = configuration.search_kwargs or {}
+    user_search_kwargs['filter'] = {
+        **user_search_kwargs.get('filter', {}),
+        "user_id": {"$eq": configuration.user_id}
+    }
+    search_kwargs = user_search_kwargs
     vstore = PineconeVectorStore.from_existing_index(
         os.environ["PINECONE_INDEX_NAME"], embedding=embedding_model
     )
     yield vstore.as_retriever(search_kwargs=search_kwargs)
-
 @contextmanager
 def make_mongodb_retriever(
     configuration: IndexConfiguration, embedding_model: Embeddings

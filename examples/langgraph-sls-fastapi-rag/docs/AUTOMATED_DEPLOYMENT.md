@@ -74,7 +74,7 @@ Invoked by the Continuous Deployment workflow, it handles the actual deployment 
 - **Environment:** Deployment target environment.
 - **AWS Credentials:** Access key and secret key for AWS deployment.
 
-#### Jobs
+#### Deployment Jobs
 
 - **Deploy:** Configures the environment, installs dependencies, sets AWS credentials, and deploys the application.
 
