@@ -80,12 +80,12 @@ def make_pinecone_retriever(
     # search_kwargs = configuration.search_kwargs
 
     filter = {}
+    filter["user_id"] = {"$eq": configuration.user_id}
     search_kwargs = {'filter': filter}
     vstore = PineconeVectorStore.from_existing_index(
         os.environ["PINECONE_INDEX_NAME"], embedding=embedding_model
     )
     yield vstore.as_retriever(search_kwargs=search_kwargs)
-
 
 @contextmanager
 def make_mongodb_retriever(
