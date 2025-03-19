@@ -34,15 +34,17 @@ async def retrieve(request: RetrieveRequest) -> RetrieveResponse:
     }, obj)
     
     # Convert web search results to the correct format
-    web_search_results = [
-        WebSearchResult(
-            title=item.get('title', ''),
-            url=item.get('url', ''),
-            content=item.get('content', ''),
-            score=item.get('score', 0.0)
-        ) 
-        for item in result['web_search_results']
-    ]
+    web_search_results = []
+    if 'web_search_results' in result:
+        web_search_results = [
+            WebSearchResult(
+                title=item.get('title', ''),
+                url=item.get('url', ''),
+                content=item.get('content', ''),
+                score=item.get('score', 0.0)
+            ) 
+            for item in result['web_search_results']
+        ]
     
     # Ensure all required keys exist in the result
     if 'messages' not in result or 'retrieved_docs' not in result:
