@@ -1,9 +1,9 @@
 {
   "dockerfile_lines": [
-    "ENV PYTHONPATH=/app/src",
     "RUN pip install pipenv",
     "COPY Pipfile Pipfile.lock ./",
-    "RUN pipenv install --system --deploy"
+    "RUN pipenv install --system --deploy",
+    "RUN pip install langgraph-checkpoint-amazon-dynamodb==0.1.1"
   ],
   "graphs": {
     "indexer": "./app/index_graph/graph.py:create_graph",

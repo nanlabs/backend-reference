@@ -1,5 +1,5 @@
-from .graph import create_rag_graph
+from .graph import create_graph
 
-__all__ = ["create_rag_graph"]
+__all__ = ["create_graph"]
 
 

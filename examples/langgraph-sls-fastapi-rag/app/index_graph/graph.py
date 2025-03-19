@@ -7,7 +7,7 @@ from app.index_graph import configuration, nodes, state
 
 
 
-def create_rag_graph():
+def create_graph():
     """Create and return the index graph."""
     # Define a new graph
     builder = StateGraph(state.IndexState, config_schema=configuration.IndexConfiguration)

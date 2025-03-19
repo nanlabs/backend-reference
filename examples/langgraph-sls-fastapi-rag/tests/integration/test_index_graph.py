@@ -4,7 +4,7 @@ import dotenv
 import pytest
 from langchain_core.runnables import RunnableConfig
 
-from app.index_graph import create_rag_graph
+from app.index_graph import create_graph
 from app.rag_graph import create_graph
 
 logger = logging.getLogger(__name__)
@@ -24,7 +24,7 @@ async def test_index_graph():
     config = RunnableConfig(
         configurable=obj
     )
-    graph = create_rag_graph()
+    graph = create_graph()
     result = await graph.ainvoke({
         "user_id": "test_user",
         "docs": []
