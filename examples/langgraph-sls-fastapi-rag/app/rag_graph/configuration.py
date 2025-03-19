@@ -33,16 +33,6 @@ class IndexConfiguration:
         },
     )
 
-    datasource: Annotated[
-        list[Literal["jira", "slack"]],
-        {"__template_metadata__": {"kind": "datasource"}},
-    ] = field(
-        default_factory=lambda: ["jira"],
-        metadata={
-            "description": "The datasources to use for retrieval. Can include 'jira' and/or 'slack'."
-        },
-    )
-
     retriever_provider: Annotated[
         Literal["elastic", "elastic-local", "pinecone", "mongodb"],
         {"__template_metadata__": {"kind": "retriever"}},
