@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 @pytest.mark.asyncio
 @pytest.mark.skip(reason="Skipping index graph test")
-async def test_index_jira_graph():
+async def test_index_graph():
     dotenv.load_dotenv('.env.local')
     user_id = "test_user"
     obj = {

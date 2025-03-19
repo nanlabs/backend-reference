@@ -29,8 +29,7 @@ async def retrieve(request: RetrieveRequest) -> RetrieveResponse:
 
     result = await graph.ainvoke({
         "messages": request.messages,
-        "user_id": request.user_id,
-        "queries": ["Retrieve jira issues"]
+        "user_id": request.user_id
     }, obj)
     
     # Convert web search results to the correct format

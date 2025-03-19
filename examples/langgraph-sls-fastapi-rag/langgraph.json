@@ -6,8 +6,7 @@
     "RUN pipenv install --system --deploy"
   ],
   "graphs": {
-    "indexer-jira": "./app/index_graph/graph.py:create_rag_graph",
-    "indexer-slack": "./app/index_graph/graph.py:create_slack_graph",
+    "indexer": "./app/index_graph/graph.py:create_graph",
     "retriever": "./app/rag_graph/graph.py:create_graph"
   },
   "env": ".env.local",
