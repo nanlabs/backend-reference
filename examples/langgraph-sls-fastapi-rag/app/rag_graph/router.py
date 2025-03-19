@@ -44,6 +44,10 @@ async def retrieve(request: RetrieveRequest) -> RetrieveResponse:
         for item in result['web_search_results']
     ]
     
+    # Ensure all required keys exist in the result
+    if 'messages' not in result or 'retrieved_docs' not in result:
+        raise ValueError(f"Incomplete result from graph: {list(result.keys())}")
+        
     return RetrieveResponse(
         messages=result['messages'], 
         retrieved_docs=result['retrieved_docs'], 
