@@ -18,10 +18,15 @@ async def index_docs(
     if not config:
         raise ValueError("Configuration required to run index_docs.")
 
-    with make_retriever(config) as retriever:
-        logger.info(f"Starting document indexing process with {len(state.docs)} documents")
-        await retriever.aadd_documents(state.docs)
-
+    try:
+        with make_retriever(config) as retriever:
+            logger.info(f"Starting document indexing process with {len(state.docs)} documents")
+            await retriever.aadd_documents(state.docs)
+        logger.info("Document indexing process completed successfully")
+        return state
+    except Exception as e:
+        logger.error(f"Failed to index documents: {str(e)}")
+        raise
     logger.info("Document indexing process completed successfully")
     return state
 
