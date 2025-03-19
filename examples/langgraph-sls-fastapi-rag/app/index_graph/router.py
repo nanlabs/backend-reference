@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 import os
-from app.index_graph import create_rag_graph
+from app.index_graph import create_graph
 from app.router.schemas import IndexRequest, StatusResponse
 
 router = APIRouter()
@@ -32,7 +32,7 @@ async def run_index(request: IndexRequest) -> StatusResponse:
             "embedding_model": "openai/text-embedding-3-small",
         }
         # Create the base configuration
-        graph = create_rag_graph()
+        graph = create_graph()
  
         result = await graph.ainvoke({"user_id": request.user_id, "docs": None}, obj)
         

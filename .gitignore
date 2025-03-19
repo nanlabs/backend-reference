@@ -131,3 +131,12 @@ dmypy.json
 # Env files
 .env*
 .vscode/
+.history
+
+.langgraph_api
+
+
+# MacOS
+.DS_Store
+
+

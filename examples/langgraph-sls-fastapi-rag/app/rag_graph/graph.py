@@ -5,13 +5,18 @@ retrieval graph. It includes the main graph definition, state management,
 and key functions for processing user inputs, generating queries, retrieving
 relevant documents, and formulating responses.
 """
+import sys
+import os
+
+venv_path = sys.prefix
+venv_name = os.path.basename(venv_path)
+
+print(f"Active virtual environment: {venv_name}")
 
 import os
 
 from langgraph.graph import StateGraph
-from langgraph_checkpoint_dynamodb import DynamoDBSaver
-from langgraph_checkpoint_dynamodb.config import DynamoDBConfig, DynamoDBTableConfig
-
+from langgraph_checkpoint_dynamodb import DynamoDBSaver, DynamoDBConfig, DynamoDBTableConfig
 from app.rag_graph.configuration import Configuration
 from app.rag_graph.nodes import create_query, respond, retrieve, web_search
 from app.rag_graph.state import State
