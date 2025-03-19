@@ -37,7 +37,7 @@ RUN apk update \
 COPY Pipfile Pipfile.lock ./
 
 # Install production dependencies
-RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy --sytem
+RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy --system
 
 # Stage 3: Final image
 FROM python:3.12.0-alpine as production
