@@ -108,4 +108,7 @@ def load_chat_model(fully_specified_name: str) -> BaseChatModel:
     else:
         provider = ""
         model = fully_specified_name
-    return init_chat_model(model, model_provider=provider)
+    try:
+        return init_chat_model(model, model_provider=provider)
+    except Exception as e:
+        raise ValueError(f"Failed to initialize chat model '{fully_specified_name}': {str(e)}")
