@@ -22,6 +22,9 @@ logger = logging.getLogger(__name__)
 
 def make_text_encoder(model: str) -> Embeddings:
     """Connect to the configured text encoder."""
+    if "/" not in model:
+        raise ValueError(f"Invalid model format: {model}. Expected format: 'provider/model'")
+        
     provider, model = model.split("/", maxsplit=1)
     match provider:
         case "openai":
