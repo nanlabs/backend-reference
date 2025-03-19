@@ -5,6 +5,7 @@ This repository contains a Proof of Concept (POC) for a Retrieval Augmented Gene
 ## Acknowledgements 🙏
 
 This POC was created by NaNLABS, drawing inspiration from:
+
 - [LangGraph RAG Examples](https://github.com/langchain-ai/langgraph-examples): For RAG implementation patterns
 - [FastAPI Serverless Examples](https://github.com/nanlabs/devops-reference/tree/main/examples/serverless-fastapi/): For API structure and deployment strategies
 - [LocalStack Integration Examples](https://github.com/nanlabs/devops-reference/tree/main/examples/localstack-resources/): For local AWS service emulation
@@ -67,11 +68,13 @@ This will start the following services:
 If you prefer to run the application using Docker, we provide Docker support out of the box:
 
 1. Build the Docker image:
+
    ```sh
    docker build -t rag-langgraph-api .
    ```
 
 2. Run the container:
+
    ```sh
    docker run -p 3000:3000 --env-file .env.local rag-langgraph-api
    ```
@@ -81,26 +84,31 @@ If you prefer to run the application using Docker, we provide Docker support out
 For a more complete development environment that includes all services, use Docker Compose:
 
 1. Start all services:
+
    ```sh
    docker-compose up
    ```
 
 2. Start in detached mode (run in background):
+
    ```sh
    docker-compose up -d
    ```
 
 3. View logs:
+
    ```sh
    docker-compose logs -f
    ```
 
 4. Stop all services:
+
    ```sh
    docker-compose down
    ```
 
 The Docker Compose setup includes:
+
 - FastAPI application
 - LocalStack for AWS services emulation
 - Any additional services defined in docker-compose.yml
@@ -110,16 +118,19 @@ The Docker Compose setup includes:
 LangGraph Studio provides a powerful UI for visualizing, testing, and debugging your RAG agents. To use it:
 
 1. Install the LangGraph CLI:
+
    ```sh
    pip install "langgraph-cli[inmem]"
    ```
 
 2. Start the development server:
+
    ```sh
    npx @langchain/langgraph-cli@latest dev
    ```
 
 This will:
+
 - Start the LangGraph server at `http://127.0.0.1:2024`
 - Automatically open Studio in your browser
 
@@ -127,6 +138,7 @@ Alternatively, you can manually access Studio by visiting:
 `https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024`
 
 ### Features
+
 - Visualize your RAG flows and agent graphs
 - Test your RAG pipeline by running it from the UI
 - Debug your retrieval and generation steps
@@ -141,17 +153,21 @@ Alternatively, you can manually access Studio by visiting:
 To deploy the application to AWS, follow these steps:
 
 1. Configure AWS Credentials:
+
    ```sh
    aws configure
    ```
+
    Enter your AWS Access Key ID, Secret Access Key, and preferred region.
 
 2. Install Serverless Framework globally:
+
    ```sh
    npm install -g serverless
    ```
 
 3. Deploy to AWS:
+
    ```sh
    serverless deploy --stage prod
    ```
@@ -171,6 +187,7 @@ To deploy the application to AWS, follow these steps:
 Before deploying, ensure you've set up the following:
 
 1. Create a production environment file:
+
    ```sh
    cp .env.example .env.prod
    ```
@@ -182,6 +199,7 @@ Before deploying, ensure you've set up the following:
 ### Monitoring and Logs 📊
 
 - View Lambda logs:
+
   ```sh
    serverless logs -f app -t
   ```
