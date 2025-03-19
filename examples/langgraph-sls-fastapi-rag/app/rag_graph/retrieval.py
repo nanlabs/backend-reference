@@ -22,6 +22,9 @@ logger = logging.getLogger(__name__)
 
 def make_text_encoder(model: str) -> Embeddings:
     """Connect to the configured text encoder."""
+    if "/" not in model:
+        raise ValueError(f"Invalid model format: {model}. Expected format: 'provider/model'")
+        
     provider, model = model.split("/", maxsplit=1)
     match provider:
         case "openai":
@@ -80,12 +83,12 @@ def make_pinecone_retriever(
     # search_kwargs = configuration.search_kwargs
 
     filter = {}
+    filter["user_id"] = {"$eq": configuration.user_id}
     search_kwargs = {'filter': filter}
     vstore = PineconeVectorStore.from_existing_index(
         os.environ["PINECONE_INDEX_NAME"], embedding=embedding_model
     )
     yield vstore.as_retriever(search_kwargs=search_kwargs)
-
 
 @contextmanager
 def make_mongodb_retriever(

@@ -13,6 +13,11 @@ echo "Setting up SSM parameters for ${SERVICE_STAGE} and ${SERVICE_COMMON}..."
 
 # Stage-specific parameters
 echo "Setting parameters for ${SERVICE_STAGE}/openai-api-key"
+echo "Setting parameters for ${SERVICE_STAGE}/openai-api-key"
+if [ -z "${OPENAI_API_KEY}" ]; then
+    echo "Error: OPENAI_API_KEY is not set"
+    exit 1
+fi
 aws ssm put-parameter --name "/${SERVICE_STAGE}/openai-api-key" \
     --value "${OPENAI_API_KEY}" \
     --type "SecureString" \

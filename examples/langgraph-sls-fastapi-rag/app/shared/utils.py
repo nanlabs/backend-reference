@@ -55,12 +55,13 @@ def _format_doc(doc: Document) -> str:
     Returns:
         str: The formatted document as an XML string.
     """
+    import html
     metadata = doc.metadata or {}
-    meta = "".join(f" {k}={v!r}" for k, v in metadata.items())
+    meta = "".join(f" {html.escape(str(k))}=\"{html.escape(str(v))}\"" for k, v in metadata.items())
     if meta:
         meta = f" {meta}"
 
-    return f"<document{meta}>\n{doc.page_content}\n</document>"
+    return f"<document{meta}>\n{html.escape(doc.page_content)}\n</document>"
 
 
 def format_docs(docs: Optional[list[Document]]) -> str:
@@ -108,4 +109,7 @@ def load_chat_model(fully_specified_name: str) -> BaseChatModel:
     else:
         provider = ""
         model = fully_specified_name
-    return init_chat_model(model, model_provider=provider)
+    try:
+        return init_chat_model(model, model_provider=provider)
+    except Exception as e:
+        raise ValueError(f"Failed to initialize chat model '{fully_specified_name}': {str(e)}")
