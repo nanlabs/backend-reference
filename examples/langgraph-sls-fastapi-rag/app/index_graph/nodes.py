@@ -27,8 +27,6 @@ async def index_docs(
     except Exception as e:
         logger.error(f"Failed to index documents: {str(e)}")
         raise
-    logger.info("Document indexing process completed successfully")
-    return state
 
 
 async def fetch_s3_content(
