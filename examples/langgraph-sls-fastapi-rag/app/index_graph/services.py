@@ -62,7 +62,7 @@ class S3CSVReader:
             
         except Exception as e:
             print(f"Error reading file {file_key}: {str(e)}")
-
+            return []  # Return an empty list to maintain consistent return type
     def read_all_csv_files(self) -> List[Dict[str, Any]]:
         """
         Read and parse all CSV files in the specified S3 directory.

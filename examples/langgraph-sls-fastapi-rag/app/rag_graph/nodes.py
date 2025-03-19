@@ -75,6 +75,9 @@ def web_search(
     Returns:
         state (dict): Updates documents key with appended web results
     """
+    if not state.queries:
+        logger.warning("No queries in state for web search.")
+        return {"web_search_results": []}
 
     logging.info("Performing web search for query: %s", state.queries[-1])
     question = state.queries[-1]
@@ -83,10 +86,8 @@ def web_search(
     web_search_tool = create_web_search_tool(config)
     docs = web_search_tool.invoke({"query": question})
 
-    
     logging.debug("Web search results obtained: %s", docs)
     return {"web_search_results": docs}
-
 
 async def respond(
     state: State, *, config: RunnableConfig
