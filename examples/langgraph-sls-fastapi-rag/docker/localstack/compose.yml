@@ -1,0 +1,23 @@
+---
+services:
+  localstack:
+    image: localstack/localstack:2.3.2
+    ports:
+      - '4566:4566'
+      - '4510-4559:4510-4559'
+    environment:
+      - DEBUG=${DEBUG-}
+      - PERSISTENCE=${PERSISTENCE-}
+      - LAMBDA_EXECUTOR=${LAMBDA_EXECUTOR-}
+      - LOCALSTACK_API_KEY=${LOCALSTACK_API_KEY-}
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - SERVICES=dynamodb,kinesis,s3,sqs
+    env_file:
+      - ./.env.local
+    volumes:
+      - 'localstack:/var/lib/localstack'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - './docker/localstack/init.d:/etc/localstack/init/ready.d'
+
+volumes:
+  localstack:

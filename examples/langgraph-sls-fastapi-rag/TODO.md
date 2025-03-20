@@ -1,0 +1,17 @@
+- [ ] Fix VALIDATE_CHECKOV
+- [ ] Fix VALIDATE_JSCPD
+- [ ] Move .flake8 to pyproject.toml
+- [ ] postgis images needs to run: CREATE EXTENSION IF NOT EXISTS postgis;
+- [ ] Model unit tests
+- [ ] Better pattern to handle filters.
+- [ ] Constants in pagination
+- [ ] UUID and depends catch
+- [ ] Check if property lists can have protected
+- [ ] Move hardcoded strings to constants
+- [ ] Pydantic UUID for Filters
+- [ ] Validate if impersonate_sub does not exists
+- [ ] Repository refactor
+- [ ] Minor general refactor
+- [ ] Validate UUID across every place
+- [ ] Example values and default values for pagination and bodies
+- [ ] Edit cognito infra to add custom fields
