@@ -1,0 +1,54 @@
+---
+service: ${env:SERVICE_NAME, 'langgraph-sls-fastapi-rag'}
+
+frameworkVersion: "4"
+
+useDotenv: true
+
+package:
+  individually: true
+  excludeDevDependencies: true
+
+provider:
+  name: aws
+  deploymentMethod: direct
+  stage: local
+  runtime: python3.12
+  region: us-west-2
+  deploymentBucket:
+    maxPreviousDeploymentArtifacts: 10
+    blockPublicAccess: true
+    versioning: true
+    serverSideEncryption: AES256
+  ecr:
+    scanOnPush: true
+    images:
+      appimage:
+        path: ./
+        platform: linux/amd64
+
+functions:
+  app:
+    image: appimage
+    timeout: 900
+    events:
+      - httpApi:
+          path: /{proxy+}
+          method: ANY
+          cors: true
+
+    environment:
+      STAGE: ${sls:stage}
+      OPENAI_API_KEY: ${file(sls/envs/config.${sls:stage}.yml):openai_api_key}
+      PINECONE_API_KEY: ${file(sls/envs/config.${sls:stage}.yml):pinecone_api_key}
+      PINECONE_INDEX_NAME: ${file(sls/envs/config.${sls:stage}.yml):pinecone_index_name}
+      TAVILY_API_KEY: ${file(sls/envs/config.${sls:stage}.yml):tavily_api_key}
+      LANGCHAIN_API_KEY: ${file(sls/envs/config.${sls:stage}.yml):langsmith_api_key}
+      LANGCHAIN_TRACING_V2: ${file(sls/envs/config.${sls:stage}.yml):langsmith_tracing_v2}
+      LANGCHAIN_CALLBACKS_BACKGROUND: ${file(sls/envs/config.${sls:stage}.yml):langsmith_callbacks_background}
+      S3_BUCKET_NAME: ${file(sls/envs/config.${sls:stage}.yml):s3_bucket_name}
+      CHECKPOINT_TABLE_NAME: ${file(sls/envs/config.${sls:stage}.yml):checkpoints_table_name}
+resources:
+  - ${file(sls/resource/S3.yml)}
+  - ${file(sls/resource/bedrock.yml)}
+  - ${file(sls/resource/dynamodb-checkpointer.yml)}

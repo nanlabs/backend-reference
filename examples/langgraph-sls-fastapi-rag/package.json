@@ -1,0 +1,24 @@
+{
+  "name": "langgraph-sls-fastapi-rag",
+  "version": "1.0.0",
+  "description": "NaNLABS LangGraph FastAPI RAG POC",
+  "main": "index.js",
+  "scripts": {
+    "sls": "serverless",
+    "sls:deploy": "serverless deploy",
+    "sls:deploy:dev": "serverless deploy --stage dev",
+    "sls:deploy:staging": "serverless deploy --stage staging",
+    "sls:deploy:prod": "serverless deploy --stage prod",
+    "sls:package": "serverless package",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:nanlabs/langgraph-sls-fastapi-rag.git"
+  },
+  "author": "nanlabs",
+  "homepage": "https://github.com/nanlabs/langgraph-sls-fastapi-rag#readme",
+  "devDependencies": {
+    "serverless": "^4.0.0"
+  }
+}

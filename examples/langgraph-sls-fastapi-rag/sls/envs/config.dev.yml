@@ -1,0 +1,12 @@
+---
+openai_api_key: ${ssm:/${self:service}/${sls:stage}/openai-api-key}
+pinecone_api_key: ${ssm:/${self:service}/${sls:stage}/pinecone-api-key}
+pinecone_index_name: ${ssm:/${self:service}/${sls:stage}/pinecone-index-name}
+tavily_api_key: ${ssm:/${self:service}/${sls:stage}/tavily-api-key}
+
+langsmith_api_key: ${ssm:/${self:service}/common/langsmith-api-key}
+langsmith_tracing_v2: ${ssm:/${self:service}/common/langsmith-tracing-v2}
+langsmith_callbacks_background: ${ssm:/${self:service}/common/langsmith-callbacks-background}
+
+s3_bucket_name: ${ssm:/${self:service}/${sls:stage}/s3-bucket-name}
+checkpoints_table_name: ${ssm:/${self:service}/common/checkpoints-table-name}

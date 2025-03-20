@@ -1,0 +1,16 @@
+Resources:
+  BedrockIamPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: ${self:service}-${sls:stage}-bedrock-invoke-model-policy
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - bedrock:InvokeModel
+            Resource:
+              - "arn:aws:bedrock:${aws:region}::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0"
+              - "arn:aws:bedrock:${aws:region}::foundation-model/*"
+      Roles:
+        - Ref: IamRoleLambdaExecution 
