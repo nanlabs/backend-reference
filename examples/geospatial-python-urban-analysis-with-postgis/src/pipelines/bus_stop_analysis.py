@@ -3,9 +3,14 @@
     It fetches bus stop and district data, processes it, and generates a map displaying 
     the distribution of bus stops per district.
 """
+
 from src.etl.extract.postgis.fetch_bus_stop import fetch_bus_stops
 from src.etl.extract.bsas_data.fetch_district import fetch_districts
-from src.etl.transform.district import spatial_join, count_stops_per_district, get_extreme_district
+from src.etl.transform.district import (
+    spatial_join,
+    count_stops_per_district,
+    get_extreme_district,
+)
 from src.etl.transform.reproject import reproject_data
 from src.visualization.bus_stops_map import plot_bus_stops
 
