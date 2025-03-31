@@ -3,7 +3,7 @@
   "list": [
     {
       "name": "Golang REST API boilerplate",
-      "description": "REST API to create, update and retrieve Entities, including graceful shutdown, rate limiting, structured logging, unit tests, integration tests, environment variables, health check and API documentation with swagger. Technologies: Golang 1.19, MongoDB (with Docker Compose), Gorilla Mux, Go Swagger, Tollbooth (rate limiting), Zap (logging), Viper, Mockery, Makefile, Pre-commit, and DockerTest (integration tests).",
+      "description": "A comprehensive REST API boilerplate in Golang, featuring CRUD operations, structured logging, rate limiting, unit and integration tests, and API documentation with Swagger. Includes Docker Compose for MongoDB setup and tools like Gorilla Mux, Zap, and Mockery for streamlined development.",
       "url": "https://github.com/nanlabs/nancy.go/tree/main/examples/golang-todo-rest-crud/",
       "tags": ["Apps and Boilerplates"],
       "labels": [
@@ -20,95 +20,87 @@
         "Pre-commit",
         "Docker",
         "Docker Compose",
-        "DockerTest"
+        "DockerTest",
+        "Swagger",
+        "Rate Limiting",
+        "Logging",
+        "Testing"
       ]
     },
     {
       "name": "Python CLI Basic Example",
+      "description": "A minimal Python CLI example showcasing how to create commands without requiring the explicit use of the Python interpreter or script path.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/cli-base",
-      "description": "Basic structure to create a command without passing the python command and the python file's path.",
       "tags": ["Examples > Backend > CLI Tools"],
-      "labels": ["Python3", "PyCMD"]
+      "labels": ["Python3", "CLI", "Command Line"]
     },
     {
       "name": "Python CLI with Typer + Rich Example",
+      "description": "A Python CLI tool built with Typer and Rich, demonstrating interaction with external APIs for currency exchange rates and styled console outputs.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/cli-typer-base",
-      "description": "Interaction with an external API, to retrieve some currencies exchange rates, make conversion returning styled console output.",
       "tags": ["Examples > Backend > CLI Tools"],
-      "labels": ["Python3", "Requests", "Rich", "Typer"]
+      "labels": ["Python3", "Typer", "Rich", "API Integration", "CLI"]
     },
     {
       "name": "FastAPI Basic Example",
+      "description": "A simple REST API built with FastAPI that retrieves mock data using the Faker library, showcasing basic API development.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-base",
-      "description": "Rest API that retrieves mock data using Faker library.",
       "tags": ["Examples > Backend > FastAPI"],
-      "labels": ["Python3", "Faker", "Factory-Boy", "FastAPI", "Pydantic"]
+      "labels": ["Python3", "FastAPI", "Faker", "Mock Data", "Pydantic"]
     },
     {
       "name": "FastAPI Complete CRUD Example",
+      "description": "A complete CRUD API built with FastAPI, featuring endpoints for managing employees and companies, along with database population using Faker.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-crud",
-      "description": "Rest API that allows to create, read, update and delete employees and companies in the db, besides that, has endpoints to populate the db with Mock Data using faker.",
       "tags": ["Examples > Backend > FastAPI"],
       "labels": [
         "Python3",
-        "Faker",
         "FastAPI",
-        "Pydantic",
+        "CRUD",
         "SQLAlchemy",
         "Alembic",
         "Docker",
-        "Docker Compose",
-        "PGAdmin",
         "PostgreSQL"
       ]
     },
     {
       "name": "FastAPI GraphQL",
+      "description": "A GraphQL API built with FastAPI and Strawberry, retrieving mock company data using the Faker library.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-gql",
-      "description": "GraphQL API that retrieves fake companies using Faker library.",
       "tags": ["Examples > Backend > FastAPI"],
-      "labels": [
-        "Python3",
-        "Factory-boy",
-        "Faker",
-        "FastAPI",
-        "Pydantic",
-        "Strawberry-graphql"
-      ]
+      "labels": ["Python3", "FastAPI", "GraphQL", "Strawberry", "Faker"]
     },
     {
       "name": "Stripe Integration with Node.js and TypeScript",
-      "description": "This project offers a seamless Stripe integration with Node.js and TypeScript, providing a powerful API for managing basic operations like customer creation, checkout sessions, and portal sessions. It empowers developers to effortlessly handle payment-related tasks with the Stripe API.",
+      "description": "A robust Stripe integration example using Node.js and TypeScript, enabling operations like customer creation, checkout sessions, and webhook handling.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/stripe-integration-node-typescript/",
       "tags": ["Examples > Backend > ThirdParty Integrations > Stripe"],
       "labels": [
         "Node.js",
         "TypeScript",
         "Stripe",
-        "Payment Gateway",
-        "API",
-        "Integration",
-        "Webhooks"
+        "Payments",
+        "Webhooks",
+        "API Integration"
       ]
     },
     {
       "name": "NestJS REST-based Microservices with NATS",
-      "description": "This project demonstrates the implementation of a microservices architecture using NestJS, a progressive Node.js framework, along with NATS for asynchronous event-based as well as synchronous request-reply messaging patterns.",
+      "description": "A microservices architecture example using NestJS and NATS, demonstrating asynchronous messaging and request-reply patterns.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/nest-nats-microservices/",
       "tags": ["Examples > Backend > Microservices"],
       "labels": [
-        "Microservices",
         "Node.js",
         "NestJS",
+        "Microservices",
         "NATS",
-        "REST",
-        "Messaging Patterns",
-        "Proof of Concept"
+        "Messaging",
+        "REST"
       ]
     },
     {
       "name": "FastAPI Example with PostgreSQL and Serverless Framework",
-      "description": "This project demonstrates the implementation of a REST API using FastAPI, a modern, high-performance, web framework for building APIs with Python 3.6+ based on standard Python type hints. It also uses PostgreSQL as the database and the Serverless Framework to deploy the API to AWS Lambda.",
+      "description": "A REST API built with FastAPI and PostgreSQL, deployed to AWS Lambda using the Serverless Framework. Includes database migrations with Alembic.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-postgres-with-serverless",
       "tags": [
         "Apps and Boilerplates",
@@ -117,61 +109,38 @@
       ],
       "labels": [
         "Python3",
-        "Faker",
         "FastAPI",
-        "Pydantic",
-        "SQLAlchemy",
-        "Alembic",
-        "Docker",
-        "Docker Compose",
-        "PGAdmin",
         "PostgreSQL",
-        "Serverless Framework",
+        "Serverless",
         "AWS Lambda",
-        "AWS RDS",
-        "AWS API Gateway"
+        "Alembic"
       ]
     },
     {
       "name": "FastAPI with MongoDB and Docker Compose",
-      "description": "This project demonstrates the implementation of a REST API using FastAPI, a modern, high-performance, web framework for building APIs with Python 3.6+ based on standard Python type hints. It also uses MongoDB as the database and Docker Compose to run the API and the database in containers.",
+      "description": "A REST API built with FastAPI and MongoDB, containerized using Docker Compose for seamless development and deployment.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-mongo-with-docker-compose",
       "tags": [
         "Apps and Boilerplates",
         "Examples > Backend > FastAPI",
         "Examples > DevOps > Containers, Orchestration and Serverless > Containers and Compositions (Docker, Docker Compose, Buildpacks and more)"
       ],
-      "labels": [
-        "Python3",
-        "FastAPI",
-        "Pydantic",
-        "MongoDB",
-        "Mongo Express",
-        "Docker",
-        "Docker Compose"
-      ]
+      "labels": ["Python3", "FastAPI", "MongoDB", "Docker", "Docker Compose"]
     },
     {
       "name": "FastAPI Simple example with Docker Compose and PIP",
-      "description": "This project demonstrates the implementation of a REST API using FastAPI, a modern, high-performance, web framework for building APIs with Python 3.+ based on standard Python type hints. It also uses Docker Compose to run the API in a container and PIP to manage Python packages.",
+      "description": "A lightweight FastAPI example demonstrating containerization with Docker Compose and dependency management with PIP.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-simple-docker-pip",
       "tags": [
         "Apps and Boilerplates",
         "Examples > Backend > FastAPI",
         "Examples > DevOps > Containers, Orchestration and Serverless > Containers and Compositions (Docker, Docker Compose, Buildpacks and more)"
       ],
-      "labels": [
-        "Python3",
-        "FastAPI",
-        "Pydantic",
-        "Docker",
-        "Docker Compose",
-        "PIP"
-      ]
+      "labels": ["Python3", "FastAPI", "Docker", "PIP"]
     },
     {
       "name": "SQLC with Go, PostgreSQL, Docker Compose",
-      "description": "This project demonstrates the implementation of a REST API using Go, SQLC, and PostgreSQL. It uses Docker Compose to set up the development environment and includes examples of creating, reading, updating, and deleting records in the database.",
+      "description": "A REST API built with Go and SQLC, showcasing database operations with PostgreSQL and containerized development using Docker Compose.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/golang-api-with-postgres-and-sqlc",
       "tags": [
         "Apps and Boilerplates",
@@ -179,6 +148,27 @@
         "Examples > DevOps > Containers, Orchestration and Serverless > Containers and Compositions (Docker, Docker Compose, Buildpacks and more)"
       ],
       "labels": ["Golang", "SQLC", "PostgreSQL", "Docker", "Docker Compose"]
+    },
+    {
+      "name": "LangGraph SLS FastAPI RAG",
+      "description": "A Proof of Concept (POC) for a Retrieval Augmented Generation (RAG) system using LangGraph, deployed with the Serverless Framework on AWS Lambda. It integrates FastAPI for API development and DynamoDB for state management.",
+      "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/langgraph-sls-fastapi-rag",
+      "tags": [
+        "Apps and Boilerplates",
+        "Examples > Backend > FastAPI",
+        "Examples > DevOps > Infrastructure as Code > Serverless Framework, SAM and CloudFormation"
+      ],
+      "labels": [
+        "Python3",
+        "FastAPI",
+        "LangGraph",
+        "Serverless Framework",
+        "AWS Lambda",
+        "DynamoDB",
+        "Docker",
+        "RAG",
+        "Retrieval Augmented Generation"
+      ]
     }
   ]
 }
