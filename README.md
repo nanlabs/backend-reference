@@ -29,7 +29,6 @@ tools and more!
 
 - [Apps and Boilerplates](#apps-and-boilerplates)
 - [Examples](#examples)
-
   - [Backend](#backend)
     - [CLI Tools](#cli-tools)
     - [FastAPI](#fastapi)
