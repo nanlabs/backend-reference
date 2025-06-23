@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  postgis:
+    image: postgis/postgis:15-3.3
+    container_name: postgis_container
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: buenos_aires_transport
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin_container
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgis
+
+  # python_app:
+  #   build: .
+  #   container_name: python_script
+  #   depends_on:
+  #     - postgis
+  #   environment:
+  #     DB_HOST: postgis
+  #     DB_PORT: 5432
+  #     DB_NAME: buenos_aires_transport
+  #     DB_USER: postgres
+  #     DB_PASSWORD: password
+
+volumes:
+  pgdata:
