@@ -2,7 +2,7 @@
 
 ## System Architecture Overview
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                         CLIENT LAYER (Web Browser)                          │
 │                                                                             │
@@ -251,7 +251,7 @@
 
 ## Security Boundaries
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────────┐
 │                    VENDOR ISOLATION BOUNDARY                     │
 │                                                                  │

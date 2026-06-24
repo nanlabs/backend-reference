@@ -1,80 +1,61 @@
-# Dagster AI Orchestration Framework - Reference Implementation
+# Reference Guide
 
-Production-ready templates and architecture documentation for building a 4-layer AI Agent platform with Dagster data orchestration as the foundation.
+This directory contains documentation for the Dagster AI Orchestration Framework.
 
----
+## Files
 
-## 📁 Contents
+- **README.md** - This file
+- **architecture-diagram.md** - System architecture visualizations
+- **implementation-blueprint.md** - Production code templates
 
-### 1. **README.md** (this file)
-Quick reference guide for the framework components.
+## Getting Started
 
-### 2. **architecture-diagram.md**
-Complete system architecture visualization showing:
-- 5-layer architecture (Frontend → Orchestration → Runtime → Data → Validation)
-- Data flow from client request to response
-- Vendor isolation boundaries
-- Security checkpoints and policy enforcement
-- Checkpoint/approval gate state machine
+1. Start with `architecture-diagram.md` to understand system design
+2. Review `implementation-blueprint.md` for code examples
+3. Adapt templates to your requirements
 
-### 3. **implementation-blueprint.md**
-Production-ready code templates for all 5 layers:
-- **Layer 1**: Vercel AI SDK streaming chat endpoint + Gen UI React renderer
-- **Layer 2**: LangGraph cyclical agent loop + checkpoint persistence
-- **Layer 3**: Okta JWT extraction + Cedar policy engine integration
-- **Layer 4**: MCP server for vendor-scoped queries + multimodal embeddings
-- **Layer 5**: Prompt testing framework (evals) + workflow validation
+## Architecture Layers
 
-All code is copy-paste-ready and follows best practices.
+The framework uses a 5-layer architecture:
 
----
+- **Layer 1**: Frontend (Vercel AI SDK + React)
+- **Layer 2**: Orchestration (LangGraph state machine)
+- **Layer 3**: Runtime (AWS Lambda + Okta + Cedar)
+- **Layer 4**: Data (MCP + DuckDB + Embeddings)
+- **Layer 5**: Validation (Prompt evals + Testing)
 
-## 🎯 Use Cases
+Each layer maintains vendor isolation and identity context propagation.
 
-### For Architects
-1. Review `architecture-diagram.md` to understand the 5-layer model
-2. Check `implementation-blueprint.md` for concrete patterns
+## Key Patterns
 
-### For Implementation Teams
-1. Start with `implementation-blueprint.md`
-2. Reference `architecture-diagram.md` for integration points
-3. Adapt templates to your specific requirements
+### Vendor Isolation
 
-### For Reference
-- Use as a template for building AI agent platforms
-- Reference for data layer integration patterns
-- Model for vendor isolation and security boundaries
+Multi-tenant safety enforced through:
 
----
+- Request scoping in frontend
+- State partitioning in orchestration
+- JWT claims in runtime
+- Query filtering in data layer
 
-## 🚀 Key Features
+### Identity Forwarding
 
-- ✅ Production-grade architecture patterns
-- ✅ Vendor isolation enforced at every layer
-- ✅ Security boundaries with Cedar policy engine
-- ✅ Checkpoint-based workflow state management
-- ✅ Multimodal data processing (text, images, video)
-- ✅ Type-safe implementation examples
+Stateless JWT propagation through request headers.
 
----
+### Checkpoint Management
 
-## 📊 Architecture Overview
+State persistence for fault tolerance and human approval gates.
 
-```text
-┌─ Layer 1: Frontend (Vercel AI SDK + React)
-├─ Layer 2: Orchestration (LangGraph state machine)
-├─ Layer 3: Runtime (AWS Lambda + Identity + Cedar)
-├─ Layer 4: Data (MCP + DuckDB + Embeddings)
-└─ Layer 5: Validation (Prompt evals + Testing)
-```
+### Multimodal Embeddings
 
-All layers maintain vendor isolation and identity context propagation.
+Semantic search across PDFs, screenshots, and video frames.
 
----
+## Implementation Timeline
 
-## 🔗 References
+Building from scratch:
 
-- **architecture-diagram.md**: System integration details
-- **implementation-blueprint.md**: Code templates and patterns
+- Weeks 1-2: Layer 2 + Layer 1
+- Weeks 3-5: Layer 3 + Gen UI
+- Weeks 6-8: Layer 4 (MCP + Embeddings)
+- Weeks 9-11: Layer 5 (Validation)
 
-For questions about specific layers or patterns, refer to the implementation-blueprint.md code examples.
+Total: 7-11 weeks to production
