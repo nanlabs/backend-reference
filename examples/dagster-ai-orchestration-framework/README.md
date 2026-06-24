@@ -228,7 +228,7 @@ Semantic search (KNN) instead of keyword matching
 1. **Decision**: Archive or Start Fresh? (Review evaluation-conclusion.md)
 2. **Action**: 
    - If Archive → Execute 7-step checklist (2-3 hours)
-   - If Fresh → Create new repo, start Phase 1 (setup week)
+   - If Fresh → Create new repository, start Phase 1 (setup week)
 
 ### Implementation (If Fresh Start)
 1. Use code templates from `implementation-blueprint.md`

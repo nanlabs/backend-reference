@@ -650,7 +650,7 @@ def validate_completed_workflow(workflow_log: dict) -> Dict:
 ## Architecture Integration Overview
 
 ### Data Flow
-```
+```text
 User Message
     ↓
 [Layer 1: Frontend] Vercel AI SDK streaming chat → Next.js API route

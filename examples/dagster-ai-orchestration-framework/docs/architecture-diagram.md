@@ -285,7 +285,7 @@
 
 ## Checkpoint & Approval Gate Flow
 
-```
+```text
 Agent Loop Iteration 1
 ├─ Agent decides: "Need human approval for drug X"
 ├─ Creates tool call to request_approval(drug_x)
