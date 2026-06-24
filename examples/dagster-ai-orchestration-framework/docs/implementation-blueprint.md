@@ -650,6 +650,7 @@ def validate_completed_workflow(workflow_log: dict) -> Dict:
 ## Architecture Integration Overview
 
 ### Data Flow
+
 ```text
 User Message
     ↓
@@ -669,8 +670,8 @@ User Message
 ```
 
 ### Security Boundaries
+
 - **Vendor Isolation**: vendor_id enforced at every layer (Middleware → Agent → MCP → Database)
 - **Identity Forwarding**: Token passed end-to-end with read-only validation at each hop
 - **Policy Engine**: Cedar evaluates every action before execution
 - **Checkpoint Approval**: Critical operations require human approval + resume from checkpoint
-
