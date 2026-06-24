@@ -19,8 +19,8 @@ export async function POST(req: Request) {
   const result = await streamText({
     model: openai('gpt-4-turbo'),
     system: `You are a pharmaceutical expert agent. Analyze vendor data and provide 
-             structured recommendations. When responding about dosages or metrics, 
-             return valid JSON for component rendering.`,
+              structured recommendations. When responding about dosages or metrics, 
+              return valid JSON for component rendering.`,
     messages,
     temperature: 0.7,
   });
@@ -56,8 +56,8 @@ export async function POST(req: Request) {
     model: openai('gpt-4-turbo'),
     schema: componentSchema,
     prompt: `Given this vendor analysis query: "${query}"
-             Return a component definition for rendering interactive results.
-             vendor_id: ${vendorId}`,
+              Return a component definition for rendering interactive results.
+              vendor_id: ${vendorId}`,
   });
 
   return Response.json(object);
