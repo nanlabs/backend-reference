@@ -12,36 +12,36 @@
 ### 🎯 I Need To...
 
 #### Make a Decision (Should We Archive?)
-1. **START HERE**: `files/evaluation-conclusion.md` (11 min read)
+1. **START HERE**: `./evaluation-conclusion.md` (11 min read)
    - The answer: YES, ARCHIVE
    - Why it's right (4 supporting reasons)
    - Evidence table
    - Immediate next steps
 
-2. **THEN READ**: `files/SUMMARY_SPANISH.md` (10 min read in Spanish)
+2. **THEN READ**: `./SUMMARY_SPANISH.md` (10 min read in Spanish)
    - Spanish stakeholder summary
    - All reasons explained
    - Action plan for this week
 
-3. **REFERENCE**: `files/decision-framework.md` (15 min read)
+3. **REFERENCE**: `./decision-framework.md` (15 min read)
    - Three decision paths (Archive, Fresh, Expand)
    - 7-step archival checklist
    - Comparison matrix
 
 #### Understand the Architecture
-1. **VISUAL FIRST**: `files/architecture-diagram.md` (10 min read)
+1. **VISUAL FIRST**: `./architecture-diagram.md` (10 min read)
    - System diagram (5-layer stack)
    - Data flow visualization
    - Security boundaries
 
-2. **DETAILED ANALYSIS**: `files/poc-dagster-assessment.md` (20 min read)
+2. **DETAILED ANALYSIS**: `./poc-dagster-assessment.md` (20 min read)
    - Gap analysis per layer
    - Completeness scorecard (18% overall)
    - What poc-dagster does well
    - Why Dagster ≠ LangGraph (paradigm mismatch)
 
 #### Implement the Solution
-1. **CODE TEMPLATES**: `files/implementation-blueprint.md` (30 min reference)
+1. **CODE TEMPLATES**: `./implementation-blueprint.md` (30 min reference)
    - Layer 1: Streaming chat endpoint + React Gen UI
    - Layer 2: LangGraph state machines + checkpoints
    - Layer 3: Okta JWT + Cedar policies
@@ -49,26 +49,26 @@
    - Layer 5: Prompt evals + validation
    - All code: production-ready patterns
 
-2. **UNDERSTAND WHY**: `files/CODE_EXAMPLES_EXPLAINED.md` (40 min deep-dive)
+2. **UNDERSTAND WHY**: `./CODE_EXAMPLES_EXPLAINED.md` (40 min deep-dive)
    - Every code example explained
    - Why that pattern (not alternatives)
    - References to official docs
    - Trade-off analysis for each decision
    - Cross-layer patterns (vendor isolation, checkpoints)
 
-3. **PROJECT PLAN**: See roadmap in `files/poc-dagster-assessment.md`
+3. **PROJECT PLAN**: See roadmap in `./poc-dagster-assessment.md`
    - Phase 1-5 breakdown (7-11 weeks total)
    - Dependency graph
    - Success criteria per phase
 
 #### Verify What Was Done
-1. **VERIFICATION**: `files/DELIVERABLES_MANIFEST.md` (15 min read)
+1. **VERIFICATION**: `./DELIVERABLES_MANIFEST.md` (15 min read)
    - Checklist: all requirements met ✅
    - File statistics
    - Quality metrics
    - How to use each document
 
-2. **QUICK REFERENCE**: `files/README.md` (5 min read)
+2. **QUICK REFERENCE**: `./README.md` (5 min read)
    - Document overview table
    - Reading order by role
    - Key statistics
@@ -207,13 +207,10 @@ Read in order (20 min):
 
 ## File Locations
 
-All files are persisted in:
-```
-/home/nquiroga/.copilot/session-state/0c906c22-ec75-4295-bc1b-0cac83807391/files/
-```
+All files are in this directory:
 
 ```
-files/
+docs/
 ├── evaluation-conclusion.md          (Final verdict)
 ├── SUMMARY_SPANISH.md               (Spanish summary)
 ├── decision-framework.md            (Decision paths)

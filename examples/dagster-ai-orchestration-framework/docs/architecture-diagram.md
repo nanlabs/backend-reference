@@ -128,6 +128,46 @@
         └──────────────────┬──────────────────┘
                            │
 ┌──────────────────────────▼──────────────────────────────────────────────────┐
+│                    LAYER 3: RUNTIME (AWS AgentCore Lambda)                     │
+│                                                                             │
+│  ┌──────────────────────────────────────────────────────────────────────┐ │
+│  │ AWS Lambda Handler                                                  │ │
+│  │ ├─ Runtime: nodejs / python / custom                              │ │
+│  │ ├─ AgentCore: AWS managed runtime for agent execution             │ │
+│  │ ├─ Input: API Gateway event with identity context               │ │
+│  │ └─ Output: Agent response (streamed to Layer 1)                 │ │
+│  │                                                                    │ │
+│  │ Identity Context Binding:                                        │ │
+│  │ ├─ Extract from API Gateway authorizer:                         │ │
+│  │ │  ├─ event.requestContext.authorizer.claims['sub']            │ │
+│  │ │  └─ event.requestContext.authorizer.claims['vendor_id']      │ │
+│  │ ├─ Bind to AgentCore runtime:                                   │ │
+│  │ │  └─ AgentCore(identity_context={user_id, vendor_id, token})  │ │
+│  │ └─ Automatic enforcement: all operations scoped to vendor_id   │ │
+│  │                                                                    │ │
+│  │ Policy Engine Integration:                                       │ │
+│  │ ├─ Enforce Cedar policies at runtime                            │ │
+│  │ ├─ policy_engine: AgentPolicyEngine.CEDAR                       │ │
+│  │ └─ Every tool execution checked before execution               │ │
+│  │                                                                    │ │
+│  │ Data Source Configuration:                                       │ │
+│  │ ├─ DataSource.DUCKDB (structured vendor data)                   │ │
+│  │ ├─ DataSource.MCP (protocol-based access)                       │ │
+│  │ └─ DataSource.EMBEDDINGS (multimodal context)                   │ │
+│  │                                                                    │ │
+│  │ Monitoring & Tracing:                                           │ │
+│  │ ├─ AWS CloudWatch Logs (Lambda execution logs)                  │ │
+│  │ ├─ X-Ray Tracing (distributed tracing across layers)           │ │
+│  │ └─ Metrics: execution time, error rate, vendor isolation        │ │
+│  └──────────────────────────────────────────────────────────────────────┘ │
+└──────────────────────────┬──────────────────────────────────────────────────┘
+                           │
+            ┌──────────────▼──────────────┐
+            │ Query Results (JSON) to     │
+            │ Data Layer (MCP)            │
+            └──────────────┬──────────────┘
+                           │
+┌──────────────────────────▼──────────────────────────────────────────────────┐
 │                LAYER 4: DATA LAYER (MCP + Multimodal)                       │
 │                                                                             │
 │  ┌──────────────────────────────────────────────────────────────────────┐ │
@@ -184,47 +224,6 @@
                 └──────────┬───────────┘
                            │
 ┌──────────────────────────▼──────────────────────────────────────────────────┐
-│                 LAYER 3: RUNTIME (AWS AgentCore Lambda)                     │
-│                                                                             │
-│  ┌──────────────────────────────────────────────────────────────────────┐ │
-│  │ AWS Lambda Handler                                                  │ │
-│  │ ├─ Runtime: nodejs / python / custom                              │ │
-│  │ ├─ AgentCore: AWS managed runtime for agent execution             │ │
-│  │ ├─ Input: API Gateway event with identity context               │ │
-│  │ └─ Output: Agent response (streamed to Layer 1)                 │ │
-│  │                                                                    │ │
-│  │ Identity Context Binding:                                        │ │
-│  │ ├─ Extract from API Gateway authorizer:                         │ │
-│  │ │  ├─ event.requestContext.authorizer.claims['sub']            │ │
-│  │ │  └─ event.requestContext.authorizer.claims['vendor_id']      │ │
-│  │ ├─ Bind to AgentCore runtime:                                   │ │
-│  │ │  └─ AgentCore(identity_context={user_id, vendor_id, token})  │ │
-│  │ └─ Automatic enforcement: all operations scoped to vendor_id   │ │
-│  │                                                                    │ │
-│  │ Policy Engine Integration:                                       │ │
-│  │ ├─ Enforce Cedar policies at runtime                            │ │
-│  │ ├─ policy_engine: AgentPolicyEngine.CEDAR                       │ │
-│  │ └─ Every tool execution checked before execution               │ │
-│  │                                                                    │ │
-│  │ Data Source Configuration:                                       │ │
-│  │ ├─ DataSource.DUCKDB (structured vendor data)                   │ │
-│  │ ├─ DataSource.MCP (protocol-based access)                       │ │
-│  │ └─ DataSource.EMBEDDINGS (multimodal context)                   │ │
-│  │                                                                    │ │
-│  │ Monitoring & Tracing:                                           │ │
-│  │ ├─ AWS CloudWatch Logs (Lambda execution logs)                  │ │
-│  │ ├─ X-Ray Tracing (distributed tracing across layers)           │ │
-│  │ └─ Metrics: execution time, error rate, vendor isolation        │ │
-│  └──────────────────────────────────────────────────────────────────────┘ │
-└──────────────────────────┬──────────────────────────────────────────────────┘
-                           │
-                 ┌─────────▼────────────┐
-                 │ LangGraph Result JSON │
-                 │ Messages + Final      │
-                 │ Response             │
-                 └─────────┬────────────┘
-                           │
-┌──────────────────────────▼──────────────────────────────────────────────────┐
 │               LAYER 1: FRONTEND RESPONSE STREAMING                          │
 │                                                                             │
 │  ┌──────────────────────────────────────────────────────────────────────┐ │
@@ -258,25 +257,24 @@
 │                                                                  │
 │  vendor_id = "vendor_123" (immutable across entire flow)        │
 │                                                                  │
-│  ┌─ Layer 1 (Frontend)                                          │
-│  │  └─ Extract vendor_id from Okta JWT custom claim             │
+│  ┌─ Layer 1 (Frontend API Gateway)                              │
+│  │  ├─ Extract vendor_id from Okta JWT custom claim             │
+│  │  └─ Identity Forwarding Middleware:                          │
+│  │     └─ Validate with Cedar: Principal can access Resource    │
+│  │        Resource scoped to Vendor::{vendor_id}                │
 │  │                                                               │
-│  ├─ Layer 3 (Middleware)                                        │
-│  │  └─ Validate with Cedar: Principal can access Resource       │
-│  │     Resource scoped to Vendor::{vendor_id}                   │
-│  │                                                               │
-│  ├─ Layer 2 (LangGraph)                                         │
+│  ├─ Layer 2 (LangGraph Orchestration)                           │
 │  │  └─ AgentState.vendor_id = immutable field                   │
 │  │     All tool calls validated against this                    │
 │  │                                                               │
-│  ├─ Layer 4 (MCP + DuckDB)                                      │
-│  │  ├─ X-Vendor-ID header required for all requests             │
-│  │  └─ Query WHERE vendor_id = {X-Vendor-ID}                   │
-│  │     Injection attempts rejected                              │
+│  ├─ Layer 3 (Runtime - AWS AgentCore Lambda)                    │
+│  │  └─ AgentCore identity_context binding                       │
+│  │     All operations automatically scoped                      │
 │  │                                                               │
-│  └─ Layer 3 (Runtime)                                           │
-│     └─ AgentCore identity_context binding                       │
-│        All operations automatically scoped                      │
+│  └─ Layer 4 (Data Layer - MCP + DuckDB)                         │
+│     ├─ X-Vendor-ID header required for all requests             │
+│     └─ Query WHERE vendor_id = {X-Vendor-ID}                   │
+│        Injection attempts rejected                              │
 │                                                                  │
 │  ⚠️  NO CROSS-VENDOR DATA ACCESS POSSIBLE                       │
 │     ✓  Vendor A cannot query Vendor B data                      │
