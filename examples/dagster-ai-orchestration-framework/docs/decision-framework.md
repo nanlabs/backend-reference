@@ -283,7 +283,7 @@ POC-Dagster Archival → Agent Stack Bootstrap
 - [ ] Start Agent Stack Blueprint Immediately: Use implementation-blueprint.md as template
 
 **Timeline to Production**:
-- **Archival Path**: 2-3 hours (archive) + 7-11 weeks (build new) = ~11 weeks
+- **Archival Path**: ~7-11 weeks plus 2-3 hours archival overhead
 - **Fresh Start Path**: 7-11 weeks total
 - **Expansion Path**: 8-13 weeks (not recommended due to coupling risk)
 

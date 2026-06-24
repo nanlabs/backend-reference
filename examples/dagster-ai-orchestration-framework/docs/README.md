@@ -185,7 +185,6 @@ Depending on your role:
 ## 💾 File Manifest
 
 ```
-/home/nquiroga/.copilot/session-state/0c906c22-ec75-4295-bc1b-0cac83807391/files/
 ├── README.md (this file)
 ├── evaluation-conclusion.md (11 KB) - START HERE
 ├── poc-dagster-assessment.md (22 KB) - Deep dive

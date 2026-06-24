@@ -2,7 +2,7 @@
 
 **Evaluation Date**: June 24, 2026  
 **Session ID**: 0c906c22-ec75-4295-bc1b-0cac83807391  
-**Repository**: `/home/nquiroga/Documents/projects/NanLabs/poc-dagster`  
+**Repository**: nanlabs/poc-dagster  
 **Status**: ✅ COMPLETE - Ready for Archival Decision
 
 ---

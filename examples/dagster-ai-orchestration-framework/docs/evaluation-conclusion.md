@@ -116,7 +116,7 @@ identity, policy, embeddings, checkpoint, approval
 ### 4. Timeline Efficiency
 | Approach | Timeline | Outcome |
 |----------|----------|---------|
-| Archive + Fresh Start | 2 hrs + 7-11 weeks = **~11 weeks** | Clean, maintainable agent platform |
+| Archive + Fresh Start | **~7-11 weeks** plus 2-3 hrs archival | Clean, maintainable agent platform |
 | Expand Existing | 8-13 weeks | Coupled system with technical debt |
 | **Benefit**: Same timeline, better architecture |
 

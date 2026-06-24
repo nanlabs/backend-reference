@@ -261,7 +261,7 @@ dagster-ai-orchestration-framework/
 
 - **Evaluator**: GitHub Copilot CLI
 - **Date**: June 24, 2026
-- **Repository**: `/home/nquiroga/Documents/projects/NanLabs/poc-dagster`
+- **Repository**: nanlabs/poc-dagster
 - **Completeness Score**: 18% (Layer 1-3: 0%, Layer 4: 40%, Layer 5: 0%)
 - **Confidence Level**: Very High (95%+)
 - **Evidence**: 20 patterns searched, 0 AI infrastructure found

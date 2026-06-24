@@ -239,7 +239,7 @@ when {
 
 ---
 
-### Layer 4: Data Layer (MCP + Multimodal Embeddings) — **35% IMPLEMENTED**
+### Layer 4: Data Layer (MCP + Multimodal Embeddings) — **40% IMPLEMENTED**
 
 **Target**:
 - ✅ Model Context Protocol (MCP): Unified agent ↔ database connector
@@ -647,7 +647,7 @@ Agent: "Found 2 potential conflicts in patents US10123456 and US10654321.
 **poc-dagster** is an **excellent data orchestration POC**, but it is **not** an AI Agent framework. It demonstrates professional Dagster patterns that would serve as the data layer of a larger agent system, but you would need to build Layers 1–3 from scratch.
 
 **Decision Point**: Do you want to:
-1. **Expand this into a full AI agent system** (9–11 week effort, major rewrite)
+1. **Expand this into a full AI agent system** (7–11 week effort, major rewrite)
 2. **Keep this as reference documentation** for future Dagster projects (current state is valuable)
 3. **Archive and start fresh** with LangGraph + Next.js as the primary framework
 
