@@ -255,7 +255,7 @@
     {
       "name": "Dagster AI Orchestration Framework - Case Study & Architecture Evaluation",
       "description": "Comprehensive architectural evaluation of POC-Dagster data orchestration project, examining suitability for evolution into a 4-layer AI Agent platform. Includes gap analysis (18% completeness), production-ready code templates for all 5 layers (Frontend/Orchestration/Runtime/Data/Validation), and decision framework for archival vs fresh start.",
-      "url": "https://github.com/nanlabs/rabbit/tree/main/examples/dagster-ai-orchestration-framework",
+      "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/dagster-ai-orchestration-framework",
       "tags": [
         "Architecture",
         "Case Study",
