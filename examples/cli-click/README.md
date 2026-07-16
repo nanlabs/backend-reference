@@ -11,6 +11,7 @@ This is a simple CLI example using [Click](https://click.palletsprojects.com/), 
 ## Setup
 
 You must step into the root of this example directory in your terminal:
+
 ```bash
 cd examples/cli-click
 ```
@@ -46,6 +47,7 @@ python main.py --name "World"
 ## Running Tests
 
 To run the automated tests:
+
 ```bash
 pytest test_main.py
 ```
