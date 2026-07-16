@@ -49,10 +49,22 @@ To send us a pull request, please:
 
 ### Updating the examples catalog
 
-The examples list in `README.md` is generated from `README.md.tmpl` and
-`examples.json` by the generate-readme workflow. When adding or updating an
-example, edit `examples.json` instead of changing only the generated README
-table.
+The examples list in `README.md` is generated from `README.md.tmpl` and `examples.json` by the generate-readme workflow. When adding or updating an example, edit `examples.json` instead of changing only the generated README table.
+
+#### Generating the README locally
+
+You can generate the README locally on your machine using [Deno](https://deno.land/). Once Deno is installed, execute the script from the root of the repository:
+
+```bash
+deno run --allow-read --allow-write tools/readme-generator/main.ts README.md.tmpl examples.json
+```
+
+Alternatively, if your environment supports directly executing files with a shebang, make the script executable and run:
+
+```bash
+chmod +x tools/readme-generator/main.ts
+./tools/readme-generator/main.ts README.md.tmpl examples.json
+```
 
 GitHub provides additional document on [forking a repository](https://help.github.com/articles/fork-a-repo/) and
 [creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
