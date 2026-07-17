@@ -1,5 +1,4 @@
 from click.testing import CliRunner
-
 from main import hello
 
 
