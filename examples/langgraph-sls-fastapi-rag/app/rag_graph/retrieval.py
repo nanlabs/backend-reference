@@ -15,7 +15,7 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.runnables import RunnableConfig
 from langchain_core.vectorstores import VectorStoreRetriever
 
-from .configuration import Configuration, IndexConfiguration
+from .configuration import Configuration, RAGConfiguration
 
 ## Encoder constructors
 logger = logging.getLogger(__name__)
@@ -44,7 +44,7 @@ def make_text_encoder(model: str) -> Embeddings:
 
 @contextmanager
 def make_elastic_retriever(
-    configuration: IndexConfiguration, embedding_model: Embeddings
+    configuration: RAGConfiguration, embedding_model: Embeddings
 ) -> Generator[VectorStoreRetriever, None, None]:
     """Configure this agent to connect to a specific elastic index."""
     from langchain_elasticsearch import ElasticsearchStore
@@ -75,7 +75,7 @@ def make_elastic_retriever(
 
 @contextmanager
 def make_pinecone_retriever(
-    configuration: IndexConfiguration, embedding_model: Embeddings
+    configuration: RAGConfiguration, embedding_model: Embeddings
 ) -> Generator[VectorStoreRetriever, None, None]:
     """Configure this agent to connect to a specific pinecone index."""
     from langchain_pinecone import PineconeVectorStore
@@ -92,7 +92,7 @@ def make_pinecone_retriever(
 
 @contextmanager
 def make_mongodb_retriever(
-    configuration: IndexConfiguration, embedding_model: Embeddings
+    configuration: RAGConfiguration, embedding_model: Embeddings
 ) -> Generator[VectorStoreRetriever, None, None]:
     """Configure this agent to connect to a specific MongoDB Atlas index & namespaces."""
     from langchain_mongodb.vectorstores import MongoDBAtlasVectorSearch
@@ -113,7 +113,7 @@ def make_retriever(
     config: RunnableConfig,
 ) -> Generator[VectorStoreRetriever, None, None]:
     """Create a retriever for the agent, based on the current configuration."""
-    configuration = IndexConfiguration.from_runnable_config(config)
+    configuration = RAGConfiguration.from_runnable_config(config)
     embedding_model = make_text_encoder(configuration.embedding_model)
     user_id = configuration.user_id
     if not user_id:
