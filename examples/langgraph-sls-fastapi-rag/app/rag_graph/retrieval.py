@@ -20,11 +20,13 @@ from .configuration import Configuration, RAGConfiguration
 ## Encoder constructors
 logger = logging.getLogger(__name__)
 
+
 def make_text_encoder(model: str) -> Embeddings:
     """Connect to the configured text encoder."""
     if "/" not in model:
-        raise ValueError(f"Invalid model format: {model}. Expected format: 'provider/model'")
-        
+        raise ValueError(
+            f"Invalid model format: {model}. Expected format: 'provider/model'"
+        )
     provider, model = model.split("/", maxsplit=1)
     match provider:
         case "openai":
@@ -81,14 +83,15 @@ def make_pinecone_retriever(
     from langchain_pinecone import PineconeVectorStore
 
     user_search_kwargs = configuration.search_kwargs or {}
-    user_search_kwargs['filter'] = {
-        **user_search_kwargs.get('filter', {}),
-        "user_id": {"$eq": configuration.user_id}
+    user_search_kwargs["filter"] = {
+        **user_search_kwargs.get("filter", {}),
+        "user_id": {"$eq": configuration.user_id},
     }
     vstore = PineconeVectorStore.from_existing_index(
         os.environ["PINECONE_INDEX_NAME"], embedding=embedding_model
     )
     yield vstore.as_retriever(search_kwargs=user_search_kwargs)
+
 
 @contextmanager
 def make_mongodb_retriever(
