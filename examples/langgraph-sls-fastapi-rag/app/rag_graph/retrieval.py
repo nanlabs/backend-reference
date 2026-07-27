@@ -17,7 +17,7 @@ from langchain_core.vectorstores import VectorStoreRetriever
 
 from .configuration import Configuration, RAGConfiguration
 
-## Encoder constructors
+# Encoder constructors
 logger = logging.getLogger(__name__)
 
 
@@ -41,7 +41,7 @@ def make_text_encoder(model: str) -> Embeddings:
             raise ValueError(f"Unsupported embedding provider: {provider}")
 
 
-## Retriever constructors
+# Retriever constructors
 
 
 @contextmanager

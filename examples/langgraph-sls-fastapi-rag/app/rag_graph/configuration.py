@@ -38,7 +38,10 @@ class RAGConfiguration:
     ] = field(
         default="pinecone",
         metadata={
-            "description": "The vector store provider to use for retrieval. Options are 'elastic', 'pinecone', or 'mongodb'."
+            "description": (
+                "The vector store provider to use for retrieval. "
+                "Options are 'elastic', 'pinecone', or 'mongodb'."
+            )
         },
     )
 
@@ -84,7 +87,10 @@ class Configuration(RAGConfiguration):
         # default="anthropic/claude-3-5-sonnet-20240620",
         default="openai/gpt-4o-mini",
         metadata={
-            "description": "The language model used for generating responses. Should be in the form: provider/model-name."
+            "description": (
+                "The language model used for generating responses. "
+                "Should be in the form: provider/model-name."
+            )
         },
     )
 
@@ -99,6 +105,9 @@ class Configuration(RAGConfiguration):
         # default="anthropic/claude-3-haiku-20240307",
         default="openai/gpt-4o-mini",
         metadata={
-            "description": "The language model used for processing and refining queries. Should be in the form: provider/model-name."
+            "description": (
+                "The language model used for processing and refining queries. "
+                "Should be in the form: provider/model-name."
+            )
         },
     )
