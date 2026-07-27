@@ -10,9 +10,8 @@ from langchain_core.runnables import RunnableConfig, ensure_config
 from . import prompts
 
 
-#TODO: rename to RAGConfiguration
 @dataclass(kw_only=True)
-class IndexConfiguration:
+class RAGConfiguration:
     """Configuration class for indexing and retrieval operations.
 
     This class defines the parameters needed for configuring the indexing and
@@ -54,14 +53,14 @@ class IndexConfiguration:
     def from_runnable_config(
         cls: Type[T], config: Optional[RunnableConfig] = None
     ) -> T:
-        """Create an IndexConfiguration instance from a RunnableConfig object.
+        """Create a RAGConfiguration instance from a RunnableConfig object.
 
         Args:
             cls (Type[T]): The class itself.
             config (Optional[RunnableConfig]): The configuration object to use.
 
         Returns:
-            T: An instance of IndexConfiguration with the specified configuration.
+            T: An instance of RAGConfiguration with the specified configuration.
         """
         config = ensure_config(config)
         configurable = config.get("configurable") or {}
@@ -69,11 +68,11 @@ class IndexConfiguration:
         return cls(**{k: v for k, v in configurable.items() if k in _fields})
 
 
-T = TypeVar("T", bound=IndexConfiguration)
+T = TypeVar("T", bound=RAGConfiguration)
 
 
 @dataclass(kw_only=True)
-class Configuration(IndexConfiguration):
+class Configuration(RAGConfiguration):
     """The configuration for the agent."""
 
     response_system_prompt: str = field(
