@@ -216,6 +216,19 @@
         "Docker",
         "Docker Compose"
       ]
+    },
+    {
+      "name": "API Design Guidelines",
+      "description": "Design, document, version, and error-handle HTTP APIs: OpenAPI discipline, versioning and sunset policy, uniform error envelope, scaling patterns, and dependency hygiene.",
+      "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/api-design-guidelines",
+      "tags": ["Guides, Tutorials and Best Practices", "Examples > Backend > Microservices"],
+      "labels": [
+        "API Design",
+        "OpenAPI",
+        "Versioning",
+        "Error Handling",
+        "Best Practices"
+      ]
     }
   ]
 }
