@@ -5,22 +5,14 @@
       "name": "Python CLI with Click Example",
       "description": "A basic Python CLI tool built with Click, demonstrating how to create commands with help and version options.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/cli-click",
-      "tags": [
-        "Examples > Backend > CLI Tools"
-      ],
-      "labels": [
-        "Python3",
-        "Click",
-        "CLI"
-      ]
+      "tags": ["Examples > Backend > CLI Tools"],
+      "labels": ["Python3", "Click", "CLI"]
     },
     {
       "name": "Golang REST API boilerplate",
       "description": "A comprehensive REST API boilerplate in Golang, featuring CRUD operations, structured logging, rate limiting, unit and integration tests, and API documentation with Swagger. Includes Docker Compose for MongoDB setup and tools like Gorilla Mux, Zap, and Mockery for streamlined development.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/golang-todo-rest-crud",
-      "tags": [
-        "Apps and Boilerplates"
-      ],
+      "tags": ["Apps and Boilerplates"],
       "labels": [
         "Golang",
         "REST API",
@@ -46,52 +38,28 @@
       "name": "Python CLI Basic Example",
       "description": "A minimal Python CLI example showcasing how to create commands without requiring the explicit use of the Python interpreter or script path.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/cli-base",
-      "tags": [
-        "Examples > Backend > CLI Tools"
-      ],
-      "labels": [
-        "Python3",
-        "CLI",
-        "Command Line"
-      ]
+      "tags": ["Examples > Backend > CLI Tools"],
+      "labels": ["Python3", "CLI", "Command Line"]
     },
     {
       "name": "Python CLI with Typer + Rich Example",
       "description": "A Python CLI tool built with Typer and Rich, demonstrating interaction with external APIs for currency exchange rates and styled console outputs.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/cli-typer-base",
-      "tags": [
-        "Examples > Backend > CLI Tools"
-      ],
-      "labels": [
-        "Python3",
-        "Typer",
-        "Rich",
-        "API Integration",
-        "CLI"
-      ]
+      "tags": ["Examples > Backend > CLI Tools"],
+      "labels": ["Python3", "Typer", "Rich", "API Integration", "CLI"]
     },
     {
       "name": "FastAPI Basic Example",
       "description": "A simple REST API built with FastAPI that retrieves mock data using the Faker library, showcasing basic API development.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-base",
-      "tags": [
-        "Examples > Backend > FastAPI"
-      ],
-      "labels": [
-        "Python3",
-        "FastAPI",
-        "Faker",
-        "Mock Data",
-        "Pydantic"
-      ]
+      "tags": ["Examples > Backend > FastAPI"],
+      "labels": ["Python3", "FastAPI", "Faker", "Mock Data", "Pydantic"]
     },
     {
       "name": "FastAPI Complete CRUD Example",
       "description": "A complete CRUD API built with FastAPI, featuring endpoints for managing employees and companies, along with database population using Faker.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-crud",
-      "tags": [
-        "Examples > Backend > FastAPI"
-      ],
+      "tags": ["Examples > Backend > FastAPI"],
       "labels": [
         "Python3",
         "FastAPI",
@@ -106,24 +74,14 @@
       "name": "FastAPI GraphQL",
       "description": "A GraphQL API built with FastAPI and Strawberry, retrieving mock company data using the Faker library.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-gql",
-      "tags": [
-        "Examples > Backend > FastAPI"
-      ],
-      "labels": [
-        "Python3",
-        "FastAPI",
-        "GraphQL",
-        "Strawberry",
-        "Faker"
-      ]
+      "tags": ["Examples > Backend > FastAPI"],
+      "labels": ["Python3", "FastAPI", "GraphQL", "Strawberry", "Faker"]
     },
     {
       "name": "Stripe Integration with Node.js and TypeScript",
       "description": "A robust Stripe integration example using Node.js and TypeScript, enabling operations like customer creation, checkout sessions, and webhook handling.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/stripe-integration-node-typescript/",
-      "tags": [
-        "Examples > Backend > ThirdParty Integrations > Stripe"
-      ],
+      "tags": ["Examples > Backend > ThirdParty Integrations > Stripe"],
       "labels": [
         "Node.js",
         "TypeScript",
@@ -137,9 +95,7 @@
       "name": "NestJS REST-based Microservices with NATS",
       "description": "A microservices architecture example using NestJS and NATS, demonstrating asynchronous messaging and request-reply patterns.",
       "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/nest-nats-microservices/",
-      "tags": [
-        "Examples > Backend > Microservices"
-      ],
+      "tags": ["Examples > Backend > Microservices"],
       "labels": [
         "Node.js",
         "NestJS",
@@ -176,13 +132,7 @@
         "Examples > Backend > FastAPI",
         "Examples > DevOps > Containers, Orchestration and Serverless > Containers and Compositions (Docker, Docker Compose, Buildpacks and more)"
       ],
-      "labels": [
-        "Python3",
-        "FastAPI",
-        "MongoDB",
-        "Docker",
-        "Docker Compose"
-      ]
+      "labels": ["Python3", "FastAPI", "MongoDB", "Docker", "Docker Compose"]
     },
     {
       "name": "FastAPI Simple example with Docker Compose and PIP",
@@ -193,12 +143,7 @@
         "Examples > Backend > FastAPI",
         "Examples > DevOps > Containers, Orchestration and Serverless > Containers and Compositions (Docker, Docker Compose, Buildpacks and more)"
       ],
-      "labels": [
-        "Python3",
-        "FastAPI",
-        "Docker",
-        "PIP"
-      ]
+      "labels": ["Python3", "FastAPI", "Docker", "PIP"]
     },
     {
       "name": "SQLC with Go, PostgreSQL, Docker Compose",
@@ -209,92 +154,7 @@
         "Examples > Backend > SQLC",
         "Examples > DevOps > Containers, Orchestration and Serverless > Containers and Compositions (Docker, Docker Compose, Buildpacks and more)"
       ],
-      "labels": [
-        "Golang",
-        "SQLC",
-        "PostgreSQL",
-        "Docker",
-        "Docker Compose"
-      ]
-    },
-    {
-      "name": "LangGraph SLS FastAPI RAG",
-      "description": "A Proof of Concept (POC) for a Retrieval Augmented Generation (RAG) system using LangGraph, deployed with the Serverless Framework on AWS Lambda. It integrates FastAPI for API development and DynamoDB for state management.",
-      "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/langgraph-sls-fastapi-rag",
-      "tags": [
-        "Apps and Boilerplates",
-        "Examples > Backend > FastAPI",
-        "Examples > DevOps > Infrastructure as Code > Serverless Framework, SAM and CloudFormation"
-      ],
-      "labels": [
-        "Python3",
-        "FastAPI",
-        "LangGraph",
-        "Serverless Framework",
-        "AWS Lambda",
-        "DynamoDB",
-        "Docker",
-        "RAG",
-        "Retrieval Augmented Generation"
-      ]
-    },
-    {
-      "name": "Geospatial Python Urban Analysis with PostGIS",
-      "description": "A comprehensive geospatial data analysis project for urban environments, featuring analysis of pedestrian zones, transportation networks, census data, and geographic boundaries. Built with PostgreSQL/PostGIS, Docker, and GeoPandas for efficient spatial queries, ETL pipelines, and geospatial machine learning models.",
-      "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/geospatial-python-urban-analysis-with-postgis",
-      "tags": [
-        "Apps and Boilerplates",
-        "Examples > Data Science and Machine Learning > Geospatial Analysis",
-        "Examples > DevOps > Containers, Orchestration and Serverless > Containers and Compositions (Docker, Docker Compose, Buildpacks and more)"
-      ],
-      "labels": [
-        "Python3",
-        "GeoPandas",
-        "PostGIS",
-        "PostgreSQL",
-        "Docker",
-        "Geospatial Analysis",
-        "Urban Planning",
-        "ETL",
-        "Machine Learning",
-        "Jupyter Notebooks",
-        "Folium",
-        "Matplotlib",
-        "Scikit-learn",
-        "Rasterio",
-        "GIS"
-      ]
-    },
-    {
-      "name": "Dagster AI Orchestration Framework - Case Study & Architecture Evaluation",
-      "description": "Comprehensive architectural evaluation of POC-Dagster data orchestration project, examining suitability for evolution into a 4-layer AI Agent platform. Includes gap analysis (18% completeness), production-ready code templates for all 5 layers (Frontend/Orchestration/Runtime/Data/Validation), and decision framework for archival vs fresh start.",
-      "url": "https://github.com/nanlabs/backend-reference/tree/main/examples/dagster-ai-orchestration-framework",
-      "tags": [
-        "Architecture",
-        "Case Study",
-        "AI Agents",
-        "Decision Framework"
-      ],
-      "labels": [
-        "Dagster",
-        "Data Orchestration",
-        "LangGraph",
-        "AI Agents",
-        "Architecture Evaluation",
-        "4-Layer Stack",
-        "Vercel AI SDK",
-        "Okta",
-        "Cedar",
-        "MCP",
-        "Embeddings",
-        "FastAPI",
-        "Next.js",
-        "TypeScript",
-        "Python",
-        "Prompt Evals",
-        "Decision Framework",
-        "Reference Architecture"
-      ]
+      "labels": ["Golang", "SQLC", "PostgreSQL", "Docker", "Docker Compose"]
     }
   ]
 }
