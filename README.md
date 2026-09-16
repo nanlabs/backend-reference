@@ -44,6 +44,7 @@ tools and more!
     - [Containers, Orchestration and Serverless](#containers-orchestration-and-serverless)
       - [Containers and Compositions (Docker, Docker Compose, Buildpacks and more)](#containers-and-compositions-docker-docker-compose-buildpacks-and-more)
 - [Apps and Boilerplates](#apps-and-boilerplates)
+- [Guides, Tutorials and Best Practices](#guides-tutorials-and-best-practices)
 
 - [Contributing](#contributing)
 - [Contributors](#contributors)
@@ -81,9 +82,10 @@ tools and more!
 
 #### Microservices
 
-| Name                                                                                                                                  | Description                                                                                                                  | Keywords                                                          |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| [NestJS REST-based Microservices with NATS](https://github.com/nanlabs/backend-reference/tree/main/examples/nest-nats-microservices/) | A microservices architecture example using NestJS and NATS, demonstrating asynchronous messaging and request-reply patterns. | _Node.js_, _NestJS_, _Microservices_, _NATS_, _Messaging_, _REST_ |
+| Name                                                                                                                                  | Description                                                                                                                                                                | Keywords                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| [API Design Guidelines](https://github.com/nanlabs/backend-reference/tree/main/examples/api-design-guidelines)                        | Design, document, version, and error-handle HTTP APIs: OpenAPI discipline, versioning and sunset policy, uniform error envelope, scaling patterns, and dependency hygiene. | _API Design_, _OpenAPI_, _Versioning_, _Error Handling_, _Best Practices_ |
+| [NestJS REST-based Microservices with NATS](https://github.com/nanlabs/backend-reference/tree/main/examples/nest-nats-microservices/) | A microservices architecture example using NestJS and NATS, demonstrating asynchronous messaging and request-reply patterns.                                               | _Node.js_, _NestJS_, _Microservices_, _NATS_, _Messaging_, _REST_         |
 
 #### SQLC
 
@@ -120,6 +122,12 @@ tools and more!
 | [FastAPI with MongoDB and Docker Compose](https://github.com/nanlabs/backend-reference/tree/main/examples/fastapi-mongo-with-docker-compose)                 | A REST API built with FastAPI and MongoDB, containerized using Docker Compose for seamless development and deployment.                                                                                                                                                                            | _Python3_, _FastAPI_, _MongoDB_, _Docker_, _Docker Compose_                                                                                                                                                                |
 | [Golang REST API boilerplate](https://github.com/nanlabs/backend-reference/tree/main/examples/golang-todo-rest-crud)                                         | A comprehensive REST API boilerplate in Golang, featuring CRUD operations, structured logging, rate limiting, unit and integration tests, and API documentation with Swagger. Includes Docker Compose for MongoDB setup and tools like Gorilla Mux, Zap, and Mockery for streamlined development. | _Golang_, _REST API_, _MongoDB_, _Gorilla Mux_, _Go Swagger_, _Tollbooth_, _Zap_, _Viper_, _Mockery_, _Makefile_, _Pre-commit_, _Docker_, _Docker Compose_, _DockerTest_, _Swagger_, _Rate Limiting_, _Logging_, _Testing_ |
 | [SQLC with Go, PostgreSQL, Docker Compose](https://github.com/nanlabs/backend-reference/tree/main/examples/golang-api-with-postgres-and-sqlc)                | A REST API built with Go and SQLC, showcasing database operations with PostgreSQL and containerized development using Docker Compose.                                                                                                                                                             | _Golang_, _SQLC_, _PostgreSQL_, _Docker_, _Docker Compose_                                                                                                                                                                 |
+
+## Guides, Tutorials and Best Practices
+
+| Name                                                                                                           | Description                                                                                                                                                                | Keywords                                                                  |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| [API Design Guidelines](https://github.com/nanlabs/backend-reference/tree/main/examples/api-design-guidelines) | Design, document, version, and error-handle HTTP APIs: OpenAPI discipline, versioning and sunset policy, uniform error envelope, scaling patterns, and dependency hygiene. | _API Design_, _OpenAPI_, _Versioning_, _Error Handling_, _Best Practices_ |
 
 ## Contributing
 
