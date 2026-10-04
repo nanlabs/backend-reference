@@ -14,9 +14,9 @@ describe('AppController', () => {
     appController = app.get<AppController>(AppController);
   });
 
-  describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+  describe('version', () => {
+    it('should return the configured version', () => {
+      expect(appController.getVersion()).toBe(process.env.VERSION || '0.0.1');
     });
   });
 });

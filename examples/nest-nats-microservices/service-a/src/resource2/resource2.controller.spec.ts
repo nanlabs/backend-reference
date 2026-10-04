@@ -9,6 +9,10 @@ describe('Resource2Controller', () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [Resource2Controller],
       providers: [Resource2Service],
+    }).useMocker((token) => {
+      if (token === 'NATS') {
+        return { emit: jest.fn(), send: jest.fn() };
+      }
     }).compile();
 
     controller = module.get<Resource2Controller>(Resource2Controller);

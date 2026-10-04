@@ -7,6 +7,10 @@ describe('Resource1Service', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [Resource1Service],
+    }).useMocker((token) => {
+      if (token === 'NATS') {
+        return { emit: jest.fn(), send: jest.fn() };
+      }
     }).compile();
 
     service = module.get<Resource1Service>(Resource1Service);
