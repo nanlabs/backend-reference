@@ -44,7 +44,7 @@ class NewEmployeeSchema(BaseModel):
     city: str
     state_province: str
     country: str
-    zip_code: str | None = None
+    zip_code: str
     time_zone: str | None = None
     personal_id: str
     email: EmailStr

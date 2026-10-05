@@ -12,6 +12,7 @@ class OptionalSchemaFieldsTest(unittest.TestCase):
             city="Example City",
             state_province="CA",
             country="US",
+            zip_code="90210",
             email="owner@example.com",
             tax_id="123",
         )
@@ -27,13 +28,13 @@ class OptionalSchemaFieldsTest(unittest.TestCase):
             city="Example City",
             state_province="CA",
             country="US",
+            zip_code="90210",
             personal_id="123",
             email="ada@example.com",
             phone_number="555-0100",
             role="Engineer",
         )
 
-        self.assertIsNone(employee.zip_code)
         self.assertIsNone(employee.company)
         self.assertIsNone(employee.avatar_url)
 

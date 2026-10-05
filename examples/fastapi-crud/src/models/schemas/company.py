@@ -9,7 +9,7 @@ class CompanySchema(BaseModel):
     city: str
     state_province: str
     country: str
-    zip_code: str | None = None
+    zip_code: str
     time_zone: str | None = None
     owner_name: str | None = None
     owner_last_name: str | None = None
@@ -27,7 +27,7 @@ class NewCompanySchema(BaseModel):
     city: str
     state_province: str
     country: str
-    zip_code: str | None = None
+    zip_code: str
     time_zone: str | None = None
     owner_name: str | None = None
     owner_last_name: str | None = None
