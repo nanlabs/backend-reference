@@ -1,4 +1,3 @@
-
 import logging.config
 import time
 from pathlib import Path
@@ -17,9 +16,7 @@ logging.config.fileConfig(
 API_SETTINGS: ApiSettings = Settings.get_api_settings()
 
 app = FastAPI(
-    title=API_SETTINGS.title,
-    debug=API_SETTINGS.debug,
-    version=API_SETTINGS.version
+    title=API_SETTINGS.title, debug=API_SETTINGS.debug, version=API_SETTINGS.version
 )
 
 # Add routes
@@ -35,21 +32,21 @@ app.add_middleware(
 )
 
 
-@app.middleware('http')
+@app.middleware("http")
 async def add_middleware(request: Request, call_next):
     start_time = time.time()
     response = await call_next(request)
     duration = time.time() - start_time
-    response.headers['duration'] = str(duration * 100) + " ms"
+    response.headers["duration"] = str(duration * 100) + " ms"
     return response
 
 
 if __name__ == "__main__":
     uvicorn.run(
-        'main:app',
+        "main:app",
         host=API_SETTINGS.host,
         port=API_SETTINGS.port,
         debug=API_SETTINGS.debug,
         reload=True,
-        reload_includes=["*"]
+        reload_includes=["*"],
     )

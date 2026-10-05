@@ -13,10 +13,11 @@ faker = Faker()
 
 class EmployeesFactory:
     """Generates Employees in the DB"""
-    def __init__(self) -> None:
-        self.employees = list()
 
-    async def _employee_creator(self, db: Session, company_id) -> None:
+    def __init__(self) -> None:
+        self.employees: List[Employee] = []
+
+    async def _employee_creator(self, db: Session, company_id: str | None) -> None:
         """Creates new employee in db with fake info"""
         fake = Faker()
         new_employee = Employee(
@@ -40,7 +41,9 @@ class EmployeesFactory:
         await EmployeeRepository.create(new_employee, db)
         self.employees.append(new_employee)
 
-    async def bulk_creator_for_company(self, quantity: int, db: Session, company_id: str | None = None):
+    async def bulk_creator_for_company(
+        self, quantity: int, db: Session, company_id: str | None = None
+    ):
         """Creates n new employees for a given company_id"""
         for _ in range(quantity):
             await self._employee_creator(db, company_id)
@@ -48,8 +51,5 @@ class EmployeesFactory:
 
     async def bulk_creator(self, quantity: int, db: Session, companies: List[Company]):
         for _ in range(quantity):
-            await self._employee_creator(
-                db=db,
-                company_id=random.choice(companies).id
-            )
+            await self._employee_creator(db=db, company_id=random.choice(companies).id)
         return self.employees

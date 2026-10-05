@@ -46,7 +46,7 @@ class CompanyRepository:
             DatabaseExceptions.throw_db_integrity_error(integrity_error)
         except Exception as e:
             logger.error(e, exc_info=True)
-            DatabaseExceptions.throw_internal_server_error()
+            DatabaseExceptions.throw_internal_server_error(e)
 
     @staticmethod
     async def delete(id: str, db: Session) -> None:
@@ -57,7 +57,7 @@ class CompanyRepository:
             db.commit()
         except Exception as e:
             logger.error(e, exc_info=True)
-            DatabaseExceptions.throw_internal_server_error()
+            DatabaseExceptions.throw_internal_server_error(e)
 
     @staticmethod
     async def patch(company: Company, db: Session):
