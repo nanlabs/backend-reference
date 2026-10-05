@@ -2,7 +2,6 @@ from typing import List
 from uuid import uuid4
 
 from faker import Faker
-
 from models.models import Company
 from repositories.company_repository import CompanyRepository
 from sqlalchemy.orm import Session

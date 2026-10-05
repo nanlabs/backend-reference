@@ -44,33 +44,33 @@ class NewEmployeeSchema(BaseModel):
     city: str
     state_province: str
     country: str
-    zip_code: str | None
-    time_zone: str | None
+    zip_code: str | None = None
+    time_zone: str | None = None
     personal_id: str
     email: EmailStr
     phone_number: str
-    company: str | None
+    company: str | None = None
     role: str
-    avatar_url: HttpUrl | None
+    avatar_url: HttpUrl | None = None
 
     model_config = ConfigDict(extra="forbid")
 
 
 class PatchEmployeeSchema(BaseModel):
-    first_name: str | None
-    last_name: str | None
-    address: str | None
-    city: str | None
-    state_province: str | None
-    country: str | None
-    zip_code: str | None
-    time_zone: str | None
-    personal_id: str | None
-    email: EmailStr | None
-    phone_number: str | None
-    is_manager: bool | None
-    company: str | None
-    role: str | None
-    avatar_url: HttpUrl | None
+    first_name: str | None = None
+    last_name: str | None = None
+    address: str | None = None
+    city: str | None = None
+    state_province: str | None = None
+    country: str | None = None
+    zip_code: str | None = None
+    time_zone: str | None = None
+    personal_id: str | None = None
+    email: EmailStr | None = None
+    phone_number: str | None = None
+    is_manager: bool | None = None
+    company: str | None = None
+    role: str | None = None
+    avatar_url: HttpUrl | None = None
 
     model_config = ConfigDict(extra="forbid")

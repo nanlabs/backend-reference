@@ -53,7 +53,7 @@ about the database setup for local development.
 
 ### Run the Application
 
-This repo has a local development set up that uses the file `.env.local` to configure the local environment.
+This example has a local development setup that uses the file `.env.local` to configure the local environment.
 Run the following command to start the local development server:
 
 ```sh
@@ -62,14 +62,7 @@ npm run sls:offline
 
 ### Using S3 locally
 
-The sample provisions its S3 bucket when deployed to AWS. It does not bundle an S3 emulator in the offline server. To test S3 locally, start a separately managed emulator such as LocalStack, then point the AWS CLI at its endpoint and create the bucket configured in `.env.local`:
-
-```sh
-aws --endpoint-url=http://localhost:4566 s3 mb s3://s3-local-extra
-aws --endpoint-url=http://localhost:4566 s3 cp .gitignore s3://s3-local-extra/
-```
-
-LocalStack authentication and startup are managed separately; do not store its auth token in this repository.
+The sample provisions its S3 bucket when deployed to AWS. Local S3 emulation is currently unsupported in this example. Its former plugin dependency had unresolved critical vulnerabilities, so this sample no longer installs an emulator. Use the deployed AWS bucket for S3 operations until a safe local emulator is documented.
 
 ## Deployment
 

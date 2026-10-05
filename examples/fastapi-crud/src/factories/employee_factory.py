@@ -3,7 +3,6 @@ from typing import List
 from uuid import uuid4
 
 from faker import Faker
-
 from models.models import Company, Employee
 from repositories.employee_repository import EmployeeRepository
 from sqlalchemy.orm import Session
