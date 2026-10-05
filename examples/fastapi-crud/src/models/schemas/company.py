@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, ConfigDict, EmailStr
 
 
 class CompanySchema(BaseModel):
@@ -17,8 +17,7 @@ class CompanySchema(BaseModel):
     phone_number: str | None
     tax_id: str
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class NewCompanySchema(BaseModel):
@@ -36,11 +35,7 @@ class NewCompanySchema(BaseModel):
     phone_number: str | None
     tax_id: str
 
-    class Config:
-        """This config validates the request, if it has extra fields raises a validation error
-        https://pydantic-docs.helpmanual.io/usage/model_config/#options
-        """
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class PatchCompanySchema(BaseModel):
@@ -58,8 +53,4 @@ class PatchCompanySchema(BaseModel):
     phone_number: str | None
     tax_id: str | None
 
-    class Config:
-        """This config validates the request, if it has extra fields raises a validation error
-        https://pydantic-docs.helpmanual.io/usage/model_config/#options
-        """
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

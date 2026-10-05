@@ -3,8 +3,8 @@ from os import getenv
 from typing import List, Optional
 
 from dotenv import find_dotenv, load_dotenv
-from pydantic import BaseSettings
-from pydantic.error_wrappers import ValidationError
+from pydantic import ValidationError
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class ApiSettings(BaseSettings):
@@ -18,8 +18,7 @@ class ApiSettings(BaseSettings):
     allow_headers: Optional[List[str]] = ["*"]
     title: Optional[str] = "FastApi Poc"
 
-    class Config:
-        env_file = ".env"
+    model_config = SettingsConfigDict(env_file=".env")
 
 
 class DbBaseSettings(BaseSettings):
@@ -33,8 +32,7 @@ class DbBaseSettings(BaseSettings):
 
 
 class DbSettings(DbBaseSettings):
-    class Config:
-        env_file = ".env.database"
+    model_config = SettingsConfigDict(env_file=".env.database")
 
 
 class Settings:
@@ -46,9 +44,9 @@ class Settings:
     @lru_cache
     def get_db_settings() -> DbSettings:
         """First try to get env values from .env file.
-        Pydantic will only check the current working directory and won't check any parent directories for the .env.database file.
-        If pydantic does not find the file dotenv library will search the file in parent directories,
-        If it finds the file the values will be loaded and then set with os.getenv method.
+        Pydantic checks the current working directory for .env.database but not
+        parent directories. If the file is absent, dotenv searches parent
+        directories and loads the values into the environment when it finds it.
         """
         try:
             return DbSettings()

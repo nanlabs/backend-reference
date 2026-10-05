@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr, HttpUrl
+from pydantic import BaseModel, ConfigDict, EmailStr, HttpUrl
 
 
 class EmployeeSchema(BaseModel):
@@ -19,8 +19,7 @@ class EmployeeSchema(BaseModel):
     role: str
     avatar_url: HttpUrl
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class ShortEmployeeSchema(BaseModel):
@@ -35,8 +34,7 @@ class ShortEmployeeSchema(BaseModel):
     role: str
     avatar_url: HttpUrl
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class NewEmployeeSchema(BaseModel):
@@ -55,11 +53,7 @@ class NewEmployeeSchema(BaseModel):
     role: str
     avatar_url: HttpUrl | None
 
-    class Config:
-        """This config validates the request, if it has extra fields raises a validation error
-        https://pydantic-docs.helpmanual.io/usage/model_config/#options
-        """
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class PatchEmployeeSchema(BaseModel):
@@ -79,8 +73,4 @@ class PatchEmployeeSchema(BaseModel):
     role: str | None
     avatar_url: HttpUrl | None
 
-    class Config:
-        """This config validates the request, if it has extra fields raises a validation error
-        https://pydantic-docs.helpmanual.io/usage/model_config/#options
-        """
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
