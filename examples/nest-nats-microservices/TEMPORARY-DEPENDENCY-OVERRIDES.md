@@ -18,5 +18,5 @@ review date, recheck the advisory, upstream dependency ranges, and compatibility
 the resolution if it is no longer needed, or obtain renewed approval before extending it.
 
 Evidence: Dependabot update run
-https://github.com/nanlabs/backend-reference/actions/runs/37345209673 reported
+[Dependabot update run](https://github.com/nanlabs/backend-reference/actions/runs/37345209673) reported
 `latest-resolvable-version: 10.4.5` and `lowest-non-vulnerable-version: 12.0.0`.
