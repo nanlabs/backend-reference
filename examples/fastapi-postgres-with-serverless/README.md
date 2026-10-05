@@ -7,11 +7,10 @@ We use [Serverless](https://www.serverless.com/) to deploy our API to AWS Lambda
 This example was created as a combination of the following examples:
 
 - [PostgreSQL using Docker and Docker Compose](https://github.com/nanlabs/devops-reference/tree/main/examples/compose-postgres/): Dockerfile and compose.yml to run PostgreSQL locally with initialization scripts.
-- [Serverless S3 Local](https://github.com/nanlabs/devops-reference/tree/main/examples/serverless-s3-local/): Serverless Framework example to run a lambda function locally using [Serverless S3 Local](https://www.serverless.com/plugins/serverless-s3-local).
 
 ## Requirements
 
-**You’ll need to have Node 18.17.0 or later on your local development machine** (but it’s not required on the server). You can use [fnm](https://github.com/Schniz/fnm) to easily switch Node versions between different projects.
+**You’ll need Node.js 20 or later and a Serverless Framework account** on your local development machine. Serverless Framework v4 requires authentication; run `npx serverless login` before using the commands below. You can use [fnm](https://github.com/Schniz/fnm) to switch Node versions between projects.
 
 ```sh
 fnm use
@@ -54,27 +53,16 @@ about the database setup for local development.
 
 ### Run the Application
 
-This repo has a local development set up that uses the file `.env.local` to configure the local environment.
+This example has a local development setup that uses the file `.env.local` to configure the local environment.
 Run the following command to start the local development server:
 
 ```sh
 npm run sls:offline
 ```
 
-### Using S3 Offline
+### Using S3 locally
 
-We use the plugin `serverless-s3-local` to emulate S3 locally. First, using aws configure set up a new profile, i.e. `aws configure --profile s3local`. The default creds are
-
-```sh
-aws_access_key_id = S3RVER
-aws_secret_access_key = S3RVER
-```
-
-then you can interact with S3 locally doing the following:
-
-```sh
-aws --endpoint-url=http://localhost:8000 s3 cp .gitignore s3://s3-local-extra/ --profile s3local
-```
+The sample provisions its S3 bucket when deployed to AWS. Local S3 emulation is currently unsupported in this example. Its former plugin dependency had unresolved critical vulnerabilities, so this sample no longer installs an emulator. Use the deployed AWS bucket for S3 operations until a safe local emulator is documented.
 
 ## Deployment
 

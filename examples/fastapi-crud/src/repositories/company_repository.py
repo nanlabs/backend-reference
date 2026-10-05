@@ -1,11 +1,10 @@
 import logging
 from typing import List
 
-from sqlalchemy.exc import IntegrityError
-from sqlalchemy.orm import Session
-
 from exceptions.database_exceptions import DatabaseExceptions
 from models.models import Company
+from sqlalchemy.exc import IntegrityError
+from sqlalchemy.orm import Session
 
 logger = logging.getLogger(__name__)
 
@@ -46,7 +45,7 @@ class CompanyRepository:
             DatabaseExceptions.throw_db_integrity_error(integrity_error)
         except Exception as e:
             logger.error(e, exc_info=True)
-            DatabaseExceptions.throw_internal_server_error()
+            DatabaseExceptions.throw_internal_server_error(e)
 
     @staticmethod
     async def delete(id: str, db: Session) -> None:
@@ -57,7 +56,7 @@ class CompanyRepository:
             db.commit()
         except Exception as e:
             logger.error(e, exc_info=True)
-            DatabaseExceptions.throw_internal_server_error()
+            DatabaseExceptions.throw_internal_server_error(e)
 
     @staticmethod
     async def patch(company: Company, db: Session):
