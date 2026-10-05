@@ -5,7 +5,6 @@ from sqlalchemy.exc import IntegrityError
 
 
 class DatabaseExceptions:
-
     @staticmethod
     def throw_internal_server_error(e: Exception) -> NoReturn:
         """Throws a generic DB error"""

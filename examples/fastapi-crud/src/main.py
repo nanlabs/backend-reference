@@ -3,10 +3,9 @@ import time
 from pathlib import Path
 
 import uvicorn
+from core.config import ApiSettings, Settings
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-
-from core.config import ApiSettings, Settings
 from routes.routers import api_router
 
 logging.config.fileConfig(

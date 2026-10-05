@@ -36,7 +36,6 @@ class DbBaseSettings(BaseSettings):
 
 
 class Settings:
-
     @staticmethod
     @lru_cache
     def get_api_settings() -> ApiSettings:

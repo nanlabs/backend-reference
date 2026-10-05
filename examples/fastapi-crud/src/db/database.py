@@ -1,10 +1,9 @@
 from typing import Generator
 
+from core.config import DbBaseSettings, Settings
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import Session, sessionmaker
-
-from core.config import DbBaseSettings, Settings
 
 # Get DB credentials from .env.database file
 DB_CREDENTIALS: DbBaseSettings = Settings.get_db_settings()

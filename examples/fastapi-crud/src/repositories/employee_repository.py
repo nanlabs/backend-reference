@@ -1,18 +1,16 @@
 import logging
 from typing import List
 
-from sqlalchemy.exc import IntegrityError
-from sqlalchemy.orm import Session
-
 from exceptions.database_exceptions import DatabaseExceptions
 from models.models import Employee
 from repositories.company_repository import CompanyRepository
+from sqlalchemy.exc import IntegrityError
+from sqlalchemy.orm import Session
 
 logger = logging.getLogger(__name__)
 
 
 class EmployeeRepository:
-
     @staticmethod
     async def get_all(db: Session) -> List[Employee]:
         try:

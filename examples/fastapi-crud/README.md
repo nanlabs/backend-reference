@@ -163,4 +163,4 @@ You can access these endpoints via the [Docs page](http://localhost:8000/docs#) 
 
 - `quantity` is an integer greater than 0 that specifies how many fake companies/employees should be created.
 - The **response** is a list of all new companies/employees created with all their information.
-- The `mock-employee` endpoint has an **optional query parameter** `company_id`. If it is sent, first checks if the company exists in DB, if so, it creates the specified quantity of new mock employees with that specific company id.
+- The `mock-employee` endpoint has an **optional query parameter** `company_id`. If sent, it first checks whether the company exists in the database and then creates the requested number of mock employees for that company ID.
