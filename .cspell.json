@@ -4,6 +4,8 @@
     "**/vscode-extension/**",
     "**/.git/**",
     "**/.pnpm-lock.json",
+    ".gitignore",
+    ".mega-linter.yml",
     ".vscode",
     "megalinter",
     "package-lock.json",

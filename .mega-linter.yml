@@ -31,7 +31,8 @@ DISABLE_LINTERS:
   - TYPESCRIPT_STANDARD
 
 # The current Super-Linter validates changed files; skip repository-wide CLI scanners.
-SKIP_CLI_LINT_MODES: project
+SKIP_CLI_LINT_MODES:
+  - project
 
 # Zizmor only needs to read the public action repository references.
 ACTION_ZIZMOR_UNSECURED_ENV_VARIABLES:
