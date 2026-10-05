@@ -1,8 +1,7 @@
 from typing import List
 
-from fastapi import APIRouter, Depends, status
-
 from db.database import get_db
+from fastapi import APIRouter, Depends, status
 from models.schemas.employee import (
     EmployeeSchema,
     NewEmployeeSchema,
