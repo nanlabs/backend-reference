@@ -13,6 +13,11 @@
   ],
   "language": "en",
   "noConfigSearch": true,
-  "words": ["megalinter", "oxsecurity"],
+  "words": [
+    "fastapi",
+    "megalinter",
+    "oxsecurity",
+    "typer"
+  ],
   "version": "0.2"
 }
