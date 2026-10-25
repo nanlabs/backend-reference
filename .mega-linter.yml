@@ -36,8 +36,8 @@ SKIP_CLI_LINT_MODES:
 
 # Dependency lockfiles and pinned manifests are generated: hashes and package
 # names are not prose, and their registry URLs are not documentation links.
-SPELL_CSPELL_FILTER_REGEX_EXCLUDE: (^|/)(package-lock\.json|pnpm-lock\.yaml|yarn\.lock|go\.sum|poetry\.lock|uv\.lock|Pipfile\.lock|requirements[^/]*\.txt)$
-SPELL_LYCHEE_FILTER_REGEX_EXCLUDE: (^|/)(package-lock\.json|pnpm-lock\.yaml|yarn\.lock|go\.sum|poetry\.lock|uv\.lock|Pipfile\.lock)$
+SPELL_CSPELL_FILTER_REGEX_EXCLUDE: (^|/)(package-lock\.json|pnpm-lock\.yaml|yarn\.lock|go\.sum|go\.mod|poetry\.lock|uv\.lock|Pipfile\.lock|requirements[^/]*\.txt)$
+SPELL_LYCHEE_FILTER_REGEX_EXCLUDE: (^|/)(package-lock\.json|pnpm-lock\.yaml|yarn\.lock|go\.sum|go\.mod|poetry\.lock|uv\.lock|Pipfile\.lock)$
 
 # Zizmor only needs to read the public action repository references.
 ACTION_ZIZMOR_UNSECURED_ENV_VARIABLES:
