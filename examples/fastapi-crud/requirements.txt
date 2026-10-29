@@ -6,7 +6,7 @@ click==8.3.3
 distlib==0.4.3
 Faker==14.1.0
 fastapi==0.142.2
-filelock==3.32.7
+filelock==4.2.1
 greenlet==1.1.2
 h11==0.16.0
 identify==2.5.1
